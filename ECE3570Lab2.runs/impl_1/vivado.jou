@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2017.4 (64-bit)
+# SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
+# IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
+# Start of session at: Fri Mar 16 15:38:46 2018
+# Process ID: 4292
+# Current directory: C:/Users/Dexter/ECE3570Lab2/ECE3570Lab2.runs/impl_1
+# Command line: vivado.exe -log DataMemory.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source DataMemory.tcl -notrace
+# Log file: C:/Users/Dexter/ECE3570Lab2/ECE3570Lab2.runs/impl_1/DataMemory.vdi
+# Journal file: C:/Users/Dexter/ECE3570Lab2/ECE3570Lab2.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source DataMemory.tcl -notrace

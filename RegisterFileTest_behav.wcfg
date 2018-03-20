@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="RegisterFileTest_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="RegisterFileTest" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="74800001fs"></ZoomEndTime>
+      <Cursor1Time time="12000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="169"></NameColumnWidth>
+      <ValueColumnWidth column_width="58"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="16" />
+   <wvobject fp_name="/RegisterFileTest/rf/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RegisterFileTest/rf/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RegisterFileTest/rf/en_write" type="logic">
+      <obj_property name="ElementShortName">en_write</obj_property>
+      <obj_property name="ObjectShortName">en_write</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RegisterFileTest/rf/write_addr" type="array">
+      <obj_property name="ElementShortName">write_addr[2:0]</obj_property>
+      <obj_property name="ObjectShortName">write_addr[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RegisterFileTest/rf/write_data" type="array">
+      <obj_property name="ElementShortName">write_data[9:0]</obj_property>
+      <obj_property name="ObjectShortName">write_data[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RegisterFileTest/rf/read1_addr" type="array">
+      <obj_property name="ElementShortName">read1_addr[2:0]</obj_property>
+      <obj_property name="ObjectShortName">read1_addr[2:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RegisterFileTest/rf/read2_addr" type="array">
+      <obj_property name="ElementShortName">read2_addr[1:0]</obj_property>
+      <obj_property name="ObjectShortName">read2_addr[1:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RegisterFileTest/rf/read1_data" type="array">
+      <obj_property name="ElementShortName">read1_data[9:0]</obj_property>
+      <obj_property name="ObjectShortName">read1_data[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RegisterFileTest/rf/read2_data" type="array">
+      <obj_property name="ElementShortName">read2_data[9:0]</obj_property>
+      <obj_property name="ObjectShortName">read2_data[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RegisterFileTest/rf/Dout" type="array">
+      <obj_property name="ElementShortName">Dout[7:0][9:0]</obj_property>
+      <obj_property name="ObjectShortName">Dout[7:0][9:0]</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+   </wvobject>
+   <wvobject fp_name="/RegisterFileTest/rf/write_en" type="array">
+      <obj_property name="ElementShortName">write_en[7:0]</obj_property>
+      <obj_property name="ObjectShortName">write_en[7:0]</obj_property>
+      <obj_property name="Radix">BINARYRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RegisterFileTest/rf/reg_t0/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RegisterFileTest/rf/reg_t0/reset" type="logic">
+      <obj_property name="ElementShortName">reset</obj_property>
+      <obj_property name="ObjectShortName">reset</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RegisterFileTest/rf/reg_t0/write_en" type="logic">
+      <obj_property name="ElementShortName">write_en</obj_property>
+      <obj_property name="ObjectShortName">write_en</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RegisterFileTest/rf/reg_t0/Din" type="array">
+      <obj_property name="ElementShortName">Din[9:0]</obj_property>
+      <obj_property name="ObjectShortName">Din[9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/RegisterFileTest/rf/reg_t0/Dout" type="array">
+      <obj_property name="ElementShortName">Dout[9:0]</obj_property>
+      <obj_property name="ObjectShortName">Dout[9:0]</obj_property>
+   </wvobject>
+</wave_config>
