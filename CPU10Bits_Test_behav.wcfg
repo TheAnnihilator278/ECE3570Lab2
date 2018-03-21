@@ -11,34 +11,34 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="357188937fs"></ZoomEndTime>
-      <Cursor1Time time="1000000000fs"></Cursor1Time>
+      <ZoomStartTime time="10676710000fs"></ZoomStartTime>
+      <ZoomEndTime time="11090183255fs"></ZoomEndTime>
+      <Cursor1Time time="10980000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
       <NameColumnWidth column_width="149"></NameColumnWidth>
-      <ValueColumnWidth column_width="66"></ValueColumnWidth>
+      <ValueColumnWidth column_width="62"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="9" />
-   <wvobject type="logic" fp_name="/CPU10Bits_Test/cpu0/clk">
+   <WVObjectSize size="19" />
+   <wvobject fp_name="/CPU10Bits_Test/cpu0/clk" type="logic">
       <obj_property name="ElementShortName">clk</obj_property>
       <obj_property name="ObjectShortName">clk</obj_property>
       <obj_property name="CustomSignalColor">#FFFFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/CPU10Bits_Test/cpu0/reset">
+   <wvobject fp_name="/CPU10Bits_Test/cpu0/reset" type="logic">
       <obj_property name="ElementShortName">reset</obj_property>
       <obj_property name="ObjectShortName">reset</obj_property>
       <obj_property name="CustomSignalColor">#FFFFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="logic" fp_name="/CPU10Bits_Test/cpu0/done">
+   <wvobject fp_name="/CPU10Bits_Test/cpu0/done" type="logic">
       <obj_property name="ElementShortName">done</obj_property>
       <obj_property name="ObjectShortName">done</obj_property>
       <obj_property name="CustomSignalColor">#FFFFFF</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/fu0/im0/read_data">
+   <wvobject fp_name="/CPU10Bits_Test/cpu0/fu0/im0/read_data" type="array">
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="ElementShortName">read_data[9:0]</obj_property>
       <obj_property name="ObjectShortName">read_data[9:0]</obj_property>
@@ -47,70 +47,109 @@
       <obj_property name="UseCustomSignalColor">true</obj_property>
       <obj_property name="label">Instruction</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/PC">
+   <wvobject fp_name="/CPU10Bits_Test/cpu0/PC" type="array">
       <obj_property name="ElementShortName">PC[9:0]</obj_property>
       <obj_property name="ObjectShortName">PC[9:0]</obj_property>
       <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
       <obj_property name="CustomSignalColor">#FFFF00</obj_property>
       <obj_property name="UseCustomSignalColor">true</obj_property>
    </wvobject>
-   <wvobject type="group" fp_name="group152">
+   <wvobject fp_name="group152" type="group">
       <obj_property name="label">DataMemory</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="isExpanded"></obj_property>
-      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/dm0/address">
+      <wvobject fp_name="/CPU10Bits_Test/cpu0/dm0/address" type="array">
          <obj_property name="ElementShortName">address[9:0]</obj_property>
          <obj_property name="ObjectShortName">address[9:0]</obj_property>
          <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
          <obj_property name="UseCustomSignalColor">true</obj_property>
          <obj_property name="Radix">BINARYRADIX</obj_property>
       </wvobject>
-      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/dm0/write_data">
+      <wvobject fp_name="/CPU10Bits_Test/cpu0/dm0/write_data" type="array">
          <obj_property name="ElementShortName">write_data[9:0]</obj_property>
          <obj_property name="ObjectShortName">write_data[9:0]</obj_property>
          <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
          <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
-      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/dm0/read_data">
+      <wvobject fp_name="/CPU10Bits_Test/cpu0/dm0/read_data" type="array">
          <obj_property name="ElementShortName">read_data[9:0]</obj_property>
          <obj_property name="ObjectShortName">read_data[9:0]</obj_property>
          <obj_property name="CustomSignalColor">#FAAFBE</obj_property>
          <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
-      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/dm0/memory">
+      <wvobject fp_name="/CPU10Bits_Test/cpu0/dm0/memory" type="array">
          <obj_property name="ElementShortName">memory[1023:0][9:0]</obj_property>
          <obj_property name="ObjectShortName">memory[1023:0][9:0]</obj_property>
       </wvobject>
    </wvobject>
-   <wvobject type="group" fp_name="group114">
+   <wvobject fp_name="/CPU10Bits_Test/cpu0/dm0/memory[19]" type="array">
+      <obj_property name="ElementShortName">[19][9:0]</obj_property>
+      <obj_property name="ObjectShortName">[19][9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU10Bits_Test/cpu0/dm0/memory[18]" type="array">
+      <obj_property name="ElementShortName">[18][9:0]</obj_property>
+      <obj_property name="ObjectShortName">[18][9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU10Bits_Test/cpu0/dm0/memory[17]" type="array">
+      <obj_property name="ElementShortName">[17][9:0]</obj_property>
+      <obj_property name="ObjectShortName">[17][9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU10Bits_Test/cpu0/dm0/memory[16]" type="array">
+      <obj_property name="ElementShortName">[16][9:0]</obj_property>
+      <obj_property name="ObjectShortName">[16][9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU10Bits_Test/cpu0/dm0/memory[15]" type="array">
+      <obj_property name="ElementShortName">[15][9:0]</obj_property>
+      <obj_property name="ObjectShortName">[15][9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU10Bits_Test/cpu0/dm0/memory[14]" type="array">
+      <obj_property name="ElementShortName">[14][9:0]</obj_property>
+      <obj_property name="ObjectShortName">[14][9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU10Bits_Test/cpu0/dm0/memory[13]" type="array">
+      <obj_property name="ElementShortName">[13][9:0]</obj_property>
+      <obj_property name="ObjectShortName">[13][9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU10Bits_Test/cpu0/dm0/memory[12]" type="array">
+      <obj_property name="ElementShortName">[12][9:0]</obj_property>
+      <obj_property name="ObjectShortName">[12][9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU10Bits_Test/cpu0/dm0/memory[11]" type="array">
+      <obj_property name="ElementShortName">[11][9:0]</obj_property>
+      <obj_property name="ObjectShortName">[11][9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/CPU10Bits_Test/cpu0/dm0/memory[10]" type="array">
+      <obj_property name="ElementShortName">[10][9:0]</obj_property>
+      <obj_property name="ObjectShortName">[10][9:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="group114" type="group">
       <obj_property name="label">RegisterFile</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="isExpanded"></obj_property>
-      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/rf/Dout">
+      <wvobject fp_name="/CPU10Bits_Test/cpu0/rf/Dout" type="array">
          <obj_property name="ElementShortName">Dout[7:0][9:0]</obj_property>
          <obj_property name="ObjectShortName">Dout[7:0][9:0]</obj_property>
-         <obj_property name="isExpanded"></obj_property>
       </wvobject>
    </wvobject>
-   <wvobject type="group" fp_name="group3407">
+   <wvobject fp_name="group3407" type="group">
       <obj_property name="label">ALU</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="isExpanded"></obj_property>
-      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/alu0/a">
+      <wvobject fp_name="/CPU10Bits_Test/cpu0/alu0/a" type="array">
          <obj_property name="ElementShortName">a[9:0]</obj_property>
          <obj_property name="ObjectShortName">a[9:0]</obj_property>
          <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
          <obj_property name="CustomSignalColor">#FF00FF</obj_property>
          <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
-      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/alu0/b">
+      <wvobject fp_name="/CPU10Bits_Test/cpu0/alu0/b" type="array">
          <obj_property name="ElementShortName">b[9:0]</obj_property>
          <obj_property name="ObjectShortName">b[9:0]</obj_property>
          <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
          <obj_property name="CustomSignalColor">#FF00FF</obj_property>
          <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
-      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/alu0/f">
+      <wvobject fp_name="/CPU10Bits_Test/cpu0/alu0/f" type="array">
          <obj_property name="ElementShortName">f[9:0]</obj_property>
          <obj_property name="ObjectShortName">f[9:0]</obj_property>
          <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
@@ -118,64 +157,64 @@
          <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
    </wvobject>
-   <wvobject type="group" fp_name="group3417">
+   <wvobject fp_name="group3417" type="group">
       <obj_property name="label">ControlUnit</obj_property>
       <obj_property name="DisplayName">label</obj_property>
       <obj_property name="isExpanded"></obj_property>
-      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/cu0/ALU_op">
+      <wvobject fp_name="/CPU10Bits_Test/cpu0/cu0/ALU_op" type="array">
          <obj_property name="ElementShortName">ALU_op[1:0]</obj_property>
          <obj_property name="ObjectShortName">ALU_op[1:0]</obj_property>
          <obj_property name="CustomSignalColor">#0000FF</obj_property>
          <obj_property name="UseCustomSignalColor">true</obj_property>
          <obj_property name="Radix">BINARYRADIX</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/CPU10Bits_Test/cpu0/cu0/reg_write">
+      <wvobject fp_name="/CPU10Bits_Test/cpu0/cu0/reg_write" type="logic">
          <obj_property name="ElementShortName">reg_write</obj_property>
          <obj_property name="ObjectShortName">reg_write</obj_property>
          <obj_property name="CustomSignalColor">#0000FF</obj_property>
          <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
-      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/cu0/reg_write_addr">
+      <wvobject fp_name="/CPU10Bits_Test/cpu0/cu0/reg_write_addr" type="array">
          <obj_property name="ElementShortName">reg_write_addr[2:0]</obj_property>
          <obj_property name="ObjectShortName">reg_write_addr[2:0]</obj_property>
          <obj_property name="CustomSignalColor">#0000FF</obj_property>
          <obj_property name="UseCustomSignalColor">true</obj_property>
          <obj_property name="Radix">BINARYRADIX</obj_property>
       </wvobject>
-      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/cu0/reg_read1_addr">
+      <wvobject fp_name="/CPU10Bits_Test/cpu0/cu0/reg_read1_addr" type="array">
          <obj_property name="ElementShortName">reg_read1_addr[2:0]</obj_property>
          <obj_property name="ObjectShortName">reg_read1_addr[2:0]</obj_property>
          <obj_property name="CustomSignalColor">#0000FF</obj_property>
          <obj_property name="UseCustomSignalColor">true</obj_property>
          <obj_property name="Radix">BINARYRADIX</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/CPU10Bits_Test/cpu0/cu0/alu_source1_control">
+      <wvobject fp_name="/CPU10Bits_Test/cpu0/cu0/alu_source1_control" type="logic">
          <obj_property name="ElementShortName">alu_source1_control</obj_property>
          <obj_property name="ObjectShortName">alu_source1_control</obj_property>
          <obj_property name="CustomSignalColor">#0000FF</obj_property>
          <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
-      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/cu0/alu_source2_control">
+      <wvobject fp_name="/CPU10Bits_Test/cpu0/cu0/alu_source2_control" type="array">
          <obj_property name="ElementShortName">alu_source2_control[1:0]</obj_property>
          <obj_property name="ObjectShortName">alu_source2_control[1:0]</obj_property>
          <obj_property name="CustomSignalColor">#0000FF</obj_property>
          <obj_property name="UseCustomSignalColor">true</obj_property>
          <obj_property name="Radix">BINARYRADIX</obj_property>
       </wvobject>
-      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/cu0/pc_control">
+      <wvobject fp_name="/CPU10Bits_Test/cpu0/cu0/pc_control" type="array">
          <obj_property name="ElementShortName">pc_control[1:0]</obj_property>
          <obj_property name="ObjectShortName">pc_control[1:0]</obj_property>
          <obj_property name="CustomSignalColor">#0000FF</obj_property>
          <obj_property name="UseCustomSignalColor">true</obj_property>
          <obj_property name="Radix">BINARYRADIX</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/CPU10Bits_Test/cpu0/cu0/mem_write">
+      <wvobject fp_name="/CPU10Bits_Test/cpu0/cu0/mem_write" type="logic">
          <obj_property name="ElementShortName">mem_write</obj_property>
          <obj_property name="ObjectShortName">mem_write</obj_property>
          <obj_property name="CustomSignalColor">#0000FF</obj_property>
          <obj_property name="UseCustomSignalColor">true</obj_property>
       </wvobject>
-      <wvobject type="logic" fp_name="/CPU10Bits_Test/cpu0/cu0/mem_to_reg">
+      <wvobject fp_name="/CPU10Bits_Test/cpu0/cu0/mem_to_reg" type="logic">
          <obj_property name="ElementShortName">mem_to_reg</obj_property>
          <obj_property name="ObjectShortName">mem_to_reg</obj_property>
          <obj_property name="CustomSignalColor">#0000FF</obj_property>

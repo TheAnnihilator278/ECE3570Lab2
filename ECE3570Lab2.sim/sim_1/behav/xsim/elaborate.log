@@ -1,7 +1,7 @@
 Vivado Simulator 2017.4
 Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
-Running: /archive/Xilinx/Vivado/2017.4/bin/unwrapped/lnx64.o/xelab -wto 07c9cef170004fa2b67ee1253f06516b --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot CPU10Bits_Test_behav xil_defaultlib.CPU10Bits_Test xil_defaultlib.glbl -log elaborate.log 
-Using 8 slave threads.
+Running: D:/Xilinx/Vivado/2017.4/bin/unwrapped/win64.o/xelab.exe -wto 07c9cef170004fa2b67ee1253f06516b --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot CPU10Bits_Test_behav xil_defaultlib.CPU10Bits_Test xil_defaultlib.glbl -log elaborate.log 
+Using 2 slave threads.
 Starting static elaboration
 Completed static elaboration
 Starting simulation data flow analysis

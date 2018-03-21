@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="impl_1" LaunchPart="xc7k160tifbg484-2L" LaunchTime="1521229090">
+  <File Type="BITSTR-NKY" Name="DataMemory.nky"/>
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <File Type="BITSTR-SYSDEF" Name="DataMemory.sysdef"/>
   <File Type="BITSTR-LTX" Name="DataMemory.ltx"/>
   <File Type="BITSTR-MMI" Name="DataMemory.mmi"/>
   <File Type="BITSTR-BMM" Name="DataMemory_bd.bmm"/>
-  <File Type="BITSTR-NKY" Name="DataMemory.nky"/>
   <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="DataMemory_postroute_physopt_bb.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-DCP" Name="DataMemory_postroute_physopt.dcp"/>
   <File Type="RDI-RDI" Name="DataMemory.vdi"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="DataMemory_postroute_physopt.dcp"/>
   <File Type="PLACE-PRE-SIMILARITY" Name="DataMemory_incremental_reuse_pre_placed.rpt"/>
   <File Type="OPT-DCP" Name="DataMemory_opt.dcp"/>
   <File Type="OPT-HWDEF" Name="DataMemory.hwdef"/>

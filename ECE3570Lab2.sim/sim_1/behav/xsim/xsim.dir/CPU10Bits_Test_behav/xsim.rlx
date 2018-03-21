@@ -1,11 +1,11 @@
 
 { 
-    crc :  1970437308340196013  , 
+    crc :  6009632092418337243  , 
     ccp_crc :  0  , 
-    cmdline : " -wto 07c9cef170004fa2b67ee1253f06516b --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot CPU10Bits_Test_behav xil_defaultlib.CPU10Bits_Test xil_defaultlib.glbl" , 
+    cmdline : " -wto 07c9cef170004fa2b67ee1253f06516b --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot CPU10Bits_Test_behav xil_defaultlib.CPU10Bits_Test xil_defaultlib.glbl" , 
     buildDate : "Dec 15 2017" , 
-    buildTime : "20:57:24" , 
-    linkCmd : "/usr/bin/gcc -Wa,-W  -O -fPIC  -m64  -Wl,--unresolved-symbols=ignore-all  -o \"xsim.dir/CPU10Bits_Test_behav/xsimk\"   \"xsim.dir/CPU10Bits_Test_behav/obj/xsim_0.lnx64.o\" \"xsim.dir/CPU10Bits_Test_behav/obj/xsim_1.lnx64.o\" \"/archive/Xilinx/Vivado/2017.4/lib/lnx64.o/librdi_simulator_kernel.so\" \"/archive/Xilinx/Vivado/2017.4/lib/lnx64.o/librdi_simbridge_kernel.so\"" , 
+    buildTime : "21:07:18" , 
+    linkCmd : "D:\\Xilinx\\Vivado\\2017.4\\data\\..\\tps\\mingw\\6.2.0\\win64.o\\nt\\bin\\gcc.exe -Wa,-W  -O -Wl,--stack,104857600 -o \"xsim.dir/CPU10Bits_Test_behav/xsimk.exe\"   \"xsim.dir/CPU10Bits_Test_behav/obj/xsim_0.win64.obj\" \"xsim.dir/CPU10Bits_Test_behav/obj/xsim_1.win64.obj\" \"D:\\Xilinx\\Vivado\\2017.4\\lib\\win64.o\\\\librdi_simulator_kernel.dll\" \"D:\\Xilinx\\Vivado\\2017.4\\lib\\win64.o\\\\librdi_simbridge_kernel.dll\"" , 
     aggregate_nets : 
     [ 
     ] 
