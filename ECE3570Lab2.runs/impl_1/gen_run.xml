@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="impl_1" LaunchPart="xc7k160tifbg484-2L" LaunchTime="1521229090">
-  <File Type="BITSTR-NKY" Name="DataMemory.nky"/>
-  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
-  <File Type="BITSTR-SYSDEF" Name="DataMemory.sysdef"/>
   <File Type="BITSTR-LTX" Name="DataMemory.ltx"/>
-  <File Type="BITSTR-MMI" Name="DataMemory.mmi"/>
-  <File Type="BITSTR-BMM" Name="DataMemory_bd.bmm"/>
-  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="DataMemory_postroute_physopt_bb.dcp"/>
-  <File Type="RDI-RDI" Name="DataMemory.vdi"/>
-  <File Type="POSTROUTE-PHYSOPT-DCP" Name="DataMemory_postroute_physopt.dcp"/>
-  <File Type="PLACE-PRE-SIMILARITY" Name="DataMemory_incremental_reuse_pre_placed.rpt"/>
-  <File Type="OPT-DCP" Name="DataMemory_opt.dcp"/>
-  <File Type="OPT-HWDEF" Name="DataMemory.hwdef"/>
-  <File Type="POSTPLACE-PWROPT-DCP" Name="DataMemory_postplace_pwropt.dcp"/>
   <File Type="BITSTR-RBT" Name="DataMemory.rbt"/>
-  <File Type="REPORTS-TCL" Name="DataMemory_reports.tcl"/>
   <File Type="PWROPT-DCP" Name="DataMemory_pwropt.dcp"/>
+  <File Type="REPORTS-TCL" Name="DataMemory_reports.tcl"/>
+  <File Type="OPT-HWDEF" Name="DataMemory.hwdef"/>
+  <File Type="OPT-DCP" Name="DataMemory_opt.dcp"/>
+  <File Type="BITSTR-MMI" Name="DataMemory.mmi"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="DataMemory_incremental_reuse_pre_placed.rpt"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="DataMemory_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="DataMemory_postroute_physopt_bb.dcp"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="DataMemory_postplace_pwropt.dcp"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <File Type="BITSTR-BMM" Name="DataMemory_bd.bmm"/>
+  <File Type="BITSTR-NKY" Name="DataMemory.nky"/>
+  <File Type="BITSTR-SYSDEF" Name="DataMemory.sysdef"/>
   <File Type="PLACE-DCP" Name="DataMemory_placed.dcp"/>
   <File Type="PA-TCL" Name="DataMemory.tcl"/>
   <File Type="BITSTR-MSK" Name="DataMemory.msk"/>
@@ -28,6 +27,7 @@
   <File Type="ROUTE-BLACKBOX-DCP" Name="DataMemory_routed_bb.dcp"/>
   <File Type="BG-BGN" Name="DataMemory.bgn"/>
   <File Type="BG-BIN" Name="DataMemory.bin"/>
+  <File Type="RDI-RDI" Name="DataMemory.vdi"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/Memory.v">

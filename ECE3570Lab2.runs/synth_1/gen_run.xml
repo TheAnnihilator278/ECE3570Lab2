@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_1" LaunchPart="xc7k160tifbg484-2L" LaunchTime="1521229090">
-  <File Type="REPORTS-TCL" Name="DataMemory_reports.tcl"/>
   <File Type="PA-TCL" Name="DataMemory.tcl"/>
   <File Type="RDS-DCP" Name="DataMemory.dcp"/>
+  <File Type="REPORTS-TCL" Name="DataMemory_reports.tcl"/>
   <File Type="RDS-RDS" Name="DataMemory.vds"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
