@@ -136,7 +136,7 @@ module Fetch_Decode_Stage(
     output reg [1:0] ALU_op,  // control line
     output reg [9:0] alu_source1,   // ALU
     output reg [9:0] alu_source2,  // ALU
-    output reg [9:0] read_data2,  // control line
+    output reg [9:0] read_data2,  // Data memory write data
     output reg [2:0] reg_write_addr_return, // control line, returned from control unit
     output reg [9:0] instruction
     );
@@ -211,6 +211,7 @@ module Fetch_Decode_Stage(
         mem_write <= mem_write_out;
         alu_source1 <= alu_source1_out;
         alu_source2 <= alu_source2_out;
+        read_data2 <= read2_data;
     end    
 endmodule
 
