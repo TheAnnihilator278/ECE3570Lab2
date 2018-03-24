@@ -99,21 +99,22 @@ module CPU10Bits_Pipelined(
     always@(*)begin
         pipe_reg1_in[0] <= mem_to_reg;
         pipe_reg1_in[1] <= mem_write;
-        pipe_reg1_in[2:4] <= reg_write_addr_return;
-        pipe_reg1_in[5:6] <= ALU_op;
-        pipe_reg1_in[7:16] <= alu_source1;
-        pipe_reg1_in[17:26] <= alu_source2;
-        pipe_reg1_in[27:36] <= read_data2;
+        pipe_reg1_in[4:2] <= reg_write_addr_return;
+        pipe_reg1_in[6:5] <= ALU_op;
+        pipe_reg1_in[16:7] <= alu_source1;
+        pipe_reg1_in[26:17] <= alu_source2;
+        pipe_reg1_in[36:27] <= read_data2;
         
         
-         //program_result <= alu_result;
-           // halt 
-          if ( instruction[9:7] == 3'b111 && instruction[1:0] == 2'b11 ) begin            
-               done <= 1'b1;   
-          end
-          else begin              
-               done <= 1'b0;
-          end 
+        //program_result <= alu_result;
+        
+        // halt 
+        if ( instruction[9:7] == 3'b111 && instruction[1:0] == 2'b11 ) begin            
+           done <= 1'b1;   
+        end
+        else begin              
+           done <= 1'b0;
+        end 
     end
     
 endmodule
@@ -134,7 +135,13 @@ module Fetch_Decode_Stage(
     output reg [9:0] instruction
     );
     
-    //wire [9:0] instruction;
+    wire [9:0] instruction_out;
+    wire [1:0] ALU_op_out;
+    wire mem_to_reg_out;
+    wire mem_write_out;
+    wire [9:0] alu_source1_out;
+    wire [9:0] alu_source2_out;
+    
     wire [9:0]PC;
     wire [1:0]pc_control;
     wire [2:0]reg_read1_addr; // source select
@@ -144,16 +151,61 @@ module Fetch_Decode_Stage(
     wire alu_source1_control;
     wire [1:0]alu_source2_control;
     
-    FetchUnit fu0( .clk(clk), .reset(reset), .pc_control(pc_control), .branch_control(alu_result), .jump_address(instruction[6:2]), .branch_address(instruction[2:0]), .reg_address(read1_data), .PC_out(PC), .instruction(instruction) );
+    FetchUnit fu0( .clk(clk), 
+                   .reset(reset), 
+                   .pc_control(pc_control), 
+                   .branch_control(alu_result), 
+                   .jump_address(instruction[6:2]), 
+                   .branch_address(instruction[2:0]), 
+                   .reg_address(read1_data), 
+                   .PC_out(PC), 
+                   .instruction(instruction_out) 
+                   );
          
-    ControlUnit cu0( .instruction(instruction), .ALU_op(ALU_op), .reg_write(reg_write), .reg_write_addr(reg_write_addr), .reg_read1_addr(reg_read1_addr), .alu_source1_control(alu_source1_control), .alu_source2_control(alu_source2_control), .pc_control(pc_control), .mem_write(mem_write), .mem_to_reg(mem_to_reg) );
+    ControlUnit cu0( .instruction(instruction), 
+                     .ALU_op(ALU_op_out), 
+                     .reg_write(reg_write), 
+                     .reg_write_addr(reg_write_addr), 
+                     .reg_read1_addr(reg_read1_addr), 
+                     .alu_source1_control(alu_source1_control), 
+                     .alu_source2_control(alu_source2_control), 
+                     .pc_control(pc_control), 
+                     .mem_write(mem_write_out), 
+                     .mem_to_reg(mem_to_reg_out) 
+                     );
             
-    RegisterFile rf0( .clk(clk), .reset(reset), .en_write(reg_write), .write_addr(reg_write_addr_return), .write_data(reg_write_data), .read1_addr(reg_read1_addr), .read2_addr(instruction[4:3]), .read1_data(read1_data), .read2_data(read2_data) );
+    RegisterFile rf0( .clk(clk), 
+                      .reset(reset), 
+                      .en_write(reg_write), 
+                      .write_addr(reg_write_addr_return), 
+                      .write_data(reg_write_data), 
+                      .read1_addr(reg_read1_addr), 
+                      .read2_addr(instruction[4:3]), 
+                      .read1_data(read1_data), 
+                      .read2_data(read2_data) 
+                      );
     
-    ALU_source1_mux asm1( .alu_source1_select(alu_source1_control), .reg_read1_data(read1_data), .pc(PC), .alu_source(alu_source1) );
+    ALU_source1_mux asm1( .alu_source1_select(alu_source1_control), 
+                          .reg_read1_data(read1_data), 
+                          .pc(PC), 
+                          .alu_source(alu_source1_out) 
+                          );
         
-    ALU_source2_mux asm2( .alu_source2_select(alu_source2_control), .reg_read2_data(read2_data), .imm(instruction[2:0]), .jump_link_offset(10'b0000000001), .alu_source(alu_source2) );
-           
+    ALU_source2_mux asm2( .alu_source2_select(alu_source2_control), 
+                          .reg_read2_data(read2_data), 
+                          .imm(instruction[2:0]), 
+                          .jump_link_offset(10'b0000000001), 
+                          .alu_source(alu_source2_out) 
+                          );
+                          
+    always@(*)begin
+        instruction <= instruction_out;
+        ALU_op <= ALU_op_out;
+        mem_to_reg <= mem_to_reg_out;
+        mem_write <= mem_write_out;
+        alu_source1 <= alu_source1_out;
+        alu_source2 <= alu_source2_out;
+    end    
 endmodule
 
 module Execute_Memory_Stage(
