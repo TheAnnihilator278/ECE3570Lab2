@@ -214,3 +214,41 @@ module Register_10bit_StackPointer(
     end
         
 endmodule
+
+module Register_Pipeline_37bit(
+    input wire clk,
+    input wire reset,
+    input wire write_en,
+    input wire [36:0] Din,
+    output reg [36:0] Dout
+    );
+    
+    always @(posedge clk) begin
+        if (reset == 1'b1) begin
+            Dout <= 37'b0000000000000000000000000000000000000;
+        end
+        else if (write_en == 1'b1)  begin
+            Dout <= Din;
+        end
+    end
+        
+endmodule
+
+module Register_Pipeline_13bit(
+    input wire clk,
+    input wire reset,
+    input wire write_en,
+    input wire [12:0] Din,
+    output reg [12:0] Dout
+    );
+    
+    always @(posedge clk) begin
+        if (reset == 1'b1) begin
+            Dout <= 13'b0000000000000;
+        end
+        else if (write_en == 1'b1)  begin
+            Dout <= Din;
+        end
+    end
+        
+endmodule
