@@ -45,6 +45,30 @@ module CPU10Bits_Test();
     
 endmodule
  
+ 
+module CPU10Bits_Pipelined(
+
+    );
+    
+endmodule
+
+module Fetch_Decode_Stage(
+
+    );
+    
+endmodule
+
+module Execute_Memory_Stage(
+
+    );
+    
+endmodule
+
+module Write_Back_Stage(
+
+    );
+    
+endmodule
 
 module CPU10Bits(
     //input wire [9:0] instruction,
