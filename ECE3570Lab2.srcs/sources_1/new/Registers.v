@@ -97,22 +97,30 @@ module RegisterFile(
       wire [9:0]Dout[7:0];
     
       wire [7:0] write_en;
+      
+      reg [7:0] write_en_reg;
 
       //Initialize all general purpose registers
-      Register_10bit reg_zero(.clk(clk), .reset(1'b1), .Din(write_data), .write_en(write_en[0] & en_write), .Dout(Dout[0]));
-      Register_10bit reg_t0(.clk(clk), .reset(reset), .Din(write_data), .write_en(write_en[1] & en_write), .Dout(Dout[1]));
-      Register_10bit reg_t1(.clk(clk), .reset(reset), .Din(write_data), .write_en(write_en[2] & en_write), .Dout(Dout[2]));
-      Register_10bit reg_s0(.clk(clk), .reset(reset), .Din(write_data), .write_en(write_en[3] & en_write), .Dout(Dout[3]));
-      Register_10bit_StackPointer reg_sp(.clk(clk), .reset(reset), .Din(write_data), .write_en(write_en[4] & en_write), .Dout(Dout[4]));
-      Register_10bit reg_a0(.clk(clk), .reset(reset), .Din(write_data), .write_en(write_en[5] & en_write), .Dout(Dout[5]));
-      Register_10bit reg_v0(.clk(clk), .reset(reset), .Din(write_data), .write_en(write_en[6] & en_write), .Dout(Dout[6]));
-      Register_10bit reg_ra(.clk(clk), .reset(reset), .Din(write_data), .write_en(write_en[7] & en_write), .Dout(Dout[7]));
+      Register_10bit reg_zero(.clk(clk), .reset(1'b1), .Din(write_data), .write_en(write_en_reg[0] & en_write), .Dout(Dout[0]));
+      Register_10bit reg_t0(.clk(clk), .reset(reset), .Din(write_data), .write_en(write_en_reg[1] & en_write), .Dout(Dout[1]));
+      Register_10bit reg_t1(.clk(clk), .reset(reset), .Din(write_data), .write_en(write_en_reg[2] & en_write), .Dout(Dout[2]));
+      Register_10bit reg_s0(.clk(clk), .reset(reset), .Din(write_data), .write_en(write_en_reg[3] & en_write), .Dout(Dout[3]));
+      Register_10bit_StackPointer reg_sp(.clk(clk), .reset(reset), .Din(write_data), .write_en(write_en_reg[4] & en_write), .Dout(Dout[4]));
+      Register_10bit reg_a0(.clk(clk), .reset(reset), .Din(write_data), .write_en(write_en_reg[5] & en_write), .Dout(Dout[5]));
+      Register_10bit reg_v0(.clk(clk), .reset(reset), .Din(write_data), .write_en(write_en_reg[6] & en_write), .Dout(Dout[6]));
+      Register_10bit reg_ra(.clk(clk), .reset(reset), .Din(write_data), .write_en(write_en_reg[7] & en_write), .Dout(Dout[7]));
     
       reg_decode rd0( .write_addr(write_addr), .decode_out(write_en) );
       
-    always@(*) begin
+    always@(negedge clk) begin
         read1_data <= Dout[read1_addr];
         read2_data <= Dout[read2_addr];  
+        write_en_reg <= 0;
+    end
+    
+    always@(posedge clk)begin
+
+        write_en_reg <= write_en;
     end
      
 endmodule

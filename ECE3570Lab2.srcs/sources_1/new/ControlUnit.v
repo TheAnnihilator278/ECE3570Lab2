@@ -95,7 +95,6 @@ module ControlUnit(
    output reg [1:0]pc_control,
    output reg mem_write,
    output reg mem_to_reg
-  // output reg pc_wait
     );
   
     reg [2:0]op_code;
@@ -132,9 +131,6 @@ module ControlUnit(
     wire mem_to_reg_mux_val;
     mem_to_reg_mux mtrm0( .op_code(op_code), .mem_to_reg(mem_to_reg_mux_val) );
     
-    //wire pc_wait_mux_val;
-   // pc_wait_mux pwm0( .op_code(op_code), .pc_wait(pc_wait_mux_val) );
-    
     always@(*) begin
         // instruction decode
         op_code <= instruction[9:7];
@@ -154,33 +150,9 @@ module ControlUnit(
        alu_source2_control <= alu_source2_control_mux_val;
        mem_write <= mem_write_mux_val;
        mem_to_reg <= mem_to_reg_mux_val;
-      // pc_wait <= pc_wait_mux_val;
    
     end
     
-endmodule
-
-module pc_wait_mux(
-    input wire [2:0] op_code,
-    output reg pc_wait
-    );
-    reg pc_wait_store;
-     always@(*)begin
-           case(op_code)
-               3'b110: begin // lw
-                            if ( pc_wait_store == 1'b0 )begin
-                                pc_wait_store <= 1'b1;
-                            end
-                            else begin
-                                pc_wait_store <= 1'b0;
-                            end
-                        end
-               default: begin
-                            pc_wait_store <= 1'b0;
-                        end
-           endcase
-           pc_wait <= pc_wait_store;
-      end
 endmodule
 
 module mem_write_mux(
