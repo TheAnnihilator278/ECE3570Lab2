@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7k160tifbg484-2L" LaunchTime="1521866359">
+<GenRun Id="synth_1" LaunchPart="xc7k160tifbg484-2L" LaunchTime="1521868935">
   <File Type="VDS-TIMING-PB" Name="CPU10Bits_Test_timing_summary_synth.pb"/>
   <File Type="VDS-TIMINGSUMMARY" Name="CPU10Bits_Test_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="CPU10Bits_Test.dcp"/>

@@ -55,7 +55,7 @@ module CPU10Bits_Pipelined(
     );
     
     
-    reg [37:0] pipe_reg1_in;
+    wire [37:0] pipe_reg1_in;
     wire [37:0] pipe_reg1_out;
     reg [12:0] pipe_reg2_in;
     wire [12:0] pipe_reg2_out;
@@ -68,12 +68,16 @@ module CPU10Bits_Pipelined(
     wire [9:0] alu_source2;
     wire [9:0] read_data2;
     wire [9:0] instruction;
+    
+    wire [2:0] write_addr; 
+    wire [9:0] write_data;
+       
        
     Fetch_Decode_Stage( .clk(clk),
                         .reset(reset),
-                        .alu_result( ), // input from writeback
-                        .reg_write_data( ), // input from writeback
-                        .reg_write_addr( ), // input from writeback
+                        .alu_result(write_data), // input from writeback
+                        .reg_write_data(write_data), // input from writeback
+                        .reg_write_addr(write_addr), // input from writeback
                         .mem_to_reg(mem_to_reg), 
                         .mem_write(mem_write),
                         .reg_write_addr_return(reg_write_addr_return), 
@@ -92,21 +96,23 @@ module CPU10Bits_Pipelined(
     // pipe_reg2
     Register_Pipeline_13bit( .clk(clk), .reset(reset), .write_en(1'b1), .Din(pipe_reg2_in), .Dout(pipe_reg2_out) );
     
-    Write_Back_Stage( 
-                    
+    Write_Back_Stage( .pipe_reg_data(pipe_reg2_out),
+                      .write_addr(write_addr), 
+                      .write_data(write_data) // also branch_control for fetch unit
                     );
     
+    
+    assign pipe_reg1_in[0] = mem_to_reg;
+    assign pipe_reg1_in[1] = mem_write;
+    assign pipe_reg1_in[4:2] = reg_write_addr_return;
+    assign pipe_reg1_in[6:5] = ALU_op;
+    assign pipe_reg1_in[16:7] = alu_source1;
+    assign pipe_reg1_in[26:17] = alu_source2;
+    assign pipe_reg1_in[36:27] = read_data2;
+    
     always@(*)begin
-        pipe_reg1_in[0] <= mem_to_reg;
-        pipe_reg1_in[1] <= mem_write;
-        pipe_reg1_in[4:2] <= reg_write_addr_return;
-        pipe_reg1_in[6:5] <= ALU_op;
-        pipe_reg1_in[16:7] <= alu_source1;
-        pipe_reg1_in[26:17] <= alu_source2;
-        pipe_reg1_in[36:27] <= read_data2;
-        
-        
-        //program_result <= alu_result;
+           
+        program_result <= write_data;
         
         // halt 
         if ( instruction[9:7] == 3'b111 && instruction[1:0] == 2'b11 ) begin            
@@ -215,9 +221,14 @@ module Execute_Memory_Stage(
 endmodule
 
 module Write_Back_Stage(
-
+    input wire [12:0] pipe_reg_data,
+    output reg [2:0] write_addr, 
+    output reg [9:0] write_data // also branch_control for fetch unit
     );
-    
+    always@(*)begin
+        write_addr <= pipe_reg_data[9:0];
+        write_data <= pipe_reg_data[12:10];
+    end
 endmodule
 
 module CPU10Bits(
