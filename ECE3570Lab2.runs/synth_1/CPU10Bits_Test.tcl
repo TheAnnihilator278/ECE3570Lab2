@@ -16,25 +16,27 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 set_msg_config  -ruleid {1}  -id {Synth 8-27}  -string {{ERROR: [Synth 8-27] procedural assign not supported [C:/Users/Dexter/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:110]}}  -suppress 
 create_project -in_memory -part xc7k160tifbg484-2L
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir C:/Users/nguye/OneDrive/Documents/lab4.3/ECE3570Lab2.cache/wt [current_project]
-set_property parent.project_path C:/Users/nguye/OneDrive/Documents/lab4.3/ECE3570Lab2.xpr [current_project]
+set_property webtalk.parent_dir /archive/ECE3570Lab2/ECE3570Lab2.cache/wt [current_project]
+set_property parent.project_path /archive/ECE3570Lab2/ECE3570Lab2.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo c:/Users/nguye/OneDrive/Documents/lab4.3/ECE3570Lab2.cache/ip [current_project]
+set_property ip_output_repo /archive/ECE3570Lab2/ECE3570Lab2.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
 read_verilog -library xil_defaultlib {
-  C:/Users/nguye/OneDrive/Documents/lab4.3/ECE3570Lab2.srcs/sources_1/new/ALU.v
-  C:/Users/nguye/OneDrive/Documents/lab4.3/ECE3570Lab2.srcs/sources_1/new/ControlUnit.v
-  C:/Users/nguye/OneDrive/Documents/lab4.3/ECE3570Lab2.srcs/sources_1/new/Registers.v
-  C:/Users/nguye/OneDrive/Documents/lab4.3/ECE3570Lab2.srcs/sources_1/new/Memory.v
-  C:/Users/nguye/OneDrive/Documents/lab4.3/ECE3570Lab2.srcs/sources_1/new/FetchUnit.v
-  C:/Users/nguye/OneDrive/Documents/lab4.3/ECE3570Lab2.srcs/sources_1/new/CPU.v
+  /archive/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ALU.v
+  /archive/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ControlUnit.v
+  /archive/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Memory.v
+  /archive/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v
+  /archive/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/FetchUnit.v
+  /archive/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/CPU.v
 }
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the

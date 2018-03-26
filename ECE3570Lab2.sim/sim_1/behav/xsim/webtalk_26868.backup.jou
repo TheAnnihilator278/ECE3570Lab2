@@ -2,8 +2,8 @@
 # Webtalk v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:54:30 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Mon Mar 26 01:27:22 2018
-# Process ID: 27487
+# Start of session at: Mon Mar 26 01:20:49 2018
+# Process ID: 26868
 # Current directory: /archive/ECE3570Lab2/ECE3570Lab2.sim/sim_1/behav/xsim
 # Command line: wbtcv -mode batch -source /archive/ECE3570Lab2/ECE3570Lab2.sim/sim_1/behav/xsim/xsim.dir/CPU10Bits_Test_behav/webtalk/xsim_webtalk.tcl -notrace
 # Log file: /archive/ECE3570Lab2/ECE3570Lab2.sim/sim_1/behav/xsim/webtalk.log

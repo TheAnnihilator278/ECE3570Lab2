@@ -72,12 +72,12 @@ module CPU10Bits_Pipelined(
     wire [2:0] write_addr; 
     wire [9:0] write_data;
     
-    wire [2:0] wr_addr;
+    wire [2:0] wr_addr; 
     wire [9:0] wr_data;
     
     
        
-    Fetch_Decode_Stage( .clk(clk),
+    Fetch_Decode_Stage fds0( .clk(clk),
                         .reset(reset),
                         .alu_result(write_data), // input from writeback
                         .reg_write_data(write_data), // input from writeback
@@ -92,15 +92,15 @@ module CPU10Bits_Pipelined(
                         .instruction(instruction)        
                          );
     
-    // pipe_reg1
-    Register_Pipeline_37bit( .clk(clk), .reset(reset), .write_en(1'b1), .Din(pipe_reg1_in), .Dout(pipe_reg1_out) );
+    // reg_pipe1
+    Register_Pipeline_37bit reg_pipe1( .clk(clk), .reset(reset), .write_en(1'b1), .Din(pipe_reg1_in), .Dout(pipe_reg1_out) );
     
-    Execute_Memory_Stage(.clk(clk), .pipe_reg_data(pipe_reg1_out), .write_addr(wr_addr), .write_data(wr_data));
+    Execute_Memory_Stage ems0(.clk(clk), .pipe_reg_data(pipe_reg1_out), .write_addr(wr_addr), .write_data(wr_data));
     
-    // pipe_reg2
-    Register_Pipeline_13bit( .clk(clk), .reset(reset), .write_en(1'b1), .Din(pipe_reg2_in), .Dout(pipe_reg2_out) );
+    // reg_pipe2
+    Register_Pipeline_13bit reg_pipe2( .clk(clk), .reset(reset), .write_en(1'b1), .Din(pipe_reg2_in), .Dout(pipe_reg2_out) );
     
-    Write_Back_Stage( .pipe_reg_data(pipe_reg2_out),
+    Write_Back_Stage wbs0( .pipe_reg_data(pipe_reg2_out),
                       .write_addr(write_addr), 
                       .write_data(write_data) // also branch_control for fetch unit
                     );
@@ -113,6 +113,7 @@ module CPU10Bits_Pipelined(
     assign pipe_reg1_in[16:7] = alu_source1;
     assign pipe_reg1_in[26:17] = alu_source2;
     assign pipe_reg1_in[36:27] = read_data2;
+    
     assign pipe_reg2_in[12:3] = wr_data;
     assign pipe_reg2_in[2:0] = wr_addr;
     
@@ -162,6 +163,7 @@ module Fetch_Decode_Stage(
     wire reg_write;
     wire alu_source1_control;
     wire [1:0]alu_source2_control;
+    wire [2:0] reg_write_addr_out;
     
     FetchUnit fu0( .clk(clk), 
                    .reset(reset), 
@@ -177,7 +179,7 @@ module Fetch_Decode_Stage(
     ControlUnit cu0( .instruction(instruction), 
                      .ALU_op(ALU_op_out), 
                      .reg_write(reg_write), 
-                     .reg_write_addr(reg_write_addr), 
+                     .reg_write_addr(reg_write_addr_out), 
                      .reg_read1_addr(reg_read1_addr), 
                      .alu_source1_control(alu_source1_control), 
                      .alu_source2_control(alu_source2_control), 
@@ -189,7 +191,7 @@ module Fetch_Decode_Stage(
     RegisterFile rf0( .clk(clk), 
                       .reset(reset), 
                       .en_write(reg_write), 
-                      .write_addr(reg_write_addr_return), 
+                      .write_addr(reg_write_addr), 
                       .write_data(reg_write_data), 
                       .read1_addr(reg_read1_addr), 
                       .read2_addr(instruction[4:3]), 
@@ -218,6 +220,7 @@ module Fetch_Decode_Stage(
         alu_source1 <= alu_source1_out;
         alu_source2 <= alu_source2_out;
         read_data2 <= read2_data;
+        reg_write_addr_return <= reg_write_addr_out;
     end    
 endmodule
 
