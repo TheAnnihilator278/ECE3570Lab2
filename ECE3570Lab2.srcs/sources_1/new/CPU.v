@@ -230,7 +230,6 @@ module Execute_Memory_Stage(
     
     reg mem_to_reg;
     reg mem_write;
-    reg [2:0] reg_write_addr_return;
     reg [1:0] ALU_op;
     reg [9:0] alu_source1;
     reg [9:0] alu_source2;
@@ -245,7 +244,7 @@ module Execute_Memory_Stage(
     always@(*)begin
     mem_to_reg <= pipe_reg_data[0];
     mem_write <= pipe_reg_data[1];
-    reg_write_addr_return <= pipe_reg_data[4:2];
+    write_addr <= pipe_reg_data[4:2];
     ALU_op <= pipe_reg_data[6:5];
     alu_source1 <= pipe_reg_data[16:7];
     alu_source2 <= pipe_reg_data[26:17];
