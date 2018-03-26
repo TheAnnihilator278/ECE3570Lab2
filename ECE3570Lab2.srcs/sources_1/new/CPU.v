@@ -57,7 +57,7 @@ module CPU10Bits_Pipelined(
     
     wire [37:0] pipe_reg1_in;
     wire [37:0] pipe_reg1_out;
-    reg [12:0] pipe_reg2_in;
+    wire [12:0] pipe_reg2_in;
     wire [12:0] pipe_reg2_out;
     
     wire mem_to_reg;
@@ -71,7 +71,11 @@ module CPU10Bits_Pipelined(
     
     wire [2:0] write_addr; 
     wire [9:0] write_data;
-       
+    
+    wire [2:0] wr_addr;
+    wire [9:0] wr_data;
+    
+    
        
     Fetch_Decode_Stage( .clk(clk),
                         .reset(reset),
@@ -91,7 +95,7 @@ module CPU10Bits_Pipelined(
     // pipe_reg1
     Register_Pipeline_37bit( .clk(clk), .reset(reset), .write_en(1'b1), .Din(pipe_reg1_in), .Dout(pipe_reg1_out) );
     
-    Execute_Memory_Stage( );
+    Execute_Memory_Stage(.clk(clk), .pipe_reg_data(pipe_reg1_out), .write_addr(wr_addr), .write_data(wr_data));
     
     // pipe_reg2
     Register_Pipeline_13bit( .clk(clk), .reset(reset), .write_en(1'b1), .Din(pipe_reg2_in), .Dout(pipe_reg2_out) );
@@ -109,6 +113,8 @@ module CPU10Bits_Pipelined(
     assign pipe_reg1_in[16:7] = alu_source1;
     assign pipe_reg1_in[26:17] = alu_source2;
     assign pipe_reg1_in[36:27] = read_data2;
+    assign pipe_reg2_in[12:3] = wr_data;
+    assign pipe_reg2_in[2:0] = wr_addr;
     
     always@(*)begin
            
@@ -216,8 +222,55 @@ module Fetch_Decode_Stage(
 endmodule
 
 module Execute_Memory_Stage(
-
+    input wire clk,
+    input wire [36:0] pipe_reg_data,
+    output reg [2:0] write_addr,
+    output reg [9:0] write_data
     );
+    
+    reg mem_to_reg;
+    reg mem_write;
+    reg [2:0] reg_write_addr_return;
+    reg [1:0] ALU_op;
+    reg [9:0] alu_source1;
+    reg [9:0] alu_source2;
+    reg[9:0] read_data2;
+    
+    
+    wire [9:0] ALU_result;
+    wire c_out;
+    wire [9:0] read_data;
+    wire [9:0] wr_data;
+   
+    always@(*)begin
+    mem_to_reg <= pipe_reg_data[0];
+    mem_write <= pipe_reg_data[1];
+    reg_write_addr_return <= pipe_reg_data[4:2];
+    ALU_op <= pipe_reg_data[6:5];
+    alu_source1 <= pipe_reg_data[16:7];
+    alu_source2 <= pipe_reg_data[26:17];
+    read_data2 <= pipe_reg_data[36:27];
+    
+    write_data = wr_data;
+    
+    end
+    
+    ALU alu0( .ALU_op(ALU_op), .a(alu_source1), .b(alu_source2), .f(ALU_result), .c_out(c_out) );
+    
+    DataMemory dm0( .clk(clk), .address(ALU_result), .en_write(mem_write), .write_data(read_data2), .read_data(read_data) );
+    
+    write_data_mux wdm0( .write_data_select(mem_to_reg), .alu_result(ALU_result), .read_data(read_data), .write_data(wr_data) );
+
+   /*     assign pipe_reg1_in[0] = mem_to_reg;
+    assign pipe_reg1_in[1] = mem_write;
+    assign pipe_reg1_in[4:2] = reg_write_addr_return;
+    assign pipe_reg1_in[6:5] = ALU_op;
+    assign pipe_reg1_in[16:7] = alu_source1;
+    assign pipe_reg1_in[26:17] = alu_source2;
+    assign pipe_reg1_in[36:27] = read_data2;
+    */
+    
+
     
 endmodule
 
@@ -227,8 +280,8 @@ module Write_Back_Stage(
     output reg [9:0] write_data // also branch_control for fetch unit
     );
     always@(*)begin
-        write_addr <= pipe_reg_data[9:0];
-        write_data <= pipe_reg_data[12:10];
+        write_addr <= pipe_reg_data[2:0];
+        write_data <= pipe_reg_data[12:3];
     end
 endmodule
 
