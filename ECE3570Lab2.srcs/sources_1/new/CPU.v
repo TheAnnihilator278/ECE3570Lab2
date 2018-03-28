@@ -118,7 +118,8 @@ module CPU10Bits_Pipelined(
     assign pipe_reg2_in[2:0] = wr_addr;
     
     always@(*)begin
-           
+        
+        // connected to output of write data mux   
         program_result <= write_data;
         
         // halt 
