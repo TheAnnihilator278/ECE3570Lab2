@@ -4,6 +4,7 @@
 `include "ControlUnit.v"
 `include "FetchUnit.v"
 `include "Memory.v"
+`include "ForwardingUnit.v"
 
 //////////////////////////////////////////////////////////////////////////////////
 // Company: Western Michigan University
@@ -30,14 +31,16 @@ module CPU10Bits_Test();
     reg reset;
     wire [9:0] program_result;
     wire done;
+    reg enable_forwarding;
 
     //CPU10Bits cpu0( .clk(clk), .reset(reset), .done(done), .program_result(program_result) );
-    CPU10Bits_Pipelined cpu0( .clk(clk), .reset(reset), .done(done), .program_result(program_result) );
+    CPU10Bits_Pipelined cpu0( .clk(clk), .reset(reset), .enable_forwarding(enable_forwarding), .done(done), .program_result(program_result) );
     
     //toggle clock every 18ns
     always #18 clk = ~clk;
     
     initial begin
+        enable_forwarding = 1;
         clk = 1; 
         reset = 1;
         #36;
@@ -50,6 +53,7 @@ endmodule
 module CPU10Bits_Pipelined(
     input wire clk,
     input wire reset,
+    input wire enable_forwarding, // forwarding unit enable
     output reg done,
     output reg [9:0] program_result
     );
@@ -69,16 +73,33 @@ module CPU10Bits_Pipelined(
     wire [9:0] read_data2;
     wire [9:0] instruction;
     
-    wire [2:0] write_addr; 
-    wire [9:0] write_data;
+    wire [2:0] write_addr; // fetch/decode input - write back output
+    wire [9:0] write_data; // fetch/decode input - write back output
     
-    wire [2:0] wr_addr; 
-    wire [9:0] wr_data;
+    wire [2:0] wr_addr; // execute/memory output
+    wire [9:0] wr_data; // execute/memory output
+    
+    wire [9:0] alu_data_1_forwarded; // output of forwarding unit, input to pipe reg 1
+    wire [9:0] alu_data_2_forwarded; // output of forwarding unit, input to pipe reg 1
+    
+    wire [2:0] reg_source_1_addr; // output of crontrol unit from fetch/decode stage, input to forwarding unit
     
     
+    ForwardingUnit fwu0( .enable(enable_forwarding),
+                         .reg_source_1_addr_fd(reg_source_1_addr), // output of fetch/decode stage - reg address
+                         .reg_source_2_addr_fd(instruction[4:3]), // output of fetch/decode stage - reg address
+                         .alu_source_1_data_fd(alu_source1), // output of fetch/decode stage - reg data
+                         .alu_source_2_data_fd(alu_source2), // output of fetch/decode stage - reg data
+                         
+                         .reg_dest_addr_em(wr_addr), // output of execute/memory stage - reg address
+                         .execute_result_em(wr_data), // output of execute/memory stage - write back data
+                         
+                         .alu_source_1_data_forwarded(alu_data_1_forwarded), // input to pipe reg 1
+                         .alu_source_2_data_forwarded(alu_data_2_forwarded) // input to pipe reg 1
+                          );
        
     Fetch_Decode_Stage fds0( .clk(clk),
-                        .reset(reset),
+                        .reset(reset),                  
                         .alu_result(write_data), // input from writeback
                         .reg_write_data(write_data), // input from writeback
                         .reg_write_addr(write_addr), // input from writeback
@@ -89,7 +110,8 @@ module CPU10Bits_Pipelined(
                         .alu_source1(alu_source1), 
                         .alu_source2(alu_source2),
                         .read_data2(read_data2),
-                        .instruction(instruction)        
+                        .instruction(instruction),
+                        .reg_source_1_addr(reg_source_1_addr)        
                          );
     
     // reg_pipe1
@@ -110,8 +132,8 @@ module CPU10Bits_Pipelined(
     assign pipe_reg1_in[1] = mem_write;
     assign pipe_reg1_in[4:2] = reg_write_addr_return;
     assign pipe_reg1_in[6:5] = ALU_op;
-    assign pipe_reg1_in[16:7] = alu_source1;
-    assign pipe_reg1_in[26:17] = alu_source2;
+    assign pipe_reg1_in[16:7] = alu_data_1_forwarded; // from forwarding unit
+    assign pipe_reg1_in[26:17] = alu_data_2_forwarded; // from forwarding unit
     assign pipe_reg1_in[36:27] = read_data2;
     
     assign pipe_reg2_in[12:3] = wr_data;
@@ -146,7 +168,8 @@ module Fetch_Decode_Stage(
     output reg [9:0] alu_source2,  // ALU
     output reg [9:0] read_data2,  // Data memory write data
     output reg [2:0] reg_write_addr_return, // control line, returned from control unit
-    output reg [9:0] instruction
+    output reg [9:0] instruction,
+    output reg [2:0] reg_source_1_addr
     );
     
     wire [9:0] instruction_out;
@@ -222,6 +245,7 @@ module Fetch_Decode_Stage(
         alu_source2 <= alu_source2_out;
         read_data2 <= read2_data;
         reg_write_addr_return <= reg_write_addr_out;
+        reg_source_1_addr <= reg_read1_addr;
     end    
 endmodule
 
