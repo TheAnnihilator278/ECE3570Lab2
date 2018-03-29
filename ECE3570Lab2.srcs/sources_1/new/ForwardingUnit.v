@@ -1,4 +1,4 @@
-`timescale 1ns / 1ps
+`timescale 1ns / 1ns
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -57,15 +57,19 @@ module ForwardingUnitTest();
         alu_source_1_select = 0;
         alu_source_2_select = 2'b00;   
         reg_dest_addr_em = 3'b001; 
-        execute_result_em = 10'b0000001000;
+        execute_result_em = 10'b0000001000; // source 1 forward
         #10;  
-        reg_dest_addr_em = 3'b011; 
+        reg_dest_addr_em = 3'b011; // source 2 forward
         #10;         
-        reg_dest_addr_em = 3'b000; 
+        reg_dest_addr_em = 3'b000; // no forward
         #10;
-        reg_source_1_addr_fd = 3'b001;
+        reg_source_1_addr_fd = 3'b001; // both forward
         reg_source_2_addr_fd = 2'b01;
         reg_dest_addr_em = 3'b001;
+        #10;
+        alu_source_1_select = 1; // no forward on source 1
+        #10;
+        alu_source_2_select = 2'b01; // no forward on source 2
 
 
     
