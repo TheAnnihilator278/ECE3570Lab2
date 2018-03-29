@@ -1,0 +1,7 @@
+Running: xsim.dir/ForwardingUnitTest_behav/xsimk -simmode gui -wdb ForwardingUnitTest_behav.wdb -simrunnum 0 -socket 59217
+Design successfully loaded
+Design Loading Memory Usage: 46992 KB (Peak: 47112 KB)
+Design Loading CPU Usage: 10 ms
+Simulation completed
+Simulation Memory Usage: 128988 KB (Peak: 194264 KB)
+Simulation CPU Usage: 20 ms

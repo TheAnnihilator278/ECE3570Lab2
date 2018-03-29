@@ -1,6 +1,6 @@
 Vivado Simulator 2017.4
 Copyright 1986-1999, 2001-2016 Xilinx, Inc. All Rights Reserved.
-Running: /opt/Xilinx/Vivado/2017.4/bin/unwrapped/lnx64.o/xelab -wto 07c9cef170004fa2b67ee1253f06516b --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot CPU10Bits_Test_behav xil_defaultlib.CPU10Bits_Test xil_defaultlib.glbl -log elaborate.log 
+Running: /opt/Xilinx/Vivado/2017.4/bin/unwrapped/lnx64.o/xelab -wto 07c9cef170004fa2b67ee1253f06516b --incr --debug typical --relax --mt 8 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot ForwardingUnitTest_behav xil_defaultlib.ForwardingUnitTest xil_defaultlib.glbl -log elaborate.log 
 Using 8 slave threads.
 Starting static elaboration
 Completed static elaboration
@@ -8,39 +8,6 @@ Starting simulation data flow analysis
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
 Compiling module xil_defaultlib.ForwardingUnit
-Compiling module xil_defaultlib.InstructionMemory
-Compiling module xil_defaultlib.Register_10bit
-Compiling module xil_defaultlib.FullAdder_1Bit
-Compiling module xil_defaultlib.FullAdder_10Bit
-Compiling module xil_defaultlib.FetchUnit
-Compiling module xil_defaultlib.reg_write_mux
-Compiling module xil_defaultlib.ALU_op_mux
-Compiling module xil_defaultlib.pc_control_mux
-Compiling module xil_defaultlib.reg_write_addr_control_mux
-Compiling module xil_defaultlib.reg_read1_addr_mux
-Compiling module xil_defaultlib.ALU_source1_control_mux
-Compiling module xil_defaultlib.ALU_source2_control_mux
-Compiling module xil_defaultlib.mem_write_mux
-Compiling module xil_defaultlib.mem_to_reg_mux
-Compiling module xil_defaultlib.ControlUnit
-Compiling module xil_defaultlib.Register_10bit_StackPointer
-Compiling module xil_defaultlib.reg_decode
-Compiling module xil_defaultlib.RegisterFile
-Compiling module xil_defaultlib.ALU_source1_mux
-Compiling module xil_defaultlib.ALU_source2_mux
-Compiling module xil_defaultlib.Fetch_Decode_Stage
-Compiling module xil_defaultlib.Register_Pipeline_38bit
-Compiling module xil_defaultlib.Comparator
-Compiling module xil_defaultlib.Shifter
-Compiling module xil_defaultlib.Complementor
-Compiling module xil_defaultlib.ALU_mux
-Compiling module xil_defaultlib.ALU
-Compiling module xil_defaultlib.DataMemory
-Compiling module xil_defaultlib.write_data_mux
-Compiling module xil_defaultlib.Execute_Memory_Stage
-Compiling module xil_defaultlib.Register_Pipeline_14bit
-Compiling module xil_defaultlib.Write_Back_Stage
-Compiling module xil_defaultlib.CPU10Bits_Pipelined
-Compiling module xil_defaultlib.CPU10Bits_Test
+Compiling module xil_defaultlib.ForwardingUnitTest
 Compiling module xil_defaultlib.glbl
-Built simulation snapshot CPU10Bits_Test_behav
+Built simulation snapshot ForwardingUnitTest_behav
