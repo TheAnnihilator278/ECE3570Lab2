@@ -61,8 +61,8 @@ module CPU10Bits_Pipelined(
     
     wire [37:0] pipe_reg1_in;
     wire [37:0] pipe_reg1_out;
-    wire [12:0] pipe_reg2_in;
-    wire [12:0] pipe_reg2_out;
+    wire [13:0] pipe_reg2_in;
+    wire [13:0] pipe_reg2_out;
     
     wire mem_to_reg;
     wire mem_write;
@@ -70,8 +70,15 @@ module CPU10Bits_Pipelined(
     wire [1:0] ALU_op;
     wire [9:0] alu_source1;
     wire [9:0] alu_source2;
+    
+    wire alu_source_1_select;
+    wire [1:0] alu_source_2_select;
+    
     wire [9:0] read_data2;
     wire [9:0] instruction;
+    wire reg_write_fd;
+    wire reg_write_em;
+    wire reg_write_wb;
     
     wire [2:0] write_addr; // fetch/decode input - write back output
     wire [9:0] write_data; // fetch/decode input - write back output
@@ -83,6 +90,7 @@ module CPU10Bits_Pipelined(
     wire [9:0] alu_data_2_forwarded; // output of forwarding unit, input to pipe reg 1
     
     wire [2:0] reg_source_1_addr; // output of crontrol unit from fetch/decode stage, input to forwarding unit
+   
     
     
     ForwardingUnit fwu0( .enable(enable_forwarding),
@@ -90,6 +98,9 @@ module CPU10Bits_Pipelined(
                          .reg_source_2_addr_fd(instruction[4:3]), // output of fetch/decode stage - reg address
                          .alu_source_1_data_fd(alu_source1), // output of fetch/decode stage - reg data
                          .alu_source_2_data_fd(alu_source2), // output of fetch/decode stage - reg data
+                         
+                         .alu_source_1_select(alu_source_1_select),
+                         .alu_source_2_select(alu_source_2_select),
                          
                          .reg_dest_addr_em(wr_addr), // output of execute/memory stage - reg address
                          .execute_result_em(wr_data), // output of execute/memory stage - write back data
@@ -99,7 +110,8 @@ module CPU10Bits_Pipelined(
                           );
        
     Fetch_Decode_Stage fds0( .clk(clk),
-                        .reset(reset),                  
+                        .reset(reset),
+                        .reg_write_in(reg_write_wb),                  
                         .alu_result(write_data), // input from writeback
                         .reg_write_data(write_data), // input from writeback
                         .reg_write_addr(write_addr), // input from writeback
@@ -109,22 +121,31 @@ module CPU10Bits_Pipelined(
                         .ALU_op(ALU_op), 
                         .alu_source1(alu_source1), 
                         .alu_source2(alu_source2),
+                        .alu_source_1_select(alu_source_1_select),
+                        .alu_source_2_select(alu_source_2_select),
                         .read_data2(read_data2),
                         .instruction(instruction),
-                        .reg_source_1_addr(reg_source_1_addr)        
+                        .reg_source_1_addr(reg_source_1_addr),
+                        .reg_write_en(reg_write_fd)        
                          );
     
     // reg_pipe1
-    Register_Pipeline_37bit reg_pipe1( .clk(clk), .reset(reset), .write_en(1'b1), .Din(pipe_reg1_in), .Dout(pipe_reg1_out) );
+    Register_Pipeline_38bit reg_pipe1( .clk(clk), .reset(reset), .write_en(1'b1), .Din(pipe_reg1_in), .Dout(pipe_reg1_out) );
     
-    Execute_Memory_Stage ems0(.clk(clk), .pipe_reg_data(pipe_reg1_out), .write_addr(wr_addr), .write_data(wr_data));
+    Execute_Memory_Stage ems0(.clk(clk), 
+                              .pipe_reg_data(pipe_reg1_out), 
+                              .write_addr(wr_addr), 
+                              .write_data(wr_data), 
+                              .reg_write_en(reg_write_em) 
+                              );
     
     // reg_pipe2
-    Register_Pipeline_13bit reg_pipe2( .clk(clk), .reset(reset), .write_en(1'b1), .Din(pipe_reg2_in), .Dout(pipe_reg2_out) );
+    Register_Pipeline_14bit reg_pipe2( .clk(clk), .reset(reset), .write_en(1'b1), .Din(pipe_reg2_in), .Dout(pipe_reg2_out) );
     
     Write_Back_Stage wbs0( .pipe_reg_data(pipe_reg2_out),
                       .write_addr(write_addr), 
-                      .write_data(write_data) // also branch_control for fetch unit
+                      .write_data(write_data), // also branch_control for fetch unit
+                      .reg_write_en(reg_write_wb)
                     );
     
     
@@ -135,7 +156,9 @@ module CPU10Bits_Pipelined(
     assign pipe_reg1_in[16:7] = alu_data_1_forwarded; // from forwarding unit
     assign pipe_reg1_in[26:17] = alu_data_2_forwarded; // from forwarding unit
     assign pipe_reg1_in[36:27] = read_data2;
+    assign pipe_reg1_in[37] = reg_write_fd;
     
+    assign pipe_reg2_in[13] = reg_write_em;
     assign pipe_reg2_in[12:3] = wr_data;
     assign pipe_reg2_in[2:0] = wr_addr;
     
@@ -158,6 +181,7 @@ endmodule
 module Fetch_Decode_Stage(
     input wire clk,
     input wire reset,
+    input wire reg_write_in,
     input wire [9:0] alu_result,  // tied to fetch unit for write back, used from branch control
     input wire [9:0] reg_write_data, // tied to register file for write back
     input wire [2:0] reg_write_addr, // tied to register file for write back
@@ -169,7 +193,10 @@ module Fetch_Decode_Stage(
     output reg [9:0] read_data2,  // Data memory write data
     output reg [2:0] reg_write_addr_return, // control line, returned from control unit
     output reg [9:0] instruction,
-    output reg [2:0] reg_source_1_addr
+    output reg [2:0] reg_source_1_addr,
+    output reg reg_write_en,
+    output reg alu_source_1_select,
+    output reg [1:0] alu_source_2_select
     );
     
     wire [9:0] instruction_out;
@@ -214,7 +241,7 @@ module Fetch_Decode_Stage(
             
     RegisterFile rf0( .clk(clk), 
                       .reset(reset), 
-                      .en_write(reg_write), 
+                      .en_write(reg_write_in), 
                       .write_addr(reg_write_addr), 
                       .write_data(reg_write_data), 
                       .read1_addr(reg_read1_addr), 
@@ -246,14 +273,18 @@ module Fetch_Decode_Stage(
         read_data2 <= read2_data;
         reg_write_addr_return <= reg_write_addr_out;
         reg_source_1_addr <= reg_read1_addr;
+        reg_write_en <= reg_write;
+        alu_source_1_select <= alu_source1_control;
+        alu_source_2_select <= alu_source2_control;
     end    
 endmodule
 
 module Execute_Memory_Stage(
     input wire clk,
-    input wire [36:0] pipe_reg_data,
+    input wire [37:0] pipe_reg_data,
     output reg [2:0] write_addr,
-    output reg [9:0] write_data
+    output reg [9:0] write_data,
+    output reg reg_write_en
     );
     
     reg mem_to_reg;
@@ -277,7 +308,7 @@ module Execute_Memory_Stage(
     alu_source1 <= pipe_reg_data[16:7];
     alu_source2 <= pipe_reg_data[26:17];
     read_data2 <= pipe_reg_data[36:27];
-    
+    reg_write_en <= pipe_reg_data[37];
     write_data = wr_data;
     
     end
@@ -302,13 +333,15 @@ module Execute_Memory_Stage(
 endmodule
 
 module Write_Back_Stage(
-    input wire [12:0] pipe_reg_data,
+    input wire [13:0] pipe_reg_data,
     output reg [2:0] write_addr, 
-    output reg [9:0] write_data // also branch_control for fetch unit
+    output reg [9:0] write_data, // also branch_control for fetch unit
+    output reg reg_write_en
     );
     always@(*)begin
         write_addr <= pipe_reg_data[2:0];
         write_data <= pipe_reg_data[12:3];
+        reg_write_en <= pipe_reg_data[13];
     end
 endmodule
 

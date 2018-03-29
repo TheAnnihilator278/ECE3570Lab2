@@ -11,15 +11,15 @@
       </db_ref>
    </db_ref_list>
    <zoom_setting>
-      <ZoomStartTime time="0fs"></ZoomStartTime>
-      <ZoomEndTime time="143000001fs"></ZoomEndTime>
-      <Cursor1Time time="72000000fs"></Cursor1Time>
+      <ZoomStartTime time="190000000fs"></ZoomStartTime>
+      <ZoomEndTime time="379200001fs"></ZoomEndTime>
+      <Cursor1Time time="252000000fs"></Cursor1Time>
    </zoom_setting>
    <column_width_setting>
-      <NameColumnWidth column_width="133"></NameColumnWidth>
+      <NameColumnWidth column_width="224"></NameColumnWidth>
       <ValueColumnWidth column_width="66"></ValueColumnWidth>
    </column_width_setting>
-   <WVObjectSize size="30" />
+   <WVObjectSize size="13" />
    <wvobject type="logic" fp_name="/CPU10Bits_Test/done">
       <obj_property name="ElementShortName">done</obj_property>
       <obj_property name="ObjectShortName">done</obj_property>
@@ -40,108 +40,253 @@
    <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/fds0/fu0/PC_out">
       <obj_property name="ElementShortName">PC_out[9:0]</obj_property>
       <obj_property name="ObjectShortName">PC_out[9:0]</obj_property>
+      <obj_property name="Radix">UNSIGNEDDECRADIX</obj_property>
    </wvobject>
-   <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/ems0/dm0/memory[19]">
-      <obj_property name="ElementShortName">[19][9:0]</obj_property>
-      <obj_property name="ObjectShortName">[19][9:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/ems0/dm0/memory[18]">
-      <obj_property name="ElementShortName">[18][9:0]</obj_property>
-      <obj_property name="ObjectShortName">[18][9:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/ems0/dm0/memory[17]">
-      <obj_property name="ElementShortName">[17][9:0]</obj_property>
-      <obj_property name="ObjectShortName">[17][9:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/ems0/dm0/memory[16]">
-      <obj_property name="ElementShortName">[16][9:0]</obj_property>
-      <obj_property name="ObjectShortName">[16][9:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/ems0/dm0/memory[15]">
-      <obj_property name="ElementShortName">[15][9:0]</obj_property>
-      <obj_property name="ObjectShortName">[15][9:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/ems0/dm0/memory[14]">
-      <obj_property name="ElementShortName">[14][9:0]</obj_property>
-      <obj_property name="ObjectShortName">[14][9:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/ems0/dm0/memory[13]">
-      <obj_property name="ElementShortName">[13][9:0]</obj_property>
-      <obj_property name="ObjectShortName">[13][9:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/ems0/dm0/memory[12]">
-      <obj_property name="ElementShortName">[12][9:0]</obj_property>
-      <obj_property name="ObjectShortName">[12][9:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/ems0/dm0/memory[11]">
-      <obj_property name="ElementShortName">[11][9:0]</obj_property>
-      <obj_property name="ObjectShortName">[11][9:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/ems0/dm0/memory[10]">
-      <obj_property name="ElementShortName">[10][9:0]</obj_property>
-      <obj_property name="ObjectShortName">[10][9:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/ems0/alu0/a">
-      <obj_property name="ElementShortName">a[9:0]</obj_property>
-      <obj_property name="ObjectShortName">a[9:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/ems0/alu0/b">
-      <obj_property name="ElementShortName">b[9:0]</obj_property>
-      <obj_property name="ObjectShortName">b[9:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/ems0/alu0/f">
-      <obj_property name="ElementShortName">f[9:0]</obj_property>
-      <obj_property name="ObjectShortName">f[9:0]</obj_property>
-   </wvobject>
-   <wvobject type="logic" fp_name="/CPU10Bits_Test/cpu0/fds0/rf0/en_write">
-      <obj_property name="ElementShortName">en_write</obj_property>
-      <obj_property name="ObjectShortName">en_write</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/fds0/rf0/write_addr">
-      <obj_property name="ElementShortName">write_addr[2:0]</obj_property>
-      <obj_property name="ObjectShortName">write_addr[2:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/fds0/rf0/write_data">
-      <obj_property name="ElementShortName">write_data[9:0]</obj_property>
-      <obj_property name="ObjectShortName">write_data[9:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/fds0/rf0/read1_addr">
-      <obj_property name="ElementShortName">read1_addr[2:0]</obj_property>
-      <obj_property name="ObjectShortName">read1_addr[2:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/fds0/rf0/read2_addr">
-      <obj_property name="ElementShortName">read2_addr[1:0]</obj_property>
-      <obj_property name="ObjectShortName">read2_addr[1:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/fds0/rf0/read1_data">
-      <obj_property name="ElementShortName">read1_data[9:0]</obj_property>
-      <obj_property name="ObjectShortName">read1_data[9:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/fds0/rf0/read2_data">
-      <obj_property name="ElementShortName">read2_data[9:0]</obj_property>
-      <obj_property name="ObjectShortName">read2_data[9:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/fds0/rf0/Dout">
-      <obj_property name="ElementShortName">Dout[7:0][9:0]</obj_property>
-      <obj_property name="ObjectShortName">Dout[7:0][9:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/fds0/rf0/write_en">
-      <obj_property name="ElementShortName">write_en[7:0]</obj_property>
-      <obj_property name="ObjectShortName">write_en[7:0]</obj_property>
-   </wvobject>
-   <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/fds0/rf0/write_en_reg">
-      <obj_property name="ElementShortName">write_en_reg[7:0]</obj_property>
-      <obj_property name="ObjectShortName">write_en_reg[7:0]</obj_property>
+   <wvobject type="group" fp_name="group215">
+      <obj_property name="label">DataMemory</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
       <obj_property name="isExpanded"></obj_property>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/ems0/dm0/memory[19]">
+         <obj_property name="ElementShortName">[19][9:0]</obj_property>
+         <obj_property name="ObjectShortName">[19][9:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/ems0/dm0/memory[18]">
+         <obj_property name="ElementShortName">[18][9:0]</obj_property>
+         <obj_property name="ObjectShortName">[18][9:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/ems0/dm0/memory[17]">
+         <obj_property name="ElementShortName">[17][9:0]</obj_property>
+         <obj_property name="ObjectShortName">[17][9:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/ems0/dm0/memory[16]">
+         <obj_property name="ElementShortName">[16][9:0]</obj_property>
+         <obj_property name="ObjectShortName">[16][9:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/ems0/dm0/memory[15]">
+         <obj_property name="ElementShortName">[15][9:0]</obj_property>
+         <obj_property name="ObjectShortName">[15][9:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/ems0/dm0/memory[14]">
+         <obj_property name="ElementShortName">[14][9:0]</obj_property>
+         <obj_property name="ObjectShortName">[14][9:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/ems0/dm0/memory[13]">
+         <obj_property name="ElementShortName">[13][9:0]</obj_property>
+         <obj_property name="ObjectShortName">[13][9:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/ems0/dm0/memory[12]">
+         <obj_property name="ElementShortName">[12][9:0]</obj_property>
+         <obj_property name="ObjectShortName">[12][9:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/ems0/dm0/memory[11]">
+         <obj_property name="ElementShortName">[11][9:0]</obj_property>
+         <obj_property name="ObjectShortName">[11][9:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/ems0/dm0/memory[10]">
+         <obj_property name="ElementShortName">[10][9:0]</obj_property>
+         <obj_property name="ObjectShortName">[10][9:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/ems0/dm0/memory[4]">
+         <obj_property name="ElementShortName">[4][9:0]</obj_property>
+         <obj_property name="ObjectShortName">[4][9:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/ems0/dm0/memory[3]">
+         <obj_property name="ElementShortName">[3][9:0]</obj_property>
+         <obj_property name="ObjectShortName">[3][9:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/ems0/dm0/memory[2]">
+         <obj_property name="ElementShortName">[2][9:0]</obj_property>
+         <obj_property name="ObjectShortName">[2][9:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/ems0/dm0/memory[1]">
+         <obj_property name="ElementShortName">[1][9:0]</obj_property>
+         <obj_property name="ObjectShortName">[1][9:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/ems0/dm0/memory[0]">
+         <obj_property name="ElementShortName">[0][9:0]</obj_property>
+         <obj_property name="ObjectShortName">[0][9:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/ems0/dm0/address">
+         <obj_property name="ElementShortName">address[9:0]</obj_property>
+         <obj_property name="ObjectShortName">address[9:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/CPU10Bits_Test/cpu0/ems0/dm0/en_write">
+         <obj_property name="ElementShortName">en_write</obj_property>
+         <obj_property name="ObjectShortName">en_write</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/ems0/dm0/read_data">
+         <obj_property name="ElementShortName">read_data[9:0]</obj_property>
+         <obj_property name="ObjectShortName">read_data[9:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/ems0/dm0/write_data">
+         <obj_property name="ElementShortName">write_data[9:0]</obj_property>
+         <obj_property name="ObjectShortName">write_data[9:0]</obj_property>
+      </wvobject>
    </wvobject>
-   <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/reg_pipe2/Dout">
-      <obj_property name="ElementShortName">Dout[12:0]</obj_property>
-      <obj_property name="ObjectShortName">Dout[12:0]</obj_property>
-      <obj_property name="isExpanded"></obj_property>
+   <wvobject type="group" fp_name="group216">
+      <obj_property name="label">ALU</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/ems0/alu0/a">
+         <obj_property name="ElementShortName">a[9:0]</obj_property>
+         <obj_property name="ObjectShortName">a[9:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/ems0/alu0/b">
+         <obj_property name="ElementShortName">b[9:0]</obj_property>
+         <obj_property name="ObjectShortName">b[9:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/ems0/alu0/f">
+         <obj_property name="ElementShortName">f[9:0]</obj_property>
+         <obj_property name="ObjectShortName">f[9:0]</obj_property>
+      </wvobject>
    </wvobject>
-   <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/reg_pipe1/Dout">
-      <obj_property name="ElementShortName">Dout[36:0]</obj_property>
-      <obj_property name="ObjectShortName">Dout[36:0]</obj_property>
+   <wvobject type="group" fp_name="group218">
+      <obj_property name="label">PipeReg2</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/reg_pipe2/Dout">
+         <obj_property name="ElementShortName">Dout[13:0]</obj_property>
+         <obj_property name="ObjectShortName">Dout[13:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group219">
+      <obj_property name="label">PipeReg1</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/reg_pipe1/Dout">
+         <obj_property name="ElementShortName">Dout[37:0]</obj_property>
+         <obj_property name="ObjectShortName">Dout[37:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group620">
+      <obj_property name="label">RegisterFile</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="logic" fp_name="/CPU10Bits_Test/cpu0/fds0/rf0/en_write">
+         <obj_property name="ElementShortName">en_write</obj_property>
+         <obj_property name="ObjectShortName">en_write</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/fds0/rf0/write_addr">
+         <obj_property name="ElementShortName">write_addr[2:0]</obj_property>
+         <obj_property name="ObjectShortName">write_addr[2:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/fds0/rf0/write_data">
+         <obj_property name="ElementShortName">write_data[9:0]</obj_property>
+         <obj_property name="ObjectShortName">write_data[9:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/fds0/rf0/read1_addr">
+         <obj_property name="ElementShortName">read1_addr[2:0]</obj_property>
+         <obj_property name="ObjectShortName">read1_addr[2:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/fds0/rf0/read2_addr">
+         <obj_property name="ElementShortName">read2_addr[1:0]</obj_property>
+         <obj_property name="ObjectShortName">read2_addr[1:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/fds0/rf0/read1_data">
+         <obj_property name="ElementShortName">read1_data[9:0]</obj_property>
+         <obj_property name="ObjectShortName">read1_data[9:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/fds0/rf0/read2_data">
+         <obj_property name="ElementShortName">read2_data[9:0]</obj_property>
+         <obj_property name="ObjectShortName">read2_data[9:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/fds0/rf0/Dout">
+         <obj_property name="ElementShortName">Dout[7:0][9:0]</obj_property>
+         <obj_property name="ObjectShortName">Dout[7:0][9:0]</obj_property>
+         <obj_property name="isExpanded"></obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/fds0/rf0/write_en">
+         <obj_property name="ElementShortName">write_en[7:0]</obj_property>
+         <obj_property name="ObjectShortName">write_en[7:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/fds0/rf0/write_en_reg">
+         <obj_property name="ElementShortName">write_en_reg[7:0]</obj_property>
+         <obj_property name="ObjectShortName">write_en_reg[7:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group1002">
+      <obj_property name="label">ForwardingUnit</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
       <obj_property name="isExpanded"></obj_property>
+      <wvobject type="logic" fp_name="/CPU10Bits_Test/cpu0/fwu0/enable">
+         <obj_property name="ElementShortName">enable</obj_property>
+         <obj_property name="ObjectShortName">enable</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/fwu0/reg_source_1_addr_fd">
+         <obj_property name="ElementShortName">reg_source_1_addr_fd[2:0]</obj_property>
+         <obj_property name="ObjectShortName">reg_source_1_addr_fd[2:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/fwu0/reg_source_2_addr_fd">
+         <obj_property name="ElementShortName">reg_source_2_addr_fd[1:0]</obj_property>
+         <obj_property name="ObjectShortName">reg_source_2_addr_fd[1:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/fwu0/alu_source_1_data_fd">
+         <obj_property name="ElementShortName">alu_source_1_data_fd[9:0]</obj_property>
+         <obj_property name="ObjectShortName">alu_source_1_data_fd[9:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/fwu0/alu_source_2_data_fd">
+         <obj_property name="ElementShortName">alu_source_2_data_fd[9:0]</obj_property>
+         <obj_property name="ObjectShortName">alu_source_2_data_fd[9:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/fwu0/reg_dest_addr_em">
+         <obj_property name="ElementShortName">reg_dest_addr_em[2:0]</obj_property>
+         <obj_property name="ObjectShortName">reg_dest_addr_em[2:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/fwu0/execute_result_em">
+         <obj_property name="ElementShortName">execute_result_em[9:0]</obj_property>
+         <obj_property name="ObjectShortName">execute_result_em[9:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/fwu0/alu_source_1_data_forwarded">
+         <obj_property name="ElementShortName">alu_source_1_data_forwarded[9:0]</obj_property>
+         <obj_property name="ObjectShortName">alu_source_1_data_forwarded[9:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/fwu0/alu_source_2_data_forwarded">
+         <obj_property name="ElementShortName">alu_source_2_data_forwarded[9:0]</obj_property>
+         <obj_property name="ObjectShortName">alu_source_2_data_forwarded[9:0]</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="group" fp_name="group1264">
+      <obj_property name="label">ControlUnit</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/fds0/cu0/ALU_op">
+         <obj_property name="ElementShortName">ALU_op[1:0]</obj_property>
+         <obj_property name="ObjectShortName">ALU_op[1:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/CPU10Bits_Test/cpu0/fds0/cu0/reg_write">
+         <obj_property name="ElementShortName">reg_write</obj_property>
+         <obj_property name="ObjectShortName">reg_write</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/fds0/cu0/reg_write_addr">
+         <obj_property name="ElementShortName">reg_write_addr[2:0]</obj_property>
+         <obj_property name="ObjectShortName">reg_write_addr[2:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/fds0/cu0/reg_read1_addr">
+         <obj_property name="ElementShortName">reg_read1_addr[2:0]</obj_property>
+         <obj_property name="ObjectShortName">reg_read1_addr[2:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/CPU10Bits_Test/cpu0/fds0/cu0/alu_source1_control">
+         <obj_property name="ElementShortName">alu_source1_control</obj_property>
+         <obj_property name="ObjectShortName">alu_source1_control</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/fds0/cu0/alu_source2_control">
+         <obj_property name="ElementShortName">alu_source2_control[1:0]</obj_property>
+         <obj_property name="ObjectShortName">alu_source2_control[1:0]</obj_property>
+      </wvobject>
+      <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/fds0/cu0/pc_control">
+         <obj_property name="ElementShortName">pc_control[1:0]</obj_property>
+         <obj_property name="ObjectShortName">pc_control[1:0]</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/CPU10Bits_Test/cpu0/fds0/cu0/mem_write">
+         <obj_property name="ElementShortName">mem_write</obj_property>
+         <obj_property name="ObjectShortName">mem_write</obj_property>
+      </wvobject>
+      <wvobject type="logic" fp_name="/CPU10Bits_Test/cpu0/fds0/cu0/mem_to_reg">
+         <obj_property name="ElementShortName">mem_to_reg</obj_property>
+         <obj_property name="ObjectShortName">mem_to_reg</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject type="array" fp_name="/CPU10Bits_Test/cpu0/fds0/alu_source2_out">
+      <obj_property name="ElementShortName">alu_source2_out[9:0]</obj_property>
+      <obj_property name="ObjectShortName">alu_source2_out[9:0]</obj_property>
    </wvobject>
 </wave_config>

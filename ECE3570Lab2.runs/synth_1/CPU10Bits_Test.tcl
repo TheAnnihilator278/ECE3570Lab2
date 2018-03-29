@@ -16,6 +16,8 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 set_msg_config  -ruleid {1}  -id {Synth 8-27}  -string {{ERROR: [Synth 8-27] procedural assign not supported [C:/Users/Dexter/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:110]}}  -suppress 
 create_project -in_memory -part xc7k160tifbg484-2L
 

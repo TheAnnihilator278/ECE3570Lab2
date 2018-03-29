@@ -2,13 +2,13 @@
 # Webtalk v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:54:30 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Mon Mar 26 01:27:22 2018
-# Process ID: 27487
-# Current directory: /archive/ECE3570Lab2/ECE3570Lab2.sim/sim_1/behav/xsim
-# Command line: wbtcv -mode batch -source /archive/ECE3570Lab2/ECE3570Lab2.sim/sim_1/behav/xsim/xsim.dir/CPU10Bits_Test_behav/webtalk/xsim_webtalk.tcl -notrace
-# Log file: /archive/ECE3570Lab2/ECE3570Lab2.sim/sim_1/behav/xsim/webtalk.log
-# Journal file: /archive/ECE3570Lab2/ECE3570Lab2.sim/sim_1/behav/xsim/webtalk.jou
+# Start of session at: Thu Mar 29 11:00:58 2018
+# Process ID: 21454
+# Current directory: /archive/scripts/ECE3570Lab2/ECE3570Lab2.sim/sim_1/behav/xsim
+# Command line: wbtcv -mode batch -source /archive/scripts/ECE3570Lab2/ECE3570Lab2.sim/sim_1/behav/xsim/xsim.dir/RegisterFileTest_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: /archive/scripts/ECE3570Lab2/ECE3570Lab2.sim/sim_1/behav/xsim/webtalk.log
+# Journal file: /archive/scripts/ECE3570Lab2/ECE3570Lab2.sim/sim_1/behav/xsim/webtalk.jou
 #-----------------------------------------------------------
-source /archive/ECE3570Lab2/ECE3570Lab2.sim/sim_1/behav/xsim/xsim.dir/CPU10Bits_Test_behav/webtalk/xsim_webtalk.tcl -notrace
-INFO: [Common 17-186] '/archive/ECE3570Lab2/ECE3570Lab2.sim/sim_1/behav/xsim/xsim.dir/CPU10Bits_Test_behav/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Mon Mar 26 01:27:24 2018. For additional details about this file, please refer to the WebTalk help file at /archive/Xilinx/Vivado/2017.4/doc/webtalk_introduction.html.
-INFO: [Common 17-206] Exiting Webtalk at Mon Mar 26 01:27:24 2018...
+source /archive/scripts/ECE3570Lab2/ECE3570Lab2.sim/sim_1/behav/xsim/xsim.dir/RegisterFileTest_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-186] '/archive/scripts/ECE3570Lab2/ECE3570Lab2.sim/sim_1/behav/xsim/xsim.dir/RegisterFileTest_behav/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Thu Mar 29 11:00:59 2018. For additional details about this file, please refer to the WebTalk help file at /opt/Xilinx/Vivado/2017.4/doc/webtalk_introduction.html.
+INFO: [Common 17-206] Exiting Webtalk at Thu Mar 29 11:00:59 2018...

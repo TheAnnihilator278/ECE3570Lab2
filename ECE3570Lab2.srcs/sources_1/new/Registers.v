@@ -112,14 +112,21 @@ module RegisterFile(
     
       reg_decode rd0( .write_addr(write_addr), .decode_out(write_en) );
       
-    always@(negedge clk) begin
-        read1_data <= Dout[read1_addr];
-        read2_data <= Dout[read2_addr];  
-        write_en_reg <= 0;
-    end
+//    always@(negedge clk) begin
+//        read1_data <= Dout[read1_addr];
+//        read2_data <= Dout[read2_addr];  
+//        write_en_reg <= 0;
+//    end
     
-    always@(posedge clk)begin
+//    always@(posedge clk)begin
+//        read1_data <= Dout[read1_addr];
+//        read2_data <= Dout[read2_addr];
+//        write_en_reg <= write_en;
+//    end
 
+    always@(*)begin
+        read1_data <= Dout[read1_addr];
+        read2_data <= Dout[read2_addr];
         write_en_reg <= write_en;
     end
      
@@ -223,17 +230,17 @@ module Register_10bit_StackPointer(
         
 endmodule
 
-module Register_Pipeline_37bit(
+module Register_Pipeline_38bit(
     input wire clk,
     input wire reset,
     input wire write_en,
-    input wire [36:0] Din,
-    output reg [36:0] Dout
+    input wire [37:0] Din,
+    output reg [37:0] Dout
     );
     
     always @(posedge clk) begin
         if (reset == 1'b1) begin
-            Dout <= 37'b0000000000000000000000000000000000000;
+            Dout <= 38'b00000000000000000000000000000000000000;
         end
         else if (write_en == 1'b1)  begin
             Dout <= Din;
@@ -242,17 +249,17 @@ module Register_Pipeline_37bit(
         
 endmodule
 
-module Register_Pipeline_13bit(
+module Register_Pipeline_14bit(
     input wire clk,
     input wire reset,
     input wire write_en,
-    input wire [12:0] Din,
-    output reg [12:0] Dout
+    input wire [13:0] Din,
+    output reg [13:0] Dout
     );
     
     always @(posedge clk) begin
         if (reset == 1'b1) begin
-            Dout <= 13'b0000000000000;
+            Dout <= 14'b00000000000000;
         end
         else if (write_en == 1'b1)  begin
             Dout <= Din;

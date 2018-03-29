@@ -24,9 +24,12 @@ module ForwardingUnit(
     input wire enable,
     
     input wire [2:0] reg_source_1_addr_fd, // output of fetch/decode stage - reg address
-    input wire [2:0] reg_source_2_addr_fd, // output of fetch/decode stage - reg address
+    input wire [1:0] reg_source_2_addr_fd, // output of fetch/decode stage - reg address
     input wire [9:0] alu_source_1_data_fd, // output of fetch/decode stage - reg data
     input wire [9:0] alu_source_2_data_fd, // output of fetch/decode stage - reg data
+    
+    input wire alu_source_1_select,
+    input wire [1:0] alu_source_2_select,
     
     input wire [2:0] reg_dest_addr_em, // output of execute/memory stage - reg address
     input wire [9:0] execute_result_em, // output of execute/memory stage - write back data
@@ -38,15 +41,15 @@ module ForwardingUnit(
     
     always@(*)begin
         if( enable == 1 )begin
-            if( reg_dest_addr_em == reg_source_1_addr_fd )begin
+            if( (reg_dest_addr_em == reg_source_1_addr_fd) && (alu_source_1_select == 0) )begin
                 alu_source_1_data_forwarded <= execute_result_em;
                 alu_source_2_data_forwarded <= alu_source_2_data_fd;
             end
-            else if(reg_dest_addr_em == reg_source_2_addr_fd )begin
+            else if( (reg_dest_addr_em == reg_source_2_addr_fd) && (alu_source_2_select == 0) )begin
                 alu_source_1_data_forwarded <= alu_source_1_data_fd;
                 alu_source_2_data_forwarded <= execute_result_em;        
             end
-            else if( (reg_dest_addr_em == reg_source_1_addr_fd) && (reg_dest_addr_em == reg_source_2_addr_fd) ) begin
+            else if( (reg_dest_addr_em == reg_source_1_addr_fd) && (reg_dest_addr_em == reg_source_2_addr_fd) && (alu_source_1_select == 0) && (alu_source_2_select == 0) ) begin
                 alu_source_1_data_forwarded <= execute_result_em;
                 alu_source_2_data_forwarded <= execute_result_em;
             end
