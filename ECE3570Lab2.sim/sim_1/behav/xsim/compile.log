@@ -55,7 +55,7 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "/archive/scripts/ECE3570Lab2/ECE357
 INFO: [VRFC 10-311] analyzing module InstructionMemory
 WARNING: [VRFC 10-2421] module InstructionMemory is previously defined, ignoring this definition [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Memory.v:23]
 INFO: [VRFC 10-311] analyzing module DataMemory
-WARNING: [VRFC 10-2421] module DataMemory is previously defined, ignoring this definition [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Memory.v:134]
+WARNING: [VRFC 10-2421] module DataMemory is previously defined, ignoring this definition [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Memory.v:160]
 INFO: [VRFC 10-2263] Analyzing Verilog file "/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module RegisterFileTest
 WARNING: [VRFC 10-2421] module RegisterFileTest is previously defined, ignoring this definition [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:22]
