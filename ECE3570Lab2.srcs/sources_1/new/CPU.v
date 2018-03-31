@@ -191,6 +191,87 @@ module CPU10Bits_Pipelined(
     
 endmodule
 
+
+module Fetch_Decode_Test();
+    reg clk, reset;
+    reg reg_write_in;
+    reg [9:0] reg_write_data; // tied to register file for write back
+    reg [2:0] reg_write_addr;
+    reg [9:0] reg_read_1_forwarded;
+    reg [9:0] reg_read_2_forwarded;
+    
+    
+    wire mem_to_reg;
+    wire mem_write;
+    wire[1:0] ALU_op;  // control line
+    wire  [9:0] alu_source1;   // ALU
+    wire [9:0] alu_source2; // ALU
+    wire [9:0] read_data2;  // Data memory write data
+    wire [2:0] reg_write_addr_return; // control line, returned from control unit
+    wire [9:0] instruction;
+    wire [2:0] reg_source_1_addr;
+    wire reg_write_en;
+    wire alu_source_1_select;
+    wire [1:0] alu_source_2_select;
+    //7
+    
+    
+    always #7 clk = ~clk;
+    
+    Fetch_Decode_Stage fd0(.clk(clk), 
+                       .reset(reset),
+                       .reg_write_in(reg_write_in),
+                       .reg_write_data(reg_write_data),
+                       .reg_write_addr(reg_write_addr),
+                       .reg_read_1_forwarded(reg_read_1_forwarded),
+                       .reg_read_2_forwarded(reg_read_2_forwarded),
+                       .mem_to_reg(mem_to_reg),
+                       .mem_write(mem_write),
+                       .ALU_op(ALU_op),
+                       .alu_source1(alu_source1),
+                       .alu_source2(alu_source2),
+                       .read_data2(read_data2),
+                       .reg_write_addr_return(reg_write_addr_return),
+                       .instruction(instruction),
+                       .reg_source_1_addr(reg_source_1_addr),
+                       .reg_write_en(reg_write_en),
+                       .alu_source_1_select(alu_source_1_select),
+                       .alu_source_2_select(alu_source_2_select)
+                       
+                       );
+
+    
+    initial begin
+        clk = 0;
+        reset = 1; //
+        #20
+        reset = 0;
+        #20
+        
+        reg_write_in = 1'b0;
+        reg_write_data= 10'b0101010101;
+        reg_write_addr = 3'b011;
+        reg_read_1_forwarded = 10'b000000111;
+        reg_read_2_forwarded = 10'b111000000;
+        
+        #20
+        reg_write_in = 1'b1;
+        reg_write_data= 10'b1111000000;
+        reg_write_addr = 3'b001;
+        reg_read_1_forwarded = 10'b000000001;
+        reg_read_2_forwarded = 10'b000000001;
+        
+        #20
+        reg_write_in = 1'b1;
+        reg_write_data= 10'b1111111111;
+        reg_write_addr = 3'b010;   
+        reg_read_1_forwarded = 10'b000001111;
+        reg_read_2_forwarded = 10'b000001110;     
+
+        end
+        endmodule
+
+
 module Fetch_Decode_Stage(
     input wire clk,
     input wire reset,
@@ -302,6 +383,49 @@ module Fetch_Decode_Stage(
     end    
 endmodule
 
+
+module Execute_Memory_Test();
+        reg clk;
+        reg  [37:0] pipe_reg_data;
+        
+        
+        wire [2:0] write_addr;
+        wire [9:0] write_data;
+        wire mem_write_em;
+        wire reg_write_en;
+    //7
+    
+    
+    always #7
+    clk = ~clk;
+    
+    Execute_Memory_Stage em0(.clk(clk),
+                              .pipe_reg_data(pipe_reg_data),
+                              .write_addr(write_addr),
+                              .write_data(write_data),
+                              .mem_write_em(mem_write_em),
+                              .reg_write_en(reg_write_en)
+                       );
+
+    
+    initial begin
+    clk = 0;
+    
+    #20
+    
+    pipe_reg_data = 38'b10110011000011010001010101011110101111;
+    
+   #20
+    
+    pipe_reg_data = 38'b11111001100111110001010101011110101101;
+    
+   #20
+     
+     pipe_reg_data = 38'b11111010101111110001010101011110101000;
+
+        end
+        endmodule
+
 module Execute_Memory_Stage(
     input wire clk,
     input wire [37:0] pipe_reg_data,
@@ -356,6 +480,27 @@ module Execute_Memory_Stage(
 
     
 endmodule
+
+
+module Write_Back_Test();
+    reg [13:0] pipe_reg_data; 
+    wire [2:0] write_addr;
+    wire [9:0] write_data;
+    wire reg_write_en;
+    
+    Write_Back_Stage wb0(.pipe_reg_data(pipe_reg_data),
+                         .write_addr(write_addr),
+                         .write_data(write_data),
+                         .reg_write_en(reg_write_en)
+                         );
+                         
+                         
+    initial begin 
+    pipe_reg_data = 14'b00101010101010;
+    #20
+    pipe_reg_data = 14'b11100000000011;
+    end
+    endmodule
 
 module Write_Back_Stage(
     input wire [13:0] pipe_reg_data,

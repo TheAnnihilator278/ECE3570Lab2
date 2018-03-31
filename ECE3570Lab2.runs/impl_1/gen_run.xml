@@ -1,68 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="impl_1" LaunchPart="xc7k160tifbg484-2L" LaunchTime="1522527814">
+  <File Type="BITSTR-NKY" Name="CPU10Bits_Pipelined.nky"/>
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
-  <File Type="BG-DRC" Name="CPU10Bits_Pipelined.drc"/>
-  <File Type="BG-BGN" Name="CPU10Bits_Pipelined.bgn"/>
   <File Type="BITSTR-SYSDEF" Name="CPU10Bits_Pipelined.sysdef"/>
-  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
+  <File Type="BG-DRC" Name="CPU10Bits_Pipelined.drc"/>
   <File Type="BITSTR-LTX" Name="CPU10Bits_Pipelined.ltx"/>
+  <File Type="BG-BGN" Name="CPU10Bits_Pipelined.bgn"/>
   <File Type="BITSTR-MMI" Name="CPU10Bits_Pipelined.mmi"/>
   <File Type="BITSTR-BMM" Name="CPU10Bits_Pipelined_bd.bmm"/>
-  <File Type="BITSTR-NKY" Name="CPU10Bits_Pipelined.nky"/>
   <File Type="BITSTR-RBT" Name="CPU10Bits_Pipelined.rbt"/>
   <File Type="BITSTR-MSK" Name="CPU10Bits_Pipelined.msk"/>
   <File Type="BG-BIN" Name="CPU10Bits_Pipelined.bin"/>
   <File Type="BG-BIT" Name="CPU10Bits_Pipelined.bit"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="CPU10Bits_Pipelined_timing_summary_postroute_physopted.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="CPU10Bits_Pipelined_timing_summary_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="CPU10Bits_Pipelined_timing_summary_postroute_physopted.rpt"/>
   <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="CPU10Bits_Pipelined_postroute_physopt_bb.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-DCP" Name="CPU10Bits_Pipelined_postroute_physopt.dcp"/>
-  <File Type="ROUTE-CLK" Name="CPU10Bits_Pipelined_clock_utilization_routed.rpt"/>
-  <File Type="ROUTE-SIMILARITY" Name="CPU10Bits_Pipelined_incremental_reuse_routed.rpt"/>
-  <File Type="ROUTE-TIMING-RPX" Name="CPU10Bits_Pipelined_timing_summary_routed.rpx"/>
+  <File Type="RDI-RDI" Name="CPU10Bits_Pipelined.vdi"/>
   <File Type="ROUTE-TIMING-PB" Name="CPU10Bits_Pipelined_timing_summary_routed.pb"/>
-  <File Type="ROUTE-TIMINGSUMMARY" Name="CPU10Bits_Pipelined_timing_summary_routed.rpt"/>
-  <File Type="ROUTE-STATUS-PB" Name="CPU10Bits_Pipelined_route_status.pb"/>
-  <File Type="ROUTE-STATUS" Name="CPU10Bits_Pipelined_route_status.rpt"/>
-  <File Type="ROUTE-PWR-RPX" Name="CPU10Bits_Pipelined_power_routed.rpx"/>
-  <File Type="ROUTE-PWR-SUM" Name="CPU10Bits_Pipelined_power_summary_routed.pb"/>
-  <File Type="ROUTE-PWR" Name="CPU10Bits_Pipelined_power_routed.rpt"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="CPU10Bits_Pipelined_methodology_drc_routed.pb"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="CPU10Bits_Pipelined_methodology_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="CPU10Bits_Pipelined_methodology_drc_routed.rpt"/>
-  <File Type="ROUTE-DRC-RPX" Name="CPU10Bits_Pipelined_drc_routed.rpx"/>
-  <File Type="ROUTE-DRC-PB" Name="CPU10Bits_Pipelined_drc_routed.pb"/>
-  <File Type="ROUTE-DRC" Name="CPU10Bits_Pipelined_drc_routed.rpt"/>
+  <File Type="REPORTS-TCL" Name="CPU10Bits_Pipelined_reports.tcl"/>
+  <File Type="PA-TCL" Name="CPU10Bits_Pipelined.tcl"/>
   <File Type="ROUTE-BLACKBOX-DCP" Name="CPU10Bits_Pipelined_routed_bb.dcp"/>
   <File Type="ROUTE-DCP" Name="CPU10Bits_Pipelined_routed.dcp"/>
   <File Type="ROUTE-ERROR-DCP" Name="CPU10Bits_Pipelined_routed_error.dcp"/>
-  <File Type="PHYSOPT-TIMING" Name="CPU10Bits_Pipelined_timing_summary_physopted.rpt"/>
-  <File Type="PHYSOPT-DRC" Name="CPU10Bits_Pipelined_drc_physopted.rpt"/>
   <File Type="PHYSOPT-DCP" Name="CPU10Bits_Pipelined_physopt.dcp"/>
-  <File Type="POSTPLACE-PWROPT-TIMING" Name="CPU10Bits_Pipelined_timing_summary_postplace_pwropted.rpt"/>
   <File Type="POSTPLACE-PWROPT-DCP" Name="CPU10Bits_Pipelined_postplace_pwropt.dcp"/>
-  <File Type="PLACE-TIMING" Name="CPU10Bits_Pipelined_timing_summary_placed.rpt"/>
   <File Type="PLACE-PRE-SIMILARITY" Name="CPU10Bits_Pipelined_incremental_reuse_pre_placed.rpt"/>
-  <File Type="PLACE-SIMILARITY" Name="CPU10Bits_Pipelined_incremental_reuse_placed.rpt"/>
-  <File Type="PLACE-CTRL" Name="CPU10Bits_Pipelined_control_sets_placed.rpt"/>
-  <File Type="PLACE-UTIL-PB" Name="CPU10Bits_Pipelined_utilization_placed.pb"/>
-  <File Type="PLACE-UTIL" Name="CPU10Bits_Pipelined_utilization_placed.rpt"/>
-  <File Type="PLACE-CLK" Name="CPU10Bits_Pipelined_clock_utilization_placed.rpt"/>
-  <File Type="PLACE-IO" Name="CPU10Bits_Pipelined_io_placed.rpt"/>
-  <File Type="RDI-RDI" Name="CPU10Bits_Pipelined.vdi"/>
-  <File Type="PWROPT-TIMING" Name="CPU10Bits_Pipelined_timing_summary_pwropted.rpt"/>
-  <File Type="PWROPT-DRC" Name="CPU10Bits_Pipelined_drc_pwropted.rpt"/>
-  <File Type="OPT-TIMING" Name="CPU10Bits_Pipelined_timing_summary_opted.rpt"/>
   <File Type="OPT-HWDEF" Name="CPU10Bits_Pipelined.hwdef"/>
-  <File Type="OPT-METHODOLOGY-DRC" Name="CPU10Bits_Pipelined_methodology_drc_opted.rpt"/>
-  <File Type="OPT-DRC" Name="CPU10Bits_Pipelined_drc_opted.rpt"/>
   <File Type="OPT-DCP" Name="CPU10Bits_Pipelined_opt.dcp"/>
-  <File Type="INIT-TIMING" Name="CPU10Bits_Pipelined_timing_summary_init.rpt"/>
   <File Type="PWROPT-DCP" Name="CPU10Bits_Pipelined_pwropt.dcp"/>
-  <File Type="REPORTS-TCL" Name="CPU10Bits_Pipelined_reports.tcl"/>
   <File Type="PLACE-DCP" Name="CPU10Bits_Pipelined_placed.dcp"/>
-  <File Type="PA-TCL" Name="CPU10Bits_Pipelined.tcl"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/ALU.v">

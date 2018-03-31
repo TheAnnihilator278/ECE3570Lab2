@@ -1,13 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_1" LaunchPart="xc7k160tifbg484-2L" LaunchTime="1522527814">
-  <File Type="VDS-TIMING-PB" Name="CPU10Bits_Pipelined_timing_summary_synth.pb"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="CPU10Bits_Pipelined_timing_summary_synth.rpt"/>
   <File Type="RDS-DCP" Name="CPU10Bits_Pipelined.dcp"/>
-  <File Type="RDS-UTIL-PB" Name="CPU10Bits_Pipelined_utilization_synth.pb"/>
-  <File Type="RDS-UTIL" Name="CPU10Bits_Pipelined_utilization_synth.rpt"/>
-  <File Type="RDS-PROPCONSTRS" Name="CPU10Bits_Pipelined_drc_synth.rpt"/>
-  <File Type="RDS-RDS" Name="CPU10Bits_Pipelined.vds"/>
   <File Type="REPORTS-TCL" Name="CPU10Bits_Pipelined_reports.tcl"/>
+  <File Type="RDS-RDS" Name="CPU10Bits_Pipelined.vds"/>
   <File Type="PA-TCL" Name="CPU10Bits_Pipelined.tcl"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
