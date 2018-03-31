@@ -92,6 +92,9 @@ module CPU10Bits_Pipelined(
     
     wire [2:0] reg_source_1_addr; // output of crontrol unit from fetch/decode stage, input to forwarding unit
    
+   wire [9:0] read_data_2_forwarded;
+   
+   wire mem_write_em;
     
     
     ForwardingUnit fwu0( .enable(enable_forwarding),
@@ -103,16 +106,24 @@ module CPU10Bits_Pipelined(
                          .alu_source_1_select(alu_source_1_select),
                          .alu_source_2_select(alu_source_2_select),
                          
+                         .op_code(instruction[9:7]),
                          .reg_dest_addr_em(write_addr_em), // output of execute/memory stage - reg address
                          .execute_result_em(write_data_em), // output of execute/memory stage - write back data
                          
-                         .alu_source_1_data_forwarded(alu_data_1_forwarded), // input to pipe reg 1
-                         .alu_source_2_data_forwarded(alu_data_2_forwarded) // input to pipe reg 1
+                         .read_data_2_fd(read_data2), // input
+                         .read_data_2_em(write_data_em), // input 
+                         .read_data_2_forwarded(read_data_2_forwarded), // output
+                         .mem_write_em(mem_write_em),
+                         .alu_source_1_data_forwarded(alu_data_1_forwarded), // output, input to pipe reg 1
+                         .alu_source_2_data_forwarded(alu_data_2_forwarded) // output, input to pipe reg 1
                           );
        
     Fetch_Decode_Stage fds0( .clk(clk),
                         .reset(reset),
-                        .reg_write_in(reg_write_wb),                  
+                        .reg_write_in(reg_write_wb),       
+                        
+                        .reg_read_1_forwarded(alu_data_1_forwarded),
+                        .reg_read_2_forwarded(alu_data_2_forwarded),           
 
                         .reg_write_data(write_data_wb), // input from writeback
                         .reg_write_addr(write_addr_wb), // input from writeback
@@ -137,7 +148,8 @@ module CPU10Bits_Pipelined(
                               .pipe_reg_data(pipe_reg1_out), // input
                               .write_addr(write_addr_em), // output
                               .write_data(write_data_em), // output
-                              .reg_write_en(reg_write_em)  // output
+                              .reg_write_en(reg_write_em),  // output
+                              .mem_write_em(mem_write_em) //output
                               );
     
     // reg_pipe2
@@ -156,7 +168,7 @@ module CPU10Bits_Pipelined(
     assign pipe_reg1_in[6:5] = ALU_op;
     assign pipe_reg1_in[16:7] = alu_data_1_forwarded; // from forwarding unit
     assign pipe_reg1_in[26:17] = alu_data_2_forwarded; // from forwarding unit
-    assign pipe_reg1_in[36:27] = read_data2;
+    assign pipe_reg1_in[36:27] = read_data_2_forwarded;
     assign pipe_reg1_in[37] = reg_write_fd;
     
     assign pipe_reg2_in[13] = reg_write_em;
@@ -185,6 +197,10 @@ module Fetch_Decode_Stage(
     input wire reg_write_in,
     input wire [9:0] reg_write_data, // tied to register file for write back
     input wire [2:0] reg_write_addr, // tied to register file for write back
+    
+    input wire [9:0] reg_read_1_forwarded,
+    input wire [9:0] reg_read_2_forwarded,
+    
     output reg mem_to_reg, // control line
     output reg mem_write, // control line 
     output reg [1:0] ALU_op,  // control line
@@ -218,9 +234,8 @@ module Fetch_Decode_Stage(
     
     wire [9:0] brach_control;
     
-    branch_comparator bc0( .clk(clk),
-                           .reg_data_1(read1_data),
-                           .reg_data_2(read2_data),
+    branch_comparator bc0( .reg_data_1(reg_read_1_forwarded),
+                           .reg_data_2(reg_read_2_forwarded),
                            .branch_control(brach_control)
                             );
     
@@ -230,7 +245,7 @@ module Fetch_Decode_Stage(
                    .branch_control(brach_control), 
                    .jump_address(instruction[6:2]), 
                    .branch_address(instruction[2:0]), 
-                   .reg_address(read1_data), 
+                   .reg_address(reg_read_1_forwarded), 
                    .PC_out(PC), 
                    .instruction(instruction_out) 
                    );
@@ -292,6 +307,7 @@ module Execute_Memory_Stage(
     input wire [37:0] pipe_reg_data,
     output reg [2:0] write_addr,
     output reg [9:0] write_data,
+    output reg mem_write_em,
     output reg reg_write_en
     );
     
@@ -317,7 +333,8 @@ module Execute_Memory_Stage(
     alu_source2 <= pipe_reg_data[26:17];
     read_data2 <= pipe_reg_data[36:27];
     reg_write_en <= pipe_reg_data[37];
-    write_data = wr_data;
+    write_data <= wr_data;
+    mem_write_em <= mem_write; 
     
     end
     
@@ -475,7 +492,6 @@ module write_data_mux(
 endmodule
 
 module branch_comparator(
-    input wire clk,
     input wire [9:0] reg_data_1,
     input wire [9:0] reg_data_2,
     output reg [9:0] branch_control

@@ -2,11 +2,11 @@
 # Vivado v2017.4 (64-bit)
 # SW Build 2086221 on Fri Dec 15 20:54:30 MST 2017
 # IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
-# Start of session at: Thu Mar 29 17:02:55 2018
-# Process ID: 13921
+# Start of session at: Sat Mar 31 16:23:35 2018
+# Process ID: 32727
 # Current directory: /archive/scripts/ECE3570Lab2/ECE3570Lab2.runs/synth_1
-# Command line: vivado -log CPU10Bits_Test.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source CPU10Bits_Test.tcl
-# Log file: /archive/scripts/ECE3570Lab2/ECE3570Lab2.runs/synth_1/CPU10Bits_Test.vds
+# Command line: vivado -log CPU10Bits_Pipelined.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source CPU10Bits_Pipelined.tcl
+# Log file: /archive/scripts/ECE3570Lab2/ECE3570Lab2.runs/synth_1/CPU10Bits_Pipelined.vds
 # Journal file: /archive/scripts/ECE3570Lab2/ECE3570Lab2.runs/synth_1/vivado.jou
 #-----------------------------------------------------------
-source CPU10Bits_Test.tcl -notrace
+source CPU10Bits_Pipelined.tcl -notrace

@@ -1,0 +1,74 @@
+Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
+------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
+| Date         : Sat Mar 31 16:25:01 2018
+| Host         : linux running 64-bit Ubuntu 16.04.3 LTS
+| Command      : report_control_sets -verbose -file CPU10Bits_Pipelined_control_sets_placed.rpt
+| Design       : CPU10Bits_Pipelined
+| Device       : xc7k160ti
+------------------------------------------------------------------------------------------------
+
+Control Set Information
+
+Table of Contents
+-----------------
+1. Summary
+2. Flip-Flop Distribution
+3. Detailed Control Set Information
+
+1. Summary
+----------
+
++----------------------------------------------------------+-------+
+|                          Status                          | Count |
++----------------------------------------------------------+-------+
+| Number of unique control sets                            |    13 |
+| Unused register locations in slices containing registers |    48 |
++----------------------------------------------------------+-------+
+
+
+2. Flip-Flop Distribution
+-------------------------
+
++--------------+-----------------------+------------------------+-----------------+--------------+
+| Clock Enable | Synchronous Set/Reset | Asynchronous Set/Reset | Total Registers | Total Slices |
++--------------+-----------------------+------------------------+-----------------+--------------+
+| No           | No                    | No                     |              10 |            5 |
+| No           | No                    | Yes                    |               0 |            0 |
+| No           | Yes                   | No                     |              72 |           32 |
+| Yes          | No                    | No                     |               0 |            0 |
+| Yes          | No                    | Yes                    |               0 |            0 |
+| Yes          | Yes                   | No                     |              70 |           21 |
++--------------+-----------------------+------------------------+-----------------+--------------+
+
+
+3. Detailed Control Set Information
+-----------------------------------
+
++----------------+----------------------------+------------------+------------------+----------------+
+|  Clock Signal  |        Enable Signal       | Set/Reset Signal | Slice Load Count | Bel Load Count |
++----------------+----------------------------+------------------+------------------+----------------+
+|  clk_IBUF_BUFG |                            |                  |                5 |             10 |
+| ~clk_IBUF_BUFG | reg_pipe2/Dout_reg[9]_0[0] | reset_IBUF       |                3 |             10 |
+| ~clk_IBUF_BUFG | reg_pipe2/Dout_reg[9]_1[0] | reset_IBUF       |                2 |             10 |
+| ~clk_IBUF_BUFG | reg_pipe2/Dout_reg[9]_2[0] | reset_IBUF       |                3 |             10 |
+| ~clk_IBUF_BUFG | reg_pipe2/Dout_reg[9]_3[0] | reset_IBUF       |                3 |             10 |
+| ~clk_IBUF_BUFG | reg_pipe2/Dout_reg[9]_4[0] | reset_IBUF       |                2 |             10 |
+| ~clk_IBUF_BUFG | reg_pipe2/Dout_reg[9]_5[0] | reset_IBUF       |                4 |             10 |
+| ~clk_IBUF_BUFG | reg_pipe2/E[0]             | reset_IBUF       |                4 |             10 |
+|  clk_IBUF_BUFG | reg_pipe1/Dout_reg[12]_0   |                  |               10 |             40 |
+|  clk_IBUF_BUFG | reg_pipe1/Dout_reg[12]_1   |                  |               10 |             40 |
+|  clk_IBUF_BUFG | reg_pipe1/Dout_reg[12]_2   |                  |               10 |             40 |
+|  clk_IBUF_BUFG | reg_pipe1/Dout_reg[12]_3   |                  |               10 |             40 |
+|  clk_IBUF_BUFG |                            | reset_IBUF       |               32 |             72 |
++----------------+----------------------------+------------------+------------------+----------------+
+
+
++--------+-----------------------+
+| Fanout | Number of ControlSets |
++--------+-----------------------+
+| 10     |                     8 |
+| 16+    |                     5 |
++--------+-----------------------+
+
+

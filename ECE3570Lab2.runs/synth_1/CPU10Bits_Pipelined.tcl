@@ -48,10 +48,10 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
 
-synth_design -top CPU10Bits_Test -part xc7k160tifbg484-2L
+synth_design -top CPU10Bits_Pipelined -part xc7k160tifbg484-2L
 
 
 # disable binary constraint mode for synth run checkpoints
 set_param constraints.enableBinaryConstraints false
-write_checkpoint -force -noxdef CPU10Bits_Test.dcp
-create_report "synth_1_synth_report_utilization_0" "report_utilization -file CPU10Bits_Test_utilization_synth.rpt -pb CPU10Bits_Test_utilization_synth.pb"
+write_checkpoint -force -noxdef CPU10Bits_Pipelined.dcp
+create_report "synth_1_synth_report_utilization_0" "report_utilization -file CPU10Bits_Pipelined_utilization_synth.rpt -pb CPU10Bits_Pipelined_utilization_synth.pb"
