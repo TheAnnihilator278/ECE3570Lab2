@@ -40,6 +40,7 @@ INFO: [VRFC 10-311] analyzing module RegisterFileTest
 INFO: [VRFC 10-311] analyzing module RegisterFile
 INFO: [VRFC 10-311] analyzing module RegisterTest
 INFO: [VRFC 10-311] analyzing module reg_decode
+INFO: [VRFC 10-311] analyzing module Register_10bit_PC
 INFO: [VRFC 10-311] analyzing module Register_10bit
 INFO: [VRFC 10-311] analyzing module Register_10bit_StackPointer
 INFO: [VRFC 10-311] analyzing module Register_Pipeline_38bit
@@ -55,7 +56,7 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "/archive/scripts/ECE3570Lab2/ECE357
 INFO: [VRFC 10-311] analyzing module InstructionMemory
 WARNING: [VRFC 10-2421] module InstructionMemory is previously defined, ignoring this definition [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Memory.v:23]
 INFO: [VRFC 10-311] analyzing module DataMemory
-WARNING: [VRFC 10-2421] module DataMemory is previously defined, ignoring this definition [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Memory.v:160]
+WARNING: [VRFC 10-2421] module DataMemory is previously defined, ignoring this definition [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Memory.v:161]
 INFO: [VRFC 10-2263] Analyzing Verilog file "/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module RegisterFileTest
 WARNING: [VRFC 10-2421] module RegisterFileTest is previously defined, ignoring this definition [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:22]
@@ -65,14 +66,16 @@ INFO: [VRFC 10-311] analyzing module RegisterTest
 WARNING: [VRFC 10-2421] module RegisterTest is previously defined, ignoring this definition [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:136]
 INFO: [VRFC 10-311] analyzing module reg_decode
 WARNING: [VRFC 10-2421] module reg_decode is previously defined, ignoring this definition [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:173]
+INFO: [VRFC 10-311] analyzing module Register_10bit_PC
+WARNING: [VRFC 10-2421] module Register_10bit_PC is previously defined, ignoring this definition [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:195]
 INFO: [VRFC 10-311] analyzing module Register_10bit
-WARNING: [VRFC 10-2421] module Register_10bit is previously defined, ignoring this definition [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:195]
+WARNING: [VRFC 10-2421] module Register_10bit is previously defined, ignoring this definition [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:214]
 INFO: [VRFC 10-311] analyzing module Register_10bit_StackPointer
-WARNING: [VRFC 10-2421] module Register_10bit_StackPointer is previously defined, ignoring this definition [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:214]
+WARNING: [VRFC 10-2421] module Register_10bit_StackPointer is previously defined, ignoring this definition [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:233]
 INFO: [VRFC 10-311] analyzing module Register_Pipeline_38bit
-WARNING: [VRFC 10-2421] module Register_Pipeline_38bit is previously defined, ignoring this definition [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:233]
+WARNING: [VRFC 10-2421] module Register_Pipeline_38bit is previously defined, ignoring this definition [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:252]
 INFO: [VRFC 10-311] analyzing module Register_Pipeline_14bit
-WARNING: [VRFC 10-2421] module Register_Pipeline_14bit is previously defined, ignoring this definition [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:252]
+WARNING: [VRFC 10-2421] module Register_Pipeline_14bit is previously defined, ignoring this definition [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:271]
 INFO: [VRFC 10-2263] Analyzing Verilog file "/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/CPU.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ALUTest
 INFO: [VRFC 10-311] analyzing module ALU
@@ -86,6 +89,7 @@ INFO: [VRFC 10-311] analyzing module RegisterFileTest
 INFO: [VRFC 10-311] analyzing module RegisterFile
 INFO: [VRFC 10-311] analyzing module RegisterTest
 INFO: [VRFC 10-311] analyzing module reg_decode
+INFO: [VRFC 10-311] analyzing module Register_10bit_PC
 INFO: [VRFC 10-311] analyzing module Register_10bit
 INFO: [VRFC 10-311] analyzing module Register_10bit_StackPointer
 INFO: [VRFC 10-311] analyzing module Register_Pipeline_38bit
@@ -124,6 +128,7 @@ INFO: [VRFC 10-311] analyzing module RegisterFileTest
 INFO: [VRFC 10-311] analyzing module RegisterFile
 INFO: [VRFC 10-311] analyzing module RegisterTest
 INFO: [VRFC 10-311] analyzing module reg_decode
+INFO: [VRFC 10-311] analyzing module Register_10bit_PC
 INFO: [VRFC 10-311] analyzing module Register_10bit
 INFO: [VRFC 10-311] analyzing module Register_10bit_StackPointer
 INFO: [VRFC 10-311] analyzing module Register_Pipeline_38bit
@@ -149,3 +154,4 @@ INFO: [VRFC 10-311] analyzing module CPU10Bits
 INFO: [VRFC 10-311] analyzing module ALU_source1_mux
 INFO: [VRFC 10-311] analyzing module ALU_source2_mux
 INFO: [VRFC 10-311] analyzing module write_data_mux
+INFO: [VRFC 10-311] analyzing module branch_comparator

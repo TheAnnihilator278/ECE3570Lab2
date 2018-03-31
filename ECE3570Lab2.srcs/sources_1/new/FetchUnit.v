@@ -85,7 +85,7 @@ module FetchUnit(
     InstructionMemory im0( .clk(clk), .address(PC_in), .read_data(instruction) );
     
     //Create 10 bit register for program counter
-    Register_10bit pc_reg( .clk(clk), .reset(reset), .write_en(1'b1), .Din(PC_in), .Dout(PC_out) );
+    Register_10bit_PC pc_reg( .clk(clk), .reset(reset), .write_en(1'b1), .Din(PC_in), .Dout(PC_out) );
 
     //adder for calculating branch offset
     FullAdder_10Bit fa1( .a( branch_ext ), .b(10'b0000000100), .sum(branch_offset), .c_out(c_out) );   

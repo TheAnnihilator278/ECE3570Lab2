@@ -216,10 +216,18 @@ module Fetch_Decode_Stage(
     wire [1:0]alu_source2_control;
     wire [2:0] reg_write_addr_out;
     
+    wire [9:0] brach_control;
+    
+    branch_comparator bc0( .clk(clk),
+                           .reg_data_1(read1_data),
+                           .reg_data_2(read2_data),
+                           .branch_control(brach_control)
+                            );
+    
     FetchUnit fu0( .clk(clk), 
                    .reset(reset), 
                    .pc_control(pc_control), 
-                   .branch_control(reg_write_data), 
+                   .branch_control(brach_control), 
                    .jump_address(instruction[6:2]), 
                    .branch_address(instruction[2:0]), 
                    .reg_address(read1_data), 
@@ -463,5 +471,21 @@ module write_data_mux(
             1'b0: write_data <= alu_result;
             default: write_data <= alu_result;
         endcase
+    end
+endmodule
+
+module branch_comparator(
+    input wire clk,
+    input wire [9:0] reg_data_1,
+    input wire [9:0] reg_data_2,
+    output reg [9:0] branch_control
+    );
+    always@(*)begin
+        if(reg_data_1 == reg_data_2)begin
+            branch_control <= 0;
+        end
+        else begin
+            branch_control <= 10'b1111111111;
+        end
     end
 endmodule

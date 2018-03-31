@@ -45,51 +45,52 @@ module InstructionMemory(
 //        memory[8] <= 10'b1011101111; // sw $t0, -1($s0)
 //        memory[9] <= 10'b1110000011;  //  halt
         
-        // Program 2, F = ( X*Y ) - 4
-//        memory[0] <= 10'b1101000000; // lw $t1, 0($zero) ;$t1=x
-//        memory[1] <= 10'b0011000101;	// sll $a0, $t1, $zero	;store original x in $a0
-//        memory[2] <= 10'b1001010111;  //  addi $t1, $t1, -1    ;x--
-//        memory[3] <= 10'b1101100001; //   lw $s0, 1($zero) ;$s0=y
-//        memory[4] <= 10'b0000111000; //   add $t0, $s0, $zer0    ;$t0=4        
-//        memory[5] <= 10'b0111000000;  //  beq $t1, $zer0, 0    ;if x==0, pc=pc+4
-//        memory[6] <= 10'b0001111001;  //  add $s0, $s0, $t0    ;y=y+4
-//        memory[7] <= 10'b1001010111;  //  addi $t1, $t1, -1    ;x--
-//        memory[8] <= 10'b1111110101;  //  j -3            ;pc=pc-3        
-//        memory[9] <= 10'b0001000101;  //  add $t1, $zero, $a0    ;load original x
-//        memory[10] <= 10'b0101000010;  //  cmp $t1, $t1, $zer0
-//        memory[11] <= 10'b1000100010;  //  addi $t0, $zero, 2
-//        memory[12] <= 10'b0110110110;  //  beq $t0, $t1, -2    ;if x is pos, pc=pc+2
-//        memory[13] <= 10'b1001111100;  //  tcp $s0, $s0        ;two comp of y
-//        memory[14] <= 10'b1001111110;  //  addi $s0, $s0, -2    
-//        memory[15] <= 10'b1001111110;  //  addi $s0, $s0, -2    ;y=y-4
-//        memory[16] <= 10'b0011100110;  //  sll $v0, $s0, $zero    ;f=(x*y)-4 
-//        memory[17] <= 10'b1110000011;  //  halt
-
-// Program 2, F = ( X*Y ) - 4, rewrite for pipeline
-        memory[0] <= 10'b1100100010; // lw $t0, 2($zero)
-        memory[1] <= 10'b0010100111; // sll $ra, $t0, $zero
-        memory[2] <= 10'b1101000000; // lw $t1, 0($zero) ;$t1=x
-        memory[3] <= 10'b0011000101;    // sll $a0, $t1, $zero  ;store original x in $a0
-        memory[4] <= 10'b1001010111;  //  addi $t1, $t1, -1    ;x--
-        memory[5] <= 10'b1101100001; //   lw $s0, 1($zero) ;$s0=y
-        memory[6] <= 10'b0000111000; //   add $t0, $s0, $zer0    ;$t0=4
-        memory[7] <= 10'b0111000001;  //  beq $t1, $zer0, 1    ;if x==0, pc=pc+4
-        memory[8] <= 10'b0000000000; //nop
-        memory[9] <= 10'b0001111001;  //  add $s0, $s0, $t0    ;y=y+4
-        memory[10] <= 10'b1001010111;  //  addi $t1, $t1, -1    ;x--
-        //memory[9] <= 10'b1111110101;  //  j -3            ;pc=pc-3
-        memory[11] <= 10'b1110011100; // jr $ra
+ //        Program 2, F = ( X*Y ) - 4
+        memory[0] <= 10'b1101000000; // lw $t1, 0($zero) ;$t1=x
+        memory[1] <= 10'b0011000101;	// sll $a0, $t1, $zero	;store original x in $a0
+        memory[2] <= 10'b1001010111;  //  addi $t1, $t1, -1    ;x--
+        memory[3] <= 10'b1101100001; //   lw $s0, 1($zero) ;$s0=y
+        memory[4] <= 10'b0000111000; //   add $t0, $s0, $zer0    ;$t0=4        
+        memory[5] <= 10'b0111000000;  //  beq $t1, $zer0, 0    ;if x==0, pc=pc+4
+        memory[6] <= 10'b0001111001;  //  add $s0, $s0, $t0    ;y=y+4
+        memory[7] <= 10'b1001010111;  //  addi $t1, $t1, -1    ;x--
+        memory[8] <= 10'b1111110101;  //  j -3            ;pc=pc-3        
+        memory[9] <= 10'b0001000101;  //  add $t1, $zero, $a0    ;load original x
+        memory[10] <= 10'b0101000010;  //  cmp $t1, $t1, $zer0
+        memory[11] <= 10'b1000100010;  //  addi $t0, $zero, 2
         memory[12] <= 10'b0000000000; //nop
-        memory[13] <= 10'b0001000101;  //  add $t1, $zero, $a0    ;load original x
-        memory[14] <= 10'b0101000010;  //  cmp $t1, $t1, $zer0
-        memory[15] <= 10'b1000100010;  //  addi $t0, $zero, 2
-        memory[16] <= 10'b0110110111;  //  beq $t0, $t1, -1    ;if x is pos, pc=pc+2
-        memory[17] <= 10'b0000000000; //nop
-        memory[18] <= 10'b1001111100;  //  tcp $s0, $s0        ;two comp of y
-        memory[19] <= 10'b1001111110;  //  addi $s0, $s0, -2
-        memory[20] <= 10'b1001111110;  //  addi $s0, $s0, -2    ;y=y-4
-        memory[21] <= 10'b0011100110;  //  sll $v0, $s0, $zero    ;f=(x*y)-4
-        memory[22] <= 10'b1110000011;  //  halt
+        memory[13] <= 10'b0110110110;  //  beq $t0, $t1, -2    ;if x is pos, pc=pc+2
+        memory[14] <= 10'b1001111100;  //  tcp $s0, $s0        ;two comp of y
+        memory[15] <= 10'b1001111110;  //  addi $s0, $s0, -2    
+        memory[16] <= 10'b1001111110;  //  addi $s0, $s0, -2    ;y=y-4
+        memory[17] <= 10'b0011100110;  //  sll $v0, $s0, $zero    ;f=(x*y)-4 
+        memory[18] <= 10'b1110000011;  //  halt
+
+//// Program 2, F = ( X*Y ) - 4, rewrite for pipeline
+//        memory[0] <= 10'b1100100010; // lw $t0, 2($zero)
+//        memory[1] <= 10'b0010100111; // sll $ra, $t0, $zero
+//        memory[2] <= 10'b1101000000; // lw $t1, 0($zero) ;$t1=x
+//        memory[3] <= 10'b0011000101;    // sll $a0, $t1, $zero  ;store original x in $a0
+//        memory[4] <= 10'b1001010111;  //  addi $t1, $t1, -1    ;x--
+//        memory[5] <= 10'b1101100001; //   lw $s0, 1($zero) ;$s0=y
+//        memory[6] <= 10'b0000111000; //   add $t0, $s0, $zer0    ;$t0=4
+//        memory[7] <= 10'b0111000001;  //  beq $t1, $zer0, 1    ;if x==0, pc=pc+4
+//        memory[8] <= 10'b0000000000; //nop
+//        memory[9] <= 10'b0001111001;  //  add $s0, $s0, $t0    ;y=y+4
+//        memory[10] <= 10'b1001010111;  //  addi $t1, $t1, -1    ;x--
+//        //memory[9] <= 10'b1111110101;  //  j -3            ;pc=pc-3
+//        memory[11] <= 10'b1110011100; // jr $ra
+//       // memory[12] <= 10'b0000000000; //nop
+//        memory[12] <= 10'b0001000101;  //  add $t1, $zero, $a0    ;load original x
+//        memory[13] <= 10'b0101000010;  //  cmp $t1, $t1, $zer0
+//        memory[14] <= 10'b1000100010;  //  addi $t0, $zero, 2
+//        memory[15] <= 10'b0110110111;  //  beq $t0, $t1, -1    ;if x is pos, pc=pc+2
+//        memory[16] <= 10'b0000000000; //nop
+//        memory[17] <= 10'b1001111100;  //  tcp $s0, $s0        ;two comp of y
+//        memory[18] <= 10'b1001111110;  //  addi $s0, $s0, -2
+//        memory[19] <= 10'b1001111110;  //  addi $s0, $s0, -2    ;y=y-4
+//        memory[20] <= 10'b0011100110;  //  sll $v0, $s0, $zero    ;f=(x*y)-4
+//        memory[22] <= 10'b1110000011;  //  halt
 
 
         // program 3, array copy

@@ -8,8 +8,9 @@ Starting simulation data flow analysis
 Completed simulation data flow analysis
 Time Resolution for simulation is 1ps
 Compiling module xil_defaultlib.ForwardingUnit
+Compiling module xil_defaultlib.branch_comparator
 Compiling module xil_defaultlib.InstructionMemory
-Compiling module xil_defaultlib.Register_10bit
+Compiling module xil_defaultlib.Register_10bit_PC
 Compiling module xil_defaultlib.FullAdder_1Bit
 Compiling module xil_defaultlib.FullAdder_10Bit
 Compiling module xil_defaultlib.FetchUnit
@@ -23,6 +24,7 @@ Compiling module xil_defaultlib.ALU_source2_control_mux
 Compiling module xil_defaultlib.mem_write_mux
 Compiling module xil_defaultlib.mem_to_reg_mux
 Compiling module xil_defaultlib.ControlUnit
+Compiling module xil_defaultlib.Register_10bit
 Compiling module xil_defaultlib.Register_10bit_StackPointer
 Compiling module xil_defaultlib.reg_decode
 Compiling module xil_defaultlib.RegisterFile

@@ -192,7 +192,7 @@ module reg_decode(
     end
 endmodule
 
-module Register_10bit(
+module Register_10bit_PC(
     input wire clk,
     input wire reset,
     input wire write_en,
@@ -211,6 +211,25 @@ module Register_10bit(
         
 endmodule
 
+module Register_10bit(
+    input wire clk,
+    input wire reset,
+    input wire write_en,
+    input wire [9:0] Din,
+    output reg [9:0] Dout
+    );
+    
+    always @(negedge clk) begin
+        if (reset == 1'b1) begin
+            Dout <= 10'b0000000000;
+        end
+        else if (write_en == 1'b1)  begin
+            Dout <= Din;
+        end
+    end
+        
+endmodule
+
 module Register_10bit_StackPointer(
     input wire clk,
     input wire reset,
@@ -219,7 +238,7 @@ module Register_10bit_StackPointer(
     output reg [9:0] Dout
     );
     
-    always @(posedge clk) begin
+    always @(negedge clk) begin
         if (reset == 1'b1) begin
             Dout <= 10'b1111111111;
         end
