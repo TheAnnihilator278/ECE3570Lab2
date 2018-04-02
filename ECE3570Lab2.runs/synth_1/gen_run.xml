@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GenRun Id="synth_1" LaunchPart="xc7k160tifbg484-2L" LaunchTime="1522527814">
-  <File Type="RDS-DCP" Name="CPU10Bits_Pipelined.dcp"/>
   <File Type="REPORTS-TCL" Name="CPU10Bits_Pipelined_reports.tcl"/>
-  <File Type="RDS-RDS" Name="CPU10Bits_Pipelined.vds"/>
+  <File Type="RDS-DCP" Name="CPU10Bits_Pipelined.dcp"/>
   <File Type="PA-TCL" Name="CPU10Bits_Pipelined.tcl"/>
+  <File Type="RDS-RDS" Name="CPU10Bits_Pipelined.vds"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/ALU.v">
