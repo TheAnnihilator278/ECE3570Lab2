@@ -36,4 +36,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log CPU10Bits_Pipelined.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source CPU10Bits_Pipelined.tcl
+EAStep vivado -log CPU10Bits_Test.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source CPU10Bits_Test.tcl

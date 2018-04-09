@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7k160tifbg484-2L" LaunchTime="1522527814">
-  <File Type="REPORTS-TCL" Name="CPU10Bits_Pipelined_reports.tcl"/>
-  <File Type="RDS-DCP" Name="CPU10Bits_Pipelined.dcp"/>
-  <File Type="PA-TCL" Name="CPU10Bits_Pipelined.tcl"/>
-  <File Type="RDS-RDS" Name="CPU10Bits_Pipelined.vds"/>
+<GenRun Id="synth_1" LaunchPart="xc7k160tifbg484-2L" LaunchTime="1522685177">
+  <File Type="VDS-TIMING-PB" Name="CPU10Bits_Test_timing_summary_synth.pb"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="CPU10Bits_Test_timing_summary_synth.rpt"/>
+  <File Type="RDS-DCP" Name="CPU10Bits_Test.dcp"/>
+  <File Type="RDS-UTIL-PB" Name="CPU10Bits_Test_utilization_synth.pb"/>
+  <File Type="RDS-UTIL" Name="CPU10Bits_Test_utilization_synth.rpt"/>
+  <File Type="RDS-PROPCONSTRS" Name="CPU10Bits_Test_drc_synth.rpt"/>
+  <File Type="RDS-RDS" Name="CPU10Bits_Test.vds"/>
+  <File Type="REPORTS-TCL" Name="CPU10Bits_Test_reports.tcl"/>
+  <File Type="PA-TCL" Name="CPU10Bits_Test.tcl"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/ALU.v">
@@ -65,7 +70,7 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="CPU10Bits_Pipelined"/>
+      <Option Name="TopModule" Val="CPU10Bits_Test"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
