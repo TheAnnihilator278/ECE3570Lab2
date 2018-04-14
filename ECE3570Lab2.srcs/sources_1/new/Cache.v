@@ -1,87 +1,59 @@
 `timescale 1ns / 1ns
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 04/09/2018 02:45:48 PM
-// Design Name: 
-// Module Name: Cache
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
 
-module CacheTest();
-    reg clk;
-    reg write_en;
-    reg [9:0] write_data;
-    reg [9:0] address;
+module CacheTest;
+    wire Ready; //I need to initialize to zero for simulation //needs to be 2 bits so it can delay for 3 clocks ACTIVE LOW
+    wire[9:0] ReadValue;
+    reg CLK;
+    reg WriteEnable;
+    reg [9:0] Address;
+    reg [9:0] WriteData;
     
-    wire [9:0] read_data;
-    wire ready;
-    
-    Cache c0( .clk(clk), .write_en(write_en), .address(address), .read_data(read_data), .ready(ready) );
-
-
-    //toggle clock every 18ns
-    always #5 clk = ~clk;
+    Cache csh(CLK, WriteEnable, WriteData, Address, ReadValue, Ready);
     
     initial begin
-        clk = 1; 
-        // write some test data
-        write_en = 1;
-        address = 10'b0000000000;
-        write_data = 10'b1111000011;
-        #10;
-        address = 10'b0000000001;
-        write_data = 10'b0000111111;
-        #10;
-        address = 10'b0000000010;
-        write_data = 10'b1111001111;
-        #10;
-        address = 10'b0000000011;
-        write_data = 10'b1111110011;
-        #10;
-        // read that test data
-        write_en = 0;
-        address = 10'b0000000000;
-        #10;
-        address = 10'b0000000001;
-        #10;
-        address = 10'b0000000010;
-        #10;
-        address = 10'b0000000011;
-        #10;
+        WriteEnable = 0;
+        Address = 0;
+        WriteData = 0;
+        CLK = 0;
+        #20
+        Address = 10'b0000000001;
+        #80
+        Address = 10'b0000000011;
+        WriteData = 10'b0000110101;
+        #80
+        WriteEnable = 1;
+        #80
+        WriteEnable = 0;
+        Address = 10'b0000000010;
+        #80
+        Address = 10'b0000010010;
+        #80
+        Address = 10'b0000100010;
+        #80
+        WriteEnable = 1;
+        Address = 10'b0000101110; 
     end
+    
+    always #10 CLK = ~CLK;
 endmodule
 
-module Cache(    
-    input clk, 
-    input write_en,
-    input [9:0] write_data,
-    input [9:0] address,
-    output reg[9:0] read_data,
-    output reg ready
+
+module Cache(
+        input clk,
+        input write_en,
+        input [9:0] write_data,
+        input [9:0] address,
+        output reg[9:0] read_data,
+        output reg ready
     );
          
-    reg[29:0] CacheMem[7:0][1:0];    // 29 bits/block, 8 sets, 2 blocks/set
-        
-    reg block_index_sel;     
-    
-    reg Miss;
-    reg miss0;
-    reg miss1;
-    reg dirty;
+    reg[28:0] CacheMem[7:0][1:0];    //29 bits/block, 8 sets, 2 blocks/set
     reg[2:0] index;
+    reg block_index_sel;
+    reg miss0, miss1, Miss;
+    reg dirty;
     
+    wire cont_ready;
     wire evict;
     wire ram_load;
     wire ram_ready;
@@ -89,39 +61,38 @@ module Cache(
     reg [19:0] to_ram;
     reg [9:0] ram_address;
     
-    DataRam ram0(ram_data, ram_ready, clk, evict, ram_address, to_ram);
-    CacheController cont0( clk, Miss, dirty, ram_ready, ram_load, evict, ready);
+    RAM ram0(.read_data(ram_data), .done(ram_ready), .clk(clk), .write_en(evict), .addr(ram_address), .write_data(to_ram) );
+    cache_cont cont0(.clk(clk), .miss(Miss), .dirty(dirty), .r_ram(ram_ready), .ld(ram_load), .ev(evict), .rdy(cont_ready));
     
     // initialize cache with all zeros
-    reg[7:0] i; 
-    reg[2:0] j;
+    integer i, j;
     initial begin
-        for (i = 0; i < 8; i = i + 1) begin
-            for (j = 0; j < 2; j = j + 1)begin
+        for (i=0; i<8; i=i+1)
+            for (j=0; j<2; j=j+1)
                 CacheMem[i][j] <= 29'b0;
-            end
-        end
     end
         
     always@(*)
     begin
+        ready <= cont_ready;
+    
         index <= address[3:1];
         
-        // check block 0
+        // Check block 0
         if (CacheMem[index][0][28] == 0 || CacheMem[index][0][25:20] != address[9:4])
             miss0 <= 1'b1;
         else
             miss0 <= 1'b0;
         
-        // check clock 1
+        // Check block 1
         if (CacheMem[index][1][28] == 0 || CacheMem[index][1][25:20] != address[9:4])
             miss1 <= 1'b1;
         else
             miss1 <= 1'b0;
                         
         Miss <= miss0 & miss1;
-             
-        case(Miss)
+        
+        case (Miss)
         // HIT
             0: begin
                 block_index_sel <= miss0;
@@ -139,27 +110,32 @@ module Cache(
         endcase
         
         // cache HIT read data
-        case(address[0])
+        case (address[0])
             1: read_data <= CacheMem[index][block_index_sel][19:10];
             default: read_data <= CacheMem[index][block_index_sel][9:0];
         endcase
         
-        ram_address <= {CacheMem[index][block_index_sel][25:20], index, 1'b0}; 
+        ram_address <= {CacheMem[index][block_index_sel][25:20], index, 1'b0};
         to_ram <= CacheMem[index][block_index_sel][19:0];
-    end       
+    end
+    
+    // load tag to cache at positive edge if there is a miss
+    always@(posedge clk) begin
+        if (Miss == 1 || ram_load == 1) begin
+           CacheMem[index][block_index_sel][25:20] <= address[9:4];
+       end
+    end
           
-    always@(negedge clk)begin
+    always@(negedge clk) begin
         // load from ram to cache
         if (ram_load == 1) begin
             if (write_en == 0)
                 CacheMem[index][block_index_sel][19:0] <= ram_data;
             else begin
-                if (block_index_sel == 1)begin
+                if (block_index_sel == 1)
                     CacheMem[index][block_index_sel][9:0] <= ram_data[9:0];
-                end
-                else begin
+                else
                     CacheMem[index][block_index_sel][19:10] <= ram_data[19:10];
-                end
             end
        
             CacheMem[index][block_index_sel][28] <= 1'b1;
@@ -170,25 +146,131 @@ module Cache(
         
         // write to cache
         else if (Miss == 0 && write_en == 1) begin
-            if (address[0] == 1)begin
+            if (address[0] == 1)
                 CacheMem[index][block_index_sel][19:10] <= write_data;
-            end
-            else begin
+            else
                 CacheMem[index][block_index_sel][9:0] <= write_data;
-            end
             
             CacheMem[index][block_index_sel][27] <= 1'b1;
             CacheMem[index][block_index_sel][26] <= 1'b1;
             CacheMem[index][!block_index_sel][26] <= 1'b0;
-            
-        end
-    end
-    
-    // load tag to cache at positive edge if there is a miss
-    always@(posedge clk) begin
-        if (Miss == 1 || ram_load == 1)begin
-           CacheMem[index][block_index_sel][25:20] <= address[9:4];
         end
     end
 endmodule
 
+module cache_cont (
+        output reg ld,  // Load Flag
+        output reg ev,  // Eviction Flag
+        output reg rdy, // Ready Flag
+        input clk,      // Clock input signal
+        input miss,     // Indicates cache miss
+        input dirty,    // Indicates dirty cache
+        input r_ram     // Ram is ready flag
+    );
+    reg state;
+    
+    // Set initial values:
+    //  No eviction or load initially
+    //  The cache is ready
+    //  Initial state is 0
+    initial {ld,ev,rdy,state}=4'b0010;
+    
+    always @(*) begin
+        ev = miss & dirty & ~state; // If dirty and miss in state 0 set evict flag
+        ld = ~ev & state;           // Else, if in state 1 set load flag
+        rdy = ~ld & ~miss;          // Else, if no miss, set ready flag
+    end
+    
+    always @(posedge clk) begin 
+        if (miss)            // if a miss, toggle state
+            state <= ~state;
+        if (state & r_ram)   // if in state 1 and ram ready,
+            state <= 0;      //  return to state 0
+    end
+endmodule
+
+module RAM(
+        input clk,
+        input write_en,
+        input [9:0] addr, // address of offset 0 or 1 
+        input [19:0] write_data, //9:0 offset data 0, 19:10 offset data 1
+        output reg [19:0] read_data, //9:0 offset data 0, 19:10 offset data 1 
+        output reg done
+    );
+    
+    reg [9:0] memory[1023:0];
+    
+    integer i;
+    
+    initial begin
+        for ( i = 0; i < 1024; i = i +1 ) begin
+            memory[i] <= 0;
+        end
+    
+        memory[0] <= 10'b001110011;
+        memory[1] <= 10'b001100001;
+        memory[2] <= 10'b000100011;
+        memory[3] <= 10'b001100000;
+        memory[4] <= 10'b001110011;
+        memory[5] <= 10'b001110001;
+        memory[6] <= 10'b000101111;
+        memory[7] <= 10'b001101000;
+    end
+    
+    always@(*) begin
+        read_data[9:0] <= memory[{addr[9:1], 1'b0}];
+        read_data[19:10] <= memory[{addr[9:1], 1'b1}];
+        
+        if(write_en ==1) begin
+            if ({memory[{addr[9:1], 1'b1}], memory[{addr[9:1], 1'b0}]} == write_data)
+                done <= 1'b1;
+            else
+                done <= 1'b0;
+            end
+        else
+            done <= 1'b1;
+    end 
+    
+    always@(posedge clk) begin
+        if(write_en ==1) begin
+          memory[{addr[9:1], 1'b0}] <= write_data[9:0];
+          memory[{addr[9:1], 1'b1}] <= write_data[19:10];
+        end
+   end
+endmodule
+
+module RAM_Test();
+     reg clk;
+     reg write_en;
+     reg [9:0] addr;
+     reg [19:0] write_data;
+     wire [19:0] read_data;
+     wire done;
+     
+    //toggle clock every 4ns
+    always #4 clk = ~clk;
+    
+    RAM ram( .clk(clk), .write_en(write_en), .addr(addr), .write_data(write_data), .read_data(read_data), .done(done));
+    
+    initial begin
+        clk = 1;       
+        #16;
+
+        write_en = 1'b0;
+        addr = 10'b0000000001;
+        write_data = 20'b00000000001111111111;
+        
+       #16
+       
+       write_en = 1'b1;
+       addr = 10'b0000000001;
+       write_data = 20'b00000000001111111111;
+       
+       #16
+       
+       write_en = 1'b1;
+       addr = 10'b0000000011;
+       write_data = 20'b01010101010101010101;
+           
+    end
+endmodule

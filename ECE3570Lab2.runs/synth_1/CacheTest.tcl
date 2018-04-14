@@ -16,27 +16,22 @@ proc create_report { reportName command } {
     send_msg_id runtcl-5 warning "$msg"
   }
 }
+set_param synth.incrementalSynthesisCache C:/Users/Dexter/AppData/Roaming/Xilinx/Vivado/.Xil/Vivado-6484-Ferrari/incrSyn
+set_msg_config -id {Synth 8-256} -limit 10000
+set_msg_config -id {Synth 8-638} -limit 10000
 set_msg_config  -ruleid {1}  -id {Synth 8-27}  -string {{ERROR: [Synth 8-27] procedural assign not supported [C:/Users/Dexter/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:110]}}  -suppress 
 create_project -in_memory -part xc7k160tifbg484-2L
 
 set_param project.singleFileAddWarning.threshold 0
 set_param project.compositeFile.enableAutoGeneration 0
 set_param synth.vivado.isSynthRun true
-set_property webtalk.parent_dir /archive/scripts/ECE3570Lab2/ECE3570Lab2.cache/wt [current_project]
-set_property parent.project_path /archive/scripts/ECE3570Lab2/ECE3570Lab2.xpr [current_project]
+set_property webtalk.parent_dir C:/Users/Dexter/ECE3570Lab2/ECE3570Lab2.cache/wt [current_project]
+set_property parent.project_path C:/Users/Dexter/ECE3570Lab2/ECE3570Lab2.xpr [current_project]
 set_property default_lib xil_defaultlib [current_project]
 set_property target_language Verilog [current_project]
-set_property ip_output_repo /archive/scripts/ECE3570Lab2/ECE3570Lab2.cache/ip [current_project]
+set_property ip_output_repo c:/Users/Dexter/ECE3570Lab2/ECE3570Lab2.cache/ip [current_project]
 set_property ip_cache_permissions {read write} [current_project]
-read_verilog -library xil_defaultlib {
-  /archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ALU.v
-  /archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ControlUnit.v
-  /archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Memory.v
-  /archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v
-  /archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/FetchUnit.v
-  /archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ForwardingUnit.v
-  /archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/CPU.v
-}
+read_verilog -library xil_defaultlib C:/Users/Dexter/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Cache.v
 # Mark all dcp files as not used in implementation to prevent them from being
 # stitched into the results of this synthesis run. Any black boxes in the
 # design are intentionally left as such for best results. Dcp files will be
@@ -46,10 +41,10 @@ foreach dcp [get_files -quiet -all -filter file_type=="Design\ Checkpoint"] {
   set_property used_in_implementation false $dcp
 }
 
-synth_design -top CPU10Bits_Test -part xc7k160tifbg484-2L
+synth_design -top CacheTest -part xc7k160tifbg484-2L
 
 
 # disable binary constraint mode for synth run checkpoints
 set_param constraints.enableBinaryConstraints false
-write_checkpoint -force -noxdef CPU10Bits_Test.dcp
-create_report "synth_1_synth_report_utilization_0" "report_utilization -file CPU10Bits_Test_utilization_synth.rpt -pb CPU10Bits_Test_utilization_synth.pb"
+write_checkpoint -force -noxdef CacheTest.dcp
+create_report "synth_1_synth_report_utilization_0" "report_utilization -file CacheTest_utilization_synth.rpt -pb CacheTest_utilization_synth.pb"

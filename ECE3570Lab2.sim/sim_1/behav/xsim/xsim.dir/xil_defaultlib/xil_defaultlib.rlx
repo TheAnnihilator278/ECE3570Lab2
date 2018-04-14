@@ -1,12 +1,6 @@
 0.6
 2017.4
 Dec 15 2017
-20:57:24
-/archive/scripts/ECE3570Lab2/ECE3570Lab2.sim/sim_1/behav/xsim/glbl.v,1522683087,verilog,,,,glbl,,,,,,,,
-/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ALU.v,1522683087,verilog,,/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ControlUnit.v,,ALU;ALUTest;ALU_mux;Comparator;Complementor;FullAdder_10Bit;FullAdder_1Bit;Shifter,,,,,,,,
-/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/CPU.v,1522683087,verilog,,,/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ALU.v;/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v;/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ControlUnit.v;/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/FetchUnit.v;/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Memory.v;/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ForwardingUnit.v,ALU_source1_mux;ALU_source2_mux;CPU10Bits;CPU10Bits_Pipelined;CPU10Bits_Test;Execute_Memory_Stage;Execute_Memory_Test;Fetch_Decode_Stage;Fetch_Decode_Test;Write_Back_Stage;Write_Back_Test;branch_comparator;write_data_mux,,,,,,,,
-/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ControlUnit.v,1522683087,verilog,,/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/FetchUnit.v,,ALU_op_mux;ALU_source1_control_mux;ALU_source2_control_mux;ControlUnit;ControlUnitTest;mem_to_reg_mux;mem_write_mux;pc_control_mux;reg_read1_addr_mux;reg_write_addr_control_mux;reg_write_mux,,,,,,,,
-/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/FetchUnit.v,1522683087,verilog,,/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ForwardingUnit.v,/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ALU.v;/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v;/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Memory.v,FetchUnit;FetchUnitTest,,,,,,,,
-/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ForwardingUnit.v,1522683087,verilog,,/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Memory.v,,ForwardingUnit;ForwardingUnitTest,,,,,,,,
-/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Memory.v,1522684143,verilog,,/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v,,DataMemory;InstructionMemory,,,,,,,,
-/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v,1522683087,verilog,,/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/CPU.v,,RegisterFile;RegisterFileTest;RegisterTest;Register_10bit;Register_10bit_PC;Register_10bit_StackPointer;Register_Pipeline_14bit;Register_Pipeline_38bit;reg_decode,,,,,,,,
+21:07:18
+C:/Users/Dexter/ECE3570Lab2/ECE3570Lab2.sim/sim_1/behav/xsim/glbl.v,1523644438,verilog,,,,glbl,,,,,,,,
+C:/Users/Dexter/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Cache.v,1523663439,verilog,,,,Cache;CacheTest;RAM;RAM_Test;cache_cont,,,,,,,,

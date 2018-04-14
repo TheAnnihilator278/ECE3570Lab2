@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="CacheTest_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="CacheTest" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="637000001fs"></ZoomEndTime>
+      <Cursor1Time time="1000000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="201"></NameColumnWidth>
+      <ValueColumnWidth column_width="137"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="3" />
+   <wvobject fp_name="/CacheTest/CLK" type="logic">
+      <obj_property name="ElementShortName">CLK</obj_property>
+      <obj_property name="ObjectShortName">CLK</obj_property>
+   </wvobject>
+   <wvobject fp_name="group565" type="group">
+      <obj_property name="label">Cache</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/CacheTest/Ready" type="logic">
+         <obj_property name="ElementShortName">Ready</obj_property>
+         <obj_property name="ObjectShortName">Ready</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTest/csh/dirty" type="logic">
+         <obj_property name="ElementShortName">dirty</obj_property>
+         <obj_property name="ObjectShortName">dirty</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTest/WriteEnable" type="logic">
+         <obj_property name="ElementShortName">WriteEnable</obj_property>
+         <obj_property name="ObjectShortName">WriteEnable</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTest/csh/Miss" type="logic">
+         <obj_property name="ElementShortName">Miss</obj_property>
+         <obj_property name="ObjectShortName">Miss</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTest/csh/CacheMem" type="array">
+         <obj_property name="ElementShortName">CacheMem[7:0][1:0][28:0]</obj_property>
+         <obj_property name="ObjectShortName">CacheMem[7:0][1:0][28:0]</obj_property>
+         <obj_property name="isExpanded"></obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTest/Address" type="array">
+         <obj_property name="ElementShortName">Address[9:0]</obj_property>
+         <obj_property name="ObjectShortName">Address[9:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTest/ReadValue" type="array">
+         <obj_property name="ElementShortName">ReadValue[9:0]</obj_property>
+         <obj_property name="ObjectShortName">ReadValue[9:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+   </wvobject>
+   <wvobject fp_name="group523" type="group">
+      <obj_property name="label">Ram</obj_property>
+      <obj_property name="DisplayName">label</obj_property>
+      <obj_property name="isExpanded"></obj_property>
+      <wvobject fp_name="/CacheTest/csh/ram0/memory[7]" type="array">
+         <obj_property name="ElementShortName">[7][9:0]</obj_property>
+         <obj_property name="ObjectShortName">[7][9:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTest/csh/ram0/memory[6]" type="array">
+         <obj_property name="ElementShortName">[6][9:0]</obj_property>
+         <obj_property name="ObjectShortName">[6][9:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTest/csh/ram0/memory[5]" type="array">
+         <obj_property name="ElementShortName">[5][9:0]</obj_property>
+         <obj_property name="ObjectShortName">[5][9:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTest/csh/ram0/memory[4]" type="array">
+         <obj_property name="ElementShortName">[4][9:0]</obj_property>
+         <obj_property name="ObjectShortName">[4][9:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTest/csh/ram0/memory[3]" type="array">
+         <obj_property name="ElementShortName">[3][9:0]</obj_property>
+         <obj_property name="ObjectShortName">[3][9:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTest/csh/ram0/memory[2]" type="array">
+         <obj_property name="ElementShortName">[2][9:0]</obj_property>
+         <obj_property name="ObjectShortName">[2][9:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTest/csh/ram0/memory[1]" type="array">
+         <obj_property name="ElementShortName">[1][9:0]</obj_property>
+         <obj_property name="ObjectShortName">[1][9:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTest/csh/ram0/memory[0]" type="array">
+         <obj_property name="ElementShortName">[0][9:0]</obj_property>
+         <obj_property name="ObjectShortName">[0][9:0]</obj_property>
+         <obj_property name="Radix">BINARYRADIX</obj_property>
+      </wvobject>
+      <wvobject fp_name="/CacheTest/WriteData" type="array">
+         <obj_property name="ElementShortName">WriteData[9:0]</obj_property>
+         <obj_property name="ObjectShortName">WriteData[9:0]</obj_property>
+      </wvobject>
+   </wvobject>
+</wave_config>

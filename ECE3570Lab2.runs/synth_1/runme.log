@@ -1,211 +1,92 @@
 
 *** Running vivado
-    with args -log CPU10Bits_Test.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source CPU10Bits_Test.tcl
+    with args -log CacheTest.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source CacheTest.tcl
 
 
 ****** Vivado v2017.4 (64-bit)
-  **** SW Build 2086221 on Fri Dec 15 20:54:30 MST 2017
+  **** SW Build 2086221 on Fri Dec 15 20:55:39 MST 2017
   **** IP Build 2085800 on Fri Dec 15 22:25:07 MST 2017
     ** Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
 
-source CPU10Bits_Test.tcl -notrace
-Command: synth_design -top CPU10Bits_Test -part xc7k160tifbg484-2L
+source CacheTest.tcl -notrace
+Command: synth_design -top CacheTest -part xc7k160tifbg484-2L
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7k160ti'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7k160ti'
 INFO: Launching helper process for spawning children vivado processes
-INFO: Helper process launched with PID 18571 
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module ALUTest [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ALU.v:23]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module ALU [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ALU.v:100]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module ALU_mux [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ALU.v:126]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module Complementor [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ALU.v:147]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module Comparator [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ALU.v:165]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module Shifter [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ALU.v:229]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module FullAdder_10Bit [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ALU.v:252]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module FullAdder_1Bit [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ALU.v:274]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module RegisterFileTest [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:22]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module RegisterFile [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:84]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module RegisterTest [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:136]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module reg_decode [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:173]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module Register_10bit_PC [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:195]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module Register_10bit [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:214]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module Register_10bit_StackPointer [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:233]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module Register_Pipeline_38bit [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:252]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module Register_Pipeline_14bit [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:271]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module InstructionMemory [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Memory.v:23]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module DataMemory [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Memory.v:139]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module ALUTest [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ALU.v:23]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module ALU [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ALU.v:100]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module ALU_mux [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ALU.v:126]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module Complementor [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ALU.v:147]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module Comparator [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ALU.v:165]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module Shifter [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ALU.v:229]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module FullAdder_10Bit [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ALU.v:252]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module FullAdder_1Bit [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ALU.v:274]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module RegisterFileTest [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:22]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module RegisterFile [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:84]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module RegisterTest [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:136]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module reg_decode [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:173]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module Register_10bit_PC [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:195]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module Register_10bit [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:214]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module Register_10bit_StackPointer [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:233]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module Register_Pipeline_38bit [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:252]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module Register_Pipeline_14bit [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:271]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module ControlUnitTest [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ControlUnit.v:22]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module ControlUnit [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ControlUnit.v:87]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module mem_write_mux [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ControlUnit.v:158]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module mem_to_reg_mux [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ControlUnit.v:170]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module reg_read1_addr_mux [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ControlUnit.v:183]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module reg_write_addr_control_mux [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ControlUnit.v:209]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module ALU_source1_control_mux [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ControlUnit.v:231]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module ALU_source2_control_mux [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ControlUnit.v:254]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module pc_control_mux [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ControlUnit.v:275]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module ALU_op_mux [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ControlUnit.v:296]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module reg_write_mux [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ControlUnit.v:321]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module InstructionMemory [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Memory.v:23]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module DataMemory [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Memory.v:139]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module FetchUnitTest [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/FetchUnit.v:28]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module FetchUnit [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/FetchUnit.v:67]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module ForwardingUnitTest [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ForwardingUnit.v:22]
-CRITICAL WARNING: [Synth 8-2490] overwriting previous definition of module ForwardingUnit [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ForwardingUnit.v:100]
+INFO: Helper process launched with PID 3592 
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 1258.605 ; gain = 84.277 ; free physical = 2026 ; free virtual = 22549
+Starting Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 338.715 ; gain = 95.414
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-638] synthesizing module 'CPU10Bits_Test' [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/CPU.v:29]
-INFO: [Synth 8-638] synthesizing module 'CPU10Bits_Pipelined' [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/CPU.v:53]
-INFO: [Synth 8-638] synthesizing module 'ForwardingUnit' [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ForwardingUnit.v:100]
-INFO: [Synth 8-256] done synthesizing module 'ForwardingUnit' (1#1) [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ForwardingUnit.v:100]
-INFO: [Synth 8-638] synthesizing module 'Fetch_Decode_Stage' [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/CPU.v:275]
-INFO: [Synth 8-638] synthesizing module 'branch_comparator' [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/CPU.v:639]
-INFO: [Synth 8-256] done synthesizing module 'branch_comparator' (2#1) [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/CPU.v:639]
-INFO: [Synth 8-638] synthesizing module 'FetchUnit' [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/FetchUnit.v:67]
-INFO: [Synth 8-638] synthesizing module 'InstructionMemory' [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Memory.v:23]
-INFO: [Synth 8-256] done synthesizing module 'InstructionMemory' (3#1) [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Memory.v:23]
-INFO: [Synth 8-638] synthesizing module 'Register_10bit_PC' [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:195]
-INFO: [Synth 8-256] done synthesizing module 'Register_10bit_PC' (4#1) [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:195]
-INFO: [Synth 8-638] synthesizing module 'FullAdder_10Bit' [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ALU.v:252]
-INFO: [Synth 8-638] synthesizing module 'FullAdder_1Bit' [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ALU.v:274]
-INFO: [Synth 8-256] done synthesizing module 'FullAdder_1Bit' (5#1) [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ALU.v:274]
-INFO: [Synth 8-256] done synthesizing module 'FullAdder_10Bit' (6#1) [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ALU.v:252]
-INFO: [Synth 8-226] default block is never used [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/FetchUnit.v:106]
-INFO: [Synth 8-256] done synthesizing module 'FetchUnit' (7#1) [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/FetchUnit.v:67]
-INFO: [Synth 8-638] synthesizing module 'ControlUnit' [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ControlUnit.v:87]
-INFO: [Synth 8-638] synthesizing module 'reg_write_mux' [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ControlUnit.v:321]
-INFO: [Synth 8-256] done synthesizing module 'reg_write_mux' (8#1) [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ControlUnit.v:321]
-INFO: [Synth 8-638] synthesizing module 'ALU_op_mux' [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ControlUnit.v:296]
-INFO: [Synth 8-256] done synthesizing module 'ALU_op_mux' (9#1) [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ControlUnit.v:296]
-INFO: [Synth 8-638] synthesizing module 'pc_control_mux' [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ControlUnit.v:275]
-INFO: [Synth 8-256] done synthesizing module 'pc_control_mux' (10#1) [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ControlUnit.v:275]
-INFO: [Synth 8-638] synthesizing module 'reg_write_addr_control_mux' [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ControlUnit.v:209]
-INFO: [Synth 8-256] done synthesizing module 'reg_write_addr_control_mux' (11#1) [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ControlUnit.v:209]
-INFO: [Synth 8-638] synthesizing module 'reg_read1_addr_mux' [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ControlUnit.v:183]
-INFO: [Synth 8-256] done synthesizing module 'reg_read1_addr_mux' (12#1) [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ControlUnit.v:183]
-INFO: [Synth 8-638] synthesizing module 'ALU_source1_control_mux' [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ControlUnit.v:231]
-INFO: [Synth 8-256] done synthesizing module 'ALU_source1_control_mux' (13#1) [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ControlUnit.v:231]
-INFO: [Synth 8-638] synthesizing module 'ALU_source2_control_mux' [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ControlUnit.v:254]
-INFO: [Synth 8-256] done synthesizing module 'ALU_source2_control_mux' (14#1) [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ControlUnit.v:254]
-INFO: [Synth 8-638] synthesizing module 'mem_write_mux' [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ControlUnit.v:158]
-INFO: [Synth 8-256] done synthesizing module 'mem_write_mux' (15#1) [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ControlUnit.v:158]
-INFO: [Synth 8-638] synthesizing module 'mem_to_reg_mux' [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ControlUnit.v:170]
-INFO: [Synth 8-256] done synthesizing module 'mem_to_reg_mux' (16#1) [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ControlUnit.v:170]
-INFO: [Synth 8-256] done synthesizing module 'ControlUnit' (17#1) [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ControlUnit.v:87]
-INFO: [Synth 8-638] synthesizing module 'RegisterFile' [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:84]
-INFO: [Synth 8-638] synthesizing module 'Register_10bit' [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:214]
-INFO: [Synth 8-256] done synthesizing module 'Register_10bit' (18#1) [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:214]
-INFO: [Synth 8-638] synthesizing module 'Register_10bit_StackPointer' [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:233]
-INFO: [Synth 8-256] done synthesizing module 'Register_10bit_StackPointer' (19#1) [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:233]
-INFO: [Synth 8-638] synthesizing module 'reg_decode' [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:173]
-INFO: [Synth 8-256] done synthesizing module 'reg_decode' (20#1) [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:173]
-INFO: [Synth 8-256] done synthesizing module 'RegisterFile' (21#1) [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:84]
-INFO: [Synth 8-638] synthesizing module 'ALU_source1_mux' [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/CPU.v:583]
-INFO: [Synth 8-226] default block is never used [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/CPU.v:590]
-INFO: [Synth 8-256] done synthesizing module 'ALU_source1_mux' (22#1) [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/CPU.v:583]
-INFO: [Synth 8-638] synthesizing module 'ALU_source2_mux' [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/CPU.v:603]
-INFO: [Synth 8-256] done synthesizing module 'ALU_source2_mux' (23#1) [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/CPU.v:603]
-INFO: [Synth 8-256] done synthesizing module 'Fetch_Decode_Stage' (24#1) [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/CPU.v:275]
-INFO: [Synth 8-638] synthesizing module 'Register_Pipeline_38bit' [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:252]
-INFO: [Synth 8-256] done synthesizing module 'Register_Pipeline_38bit' (25#1) [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:252]
-INFO: [Synth 8-638] synthesizing module 'Execute_Memory_Stage' [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/CPU.v:429]
-INFO: [Synth 8-638] synthesizing module 'ALU' [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ALU.v:100]
-INFO: [Synth 8-638] synthesizing module 'Comparator' [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ALU.v:165]
-INFO: [Synth 8-256] done synthesizing module 'Comparator' (26#1) [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ALU.v:165]
-INFO: [Synth 8-638] synthesizing module 'Shifter' [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ALU.v:229]
-INFO: [Synth 8-256] done synthesizing module 'Shifter' (27#1) [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ALU.v:229]
-INFO: [Synth 8-638] synthesizing module 'Complementor' [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ALU.v:147]
-INFO: [Synth 8-256] done synthesizing module 'Complementor' (28#1) [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ALU.v:147]
-INFO: [Synth 8-638] synthesizing module 'ALU_mux' [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ALU.v:126]
-INFO: [Synth 8-226] default block is never used [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ALU.v:136]
-INFO: [Synth 8-256] done synthesizing module 'ALU_mux' (29#1) [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ALU.v:126]
-INFO: [Synth 8-256] done synthesizing module 'ALU' (30#1) [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/ALU.v:100]
-INFO: [Synth 8-638] synthesizing module 'DataMemory' [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Memory.v:139]
-INFO: [Synth 8-256] done synthesizing module 'DataMemory' (31#1) [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Memory.v:139]
-INFO: [Synth 8-638] synthesizing module 'write_data_mux' [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/CPU.v:624]
-INFO: [Synth 8-226] default block is never used [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/CPU.v:631]
-INFO: [Synth 8-256] done synthesizing module 'write_data_mux' (32#1) [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/CPU.v:624]
-INFO: [Synth 8-256] done synthesizing module 'Execute_Memory_Stage' (33#1) [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/CPU.v:429]
-INFO: [Synth 8-638] synthesizing module 'Register_Pipeline_14bit' [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:271]
-INFO: [Synth 8-256] done synthesizing module 'Register_Pipeline_14bit' (34#1) [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Registers.v:271]
-INFO: [Synth 8-638] synthesizing module 'Write_Back_Stage' [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/CPU.v:505]
-INFO: [Synth 8-256] done synthesizing module 'Write_Back_Stage' (35#1) [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/CPU.v:505]
-INFO: [Synth 8-256] done synthesizing module 'CPU10Bits_Pipelined' (36#1) [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/CPU.v:53]
-WARNING: [Synth 8-85] always block has no event control specified [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/CPU.v:40]
-INFO: [Synth 8-256] done synthesizing module 'CPU10Bits_Test' (37#1) [/archive/scripts/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/CPU.v:29]
-WARNING: [Synth 8-3331] design reg_read1_addr_mux has unconnected port j_addr[4]
-WARNING: [Synth 8-3331] design reg_read1_addr_mux has unconnected port j_addr[3]
+INFO: [Synth 8-638] synthesizing module 'CacheTest' [C:/Users/Dexter/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Cache.v:22]
+INFO: [Synth 8-638] synthesizing module 'Cache' [C:/Users/Dexter/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Cache.v:66]
+INFO: [Synth 8-638] synthesizing module 'RAM' [C:/Users/Dexter/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Cache.v:232]
+WARNING: [Synth 8-4767] Trying to implement RAM 'memory_reg' in registers. Block RAM or DRAM implementation is not possible; see log for reasons.
+Reason is one or more of the following :
+	1: RAM has multiple writes via different ports in same process. If RAM inferencing intended, write to one port per process. 
+	2: Unable to determine number of words or word size in RAM. 
+	3: No valid read/write found for RAM. 
+RAM "memory_reg" dissolved into registers
+INFO: [Synth 8-256] done synthesizing module 'RAM' (1#1) [C:/Users/Dexter/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Cache.v:232]
+INFO: [Synth 8-638] synthesizing module 'cache_cont' [C:/Users/Dexter/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Cache.v:199]
+INFO: [Synth 8-256] done synthesizing module 'cache_cont' (2#1) [C:/Users/Dexter/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Cache.v:199]
+INFO: [Synth 8-226] default block is never used [C:/Users/Dexter/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Cache.v:128]
+INFO: [Synth 8-256] done synthesizing module 'Cache' (3#1) [C:/Users/Dexter/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Cache.v:66]
+WARNING: [Synth 8-350] instance 'c0' of module 'Cache' requires 6 connections, but only 5 given [C:/Users/Dexter/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Cache.v:31]
+WARNING: [Synth 8-85] always block has no event control specified [C:/Users/Dexter/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Cache.v:35]
+INFO: [Synth 8-256] done synthesizing module 'CacheTest' (4#1) [C:/Users/Dexter/ECE3570Lab2/ECE3570Lab2.srcs/sources_1/new/Cache.v:22]
+WARNING: [Synth 8-3331] design RAM has unconnected port addr[0]
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1286.855 ; gain = 112.527 ; free physical = 2044 ; free virtual = 22568
+Finished Synthesize : Time (s): cpu = 00:00:10 ; elapsed = 00:00:11 . Memory (MB): peak = 505.094 ; gain = 261.793
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1286.855 ; gain = 112.527 ; free physical = 2044 ; free virtual = 22567
+Finished Constraint Validation : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 505.094 ; gain = 261.793
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7k160tifbg484-2L
 ---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:11 ; elapsed = 00:00:12 . Memory (MB): peak = 505.094 ; gain = 261.793
+---------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7k160tifbg484-2L
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1294.859 ; gain = 120.531 ; free physical = 2045 ; free virtual = 22568
+INFO: [Synth 8-5544] ROM "CacheMem_reg[7][1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "CacheMem_reg[6][1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "CacheMem_reg[5][1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "CacheMem_reg[4][1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "CacheMem_reg[3][1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "CacheMem_reg[2][1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "CacheMem_reg[1][1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "CacheMem_reg[0][1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-5544] ROM "reg_write" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "pc_control" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "control" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "control" won't be mapped to Block RAM because address size (2) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "mem_write" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
-INFO: [Synth 8-5544] ROM "mem_to_reg" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
----------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 1320.898 ; gain = 146.570 ; free physical = 2028 ; free virtual = 22552
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:41 ; elapsed = 00:00:41 . Memory (MB): peak = 688.035 ; gain = 444.734
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
-+-+--------------+------------+----------+
-| |RTL Partition |Replication |Instances |
-+-+--------------+------------+----------+
-+-+--------------+------------+----------+
++------+--------------+------------+----------+
+|      |RTL Partition |Replication |Instances |
++------+--------------+------------+----------+
+|1     |RAM__GB0      |           1|     39062|
+|2     |RAM__GB1      |           1|     12171|
+|3     |RAM__GB2      |           1|     16053|
+|4     |Cache__GC0    |           1|      7245|
++------+--------------+------------+----------+
 No constraint files found.
 ---------------------------------------------------------------------------------
 Start RTL Component Statistics 
 ---------------------------------------------------------------------------------
 Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      1 Bit         XORs := 140   
 +---Registers : 
-	               38 Bit    Registers := 1     
-	               14 Bit    Registers := 1     
-	               10 Bit    Registers := 2     
+	               10 Bit    Registers := 1012  
+	                1 Bit    Registers := 1     
 +---Muxes : 
-	   2 Input     10 Bit        Muxes := 14    
-	   5 Input     10 Bit        Muxes := 1     
-	   6 Input     10 Bit        Muxes := 1     
-	   4 Input     10 Bit        Muxes := 5     
-	   6 Input      3 Bit        Muxes := 1     
-	   2 Input      3 Bit        Muxes := 1     
-	   5 Input      2 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 4     
-	   4 Input      2 Bit        Muxes := 2     
-	   6 Input      2 Bit        Muxes := 1     
-	   5 Input      1 Bit        Muxes := 1     
-	   3 Input      1 Bit        Muxes := 1     
-	   2 Input      1 Bit        Muxes := 2     
+	   2 Input     30 Bit        Muxes := 160   
+	   2 Input     28 Bit        Muxes := 1     
+	   2 Input     26 Bit        Muxes := 1     
+	   2 Input     20 Bit        Muxes := 17    
+	   2 Input     10 Bit        Muxes := 1054  
+	   2 Input      6 Bit        Muxes := 32    
+	   2 Input      1 Bit        Muxes := 2180  
 ---------------------------------------------------------------------------------
 Finished RTL Component Statistics 
 ---------------------------------------------------------------------------------
@@ -213,108 +94,27 @@ Finished RTL Component Statistics
 Start RTL Hierarchical Component Statistics 
 ---------------------------------------------------------------------------------
 Hierarchical RTL Component report 
-Module ForwardingUnit 
-Detailed RTL Component Info : 
-+---Muxes : 
-	   2 Input     10 Bit        Muxes := 4     
-	   5 Input     10 Bit        Muxes := 1     
-	   6 Input     10 Bit        Muxes := 1     
-Module branch_comparator 
-Detailed RTL Component Info : 
-+---Muxes : 
-	   2 Input     10 Bit        Muxes := 1     
-Module InstructionMemory 
+Module RAM 
 Detailed RTL Component Info : 
 +---Registers : 
-	               10 Bit    Registers := 1     
-Module Register_10bit_PC 
+	               10 Bit    Registers := 1012  
++---Muxes : 
+	   2 Input     10 Bit        Muxes := 1012  
+	   2 Input      1 Bit        Muxes := 2025  
+Module cache_cont 
 Detailed RTL Component Info : 
 +---Registers : 
-	               10 Bit    Registers := 1     
-Module FullAdder_1Bit 
-Detailed RTL Component Info : 
-+---XORs : 
-	   2 Input      1 Bit         XORs := 2     
-Module FetchUnit 
+	                1 Bit    Registers := 1     
+Module Cache 
 Detailed RTL Component Info : 
 +---Muxes : 
-	   4 Input     10 Bit        Muxes := 2     
-	   2 Input     10 Bit        Muxes := 1     
-Module reg_write_mux 
-Detailed RTL Component Info : 
-+---Muxes : 
-	   5 Input      1 Bit        Muxes := 1     
-Module ALU_op_mux 
-Detailed RTL Component Info : 
-+---Muxes : 
-	   5 Input      2 Bit        Muxes := 1     
-	   2 Input      2 Bit        Muxes := 1     
-Module pc_control_mux 
-Detailed RTL Component Info : 
-+---Muxes : 
-	   4 Input      2 Bit        Muxes := 1     
-Module reg_write_addr_control_mux 
-Detailed RTL Component Info : 
-+---Muxes : 
-	   6 Input      3 Bit        Muxes := 1     
-Module reg_read1_addr_mux 
-Detailed RTL Component Info : 
-+---Muxes : 
-	   2 Input      3 Bit        Muxes := 1     
-Module ALU_source1_control_mux 
-Detailed RTL Component Info : 
-+---Muxes : 
-	   3 Input      1 Bit        Muxes := 1     
-Module ALU_source2_control_mux 
-Detailed RTL Component Info : 
-+---Muxes : 
-	   6 Input      2 Bit        Muxes := 1     
-Module mem_write_mux 
-Detailed RTL Component Info : 
-+---Muxes : 
-	   2 Input      1 Bit        Muxes := 1     
-Module mem_to_reg_mux 
-Detailed RTL Component Info : 
-+---Muxes : 
-	   2 Input      1 Bit        Muxes := 1     
-Module RegisterFile 
-Detailed RTL Component Info : 
-+---Muxes : 
-	   4 Input     10 Bit        Muxes := 1     
-Module ALU_source1_mux 
-Detailed RTL Component Info : 
-+---Muxes : 
-	   2 Input     10 Bit        Muxes := 1     
-Module ALU_source2_mux 
-Detailed RTL Component Info : 
-+---Muxes : 
-	   4 Input     10 Bit        Muxes := 1     
-Module Register_Pipeline_38bit 
-Detailed RTL Component Info : 
-+---Registers : 
-	               38 Bit    Registers := 1     
-Module Comparator 
-Detailed RTL Component Info : 
-+---Muxes : 
-	   2 Input     10 Bit        Muxes := 4     
-	   2 Input      2 Bit        Muxes := 3     
-	   4 Input      2 Bit        Muxes := 1     
-Module Shifter 
-Detailed RTL Component Info : 
-+---Muxes : 
-	   2 Input     10 Bit        Muxes := 2     
-Module ALU_mux 
-Detailed RTL Component Info : 
-+---Muxes : 
-	   4 Input     10 Bit        Muxes := 1     
-Module write_data_mux 
-Detailed RTL Component Info : 
-+---Muxes : 
-	   2 Input     10 Bit        Muxes := 1     
-Module Register_Pipeline_14bit 
-Detailed RTL Component Info : 
-+---Registers : 
-	               14 Bit    Registers := 1     
+	   2 Input     30 Bit        Muxes := 160   
+	   2 Input     28 Bit        Muxes := 1     
+	   2 Input     26 Bit        Muxes := 1     
+	   2 Input     20 Bit        Muxes := 17    
+	   2 Input     10 Bit        Muxes := 42    
+	   2 Input      6 Bit        Muxes := 32    
+	   2 Input      1 Bit        Muxes := 155   
 ---------------------------------------------------------------------------------
 Finished RTL Hierarchical Component Statistics
 ---------------------------------------------------------------------------------
@@ -331,124 +131,117 @@ No constraint files found.
 ---------------------------------------------------------------------------------
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_zero/Dout_reg[9]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_zero/Dout_reg[8]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_zero/Dout_reg[7]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_zero/Dout_reg[6]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_zero/Dout_reg[5]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_zero/Dout_reg[4]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_zero/Dout_reg[3]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_zero/Dout_reg[2]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_zero/Dout_reg[1]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_zero/Dout_reg[0]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_t0/Dout_reg[9]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_t0/Dout_reg[8]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_t0/Dout_reg[7]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_t0/Dout_reg[6]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_t0/Dout_reg[5]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_t0/Dout_reg[4]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_t0/Dout_reg[3]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_t0/Dout_reg[2]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_t0/Dout_reg[1]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_t0/Dout_reg[0]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_t1/Dout_reg[9]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_t1/Dout_reg[8]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_t1/Dout_reg[7]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_t1/Dout_reg[6]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_t1/Dout_reg[5]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_t1/Dout_reg[4]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_t1/Dout_reg[3]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_t1/Dout_reg[2]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_t1/Dout_reg[1]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_t1/Dout_reg[0]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_s0/Dout_reg[9]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_s0/Dout_reg[8]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_s0/Dout_reg[7]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_s0/Dout_reg[6]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_s0/Dout_reg[5]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_s0/Dout_reg[4]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_s0/Dout_reg[3]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_s0/Dout_reg[2]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_s0/Dout_reg[1]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_s0/Dout_reg[0]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_sp/Dout_reg[9]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_sp/Dout_reg[8]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_sp/Dout_reg[7]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_sp/Dout_reg[6]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_sp/Dout_reg[5]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_sp/Dout_reg[4]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_sp/Dout_reg[3]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_sp/Dout_reg[2]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_sp/Dout_reg[1]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_sp/Dout_reg[0]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_a0/Dout_reg[9]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_a0/Dout_reg[8]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_a0/Dout_reg[7]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_a0/Dout_reg[6]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_a0/Dout_reg[5]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_a0/Dout_reg[4]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_a0/Dout_reg[3]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_a0/Dout_reg[2]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_a0/Dout_reg[1]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_a0/Dout_reg[0]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_v0/Dout_reg[9]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_v0/Dout_reg[8]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_v0/Dout_reg[7]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_v0/Dout_reg[6]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_v0/Dout_reg[5]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_v0/Dout_reg[4]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_v0/Dout_reg[3]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_v0/Dout_reg[2]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_v0/Dout_reg[1]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_v0/Dout_reg[0]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_ra/Dout_reg[9]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_ra/Dout_reg[8]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_ra/Dout_reg[7]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_ra/Dout_reg[6]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_ra/Dout_reg[5]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_ra/Dout_reg[4]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_ra/Dout_reg[3]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_ra/Dout_reg[2]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_ra/Dout_reg[1]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/rf0/reg_ra/Dout_reg[0]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/fu0/im0/read_data_reg[9]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/fu0/im0/read_data_reg[8]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/fu0/im0/read_data_reg[7]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/fu0/im0/read_data_reg[6]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/fu0/im0/read_data_reg[5]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/fu0/im0/read_data_reg[4]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/fu0/im0/read_data_reg[3]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/fu0/im0/read_data_reg[2]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/fu0/im0/read_data_reg[1]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/fu0/im0/read_data_reg[0]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/fu0/pc_reg/Dout_reg[9]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/fu0/pc_reg/Dout_reg[8]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/fu0/pc_reg/Dout_reg[7]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/fu0/pc_reg/Dout_reg[6]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/fu0/pc_reg/Dout_reg[5]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/fu0/pc_reg/Dout_reg[4]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/fu0/pc_reg/Dout_reg[3]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/fu0/pc_reg/Dout_reg[2]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/fu0/pc_reg/Dout_reg[1]) is unused and will be removed from module CPU10Bits_Test.
-WARNING: [Synth 8-3332] Sequential element (cpu0/fds0/fu0/pc_reg/Dout_reg[0]) is unused and will be removed from module CPU10Bits_Test.
-INFO: [Common 17-14] Message 'Synth 8-3332' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Synth 8-5546] ROM "p_0_out" won't be mapped to RAM because it is too sparse
+INFO: [Common 17-14] Message 'Synth 8-5546' appears 100 times and further instances of the messages will be disabled. Use the Tcl command set_msg_config to change the current settings.
+INFO: [Synth 8-5544] ROM "CacheMem_reg[7][1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "CacheMem_reg[6][1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "CacheMem_reg[5][1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "CacheMem_reg[4][1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "CacheMem_reg[3][1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "CacheMem_reg[2][1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "CacheMem_reg[1][1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
+INFO: [Synth 8-5544] ROM "CacheMem_reg[0][1]" won't be mapped to Block RAM because address size (3) smaller than threshold (5)
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:22 . Memory (MB): peak = 1450.695 ; gain = 276.367 ; free physical = 1907 ; free virtual = 22430
----------------------------------------------------------------------------------
----------------------------------------------------------------------------------
-Start ROM, RAM, DSP and Shift Register Reporting
----------------------------------------------------------------------------------
-
-ROM:
-+------------------+------------+---------------+----------------+
-|Module Name       | RTL Object | Depth x Width | Implemented As | 
-+------------------+------------+---------------+----------------+
-|InstructionMemory | p_0_out    | 32x10         | LUT            | 
-|CPU10Bits_Test    | p_0_out    | 32x10         | LUT            | 
-+------------------+------------+---------------+----------------+
-
----------------------------------------------------------------------------------
-Finished ROM, RAM, DSP and Shift Register Reporting
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:17 ; elapsed = 00:01:22 . Memory (MB): peak = 701.609 ; gain = 458.309
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -461,7 +254,7 @@ No constraint files found.
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:12 ; elapsed = 00:00:23 . Memory (MB): peak = 1450.695 ; gain = 276.367 ; free physical = 1906 ; free virtual = 22429
+Finished Timing Optimization : Time (s): cpu = 00:01:17 ; elapsed = 00:01:22 . Memory (MB): peak = 701.609 ; gain = 458.309
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -473,7 +266,7 @@ Report RTL Partitions:
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:12 ; elapsed = 00:00:23 . Memory (MB): peak = 1450.695 ; gain = 276.367 ; free physical = 1905 ; free virtual = 22429
+Finished Technology Mapping : Time (s): cpu = 00:01:18 ; elapsed = 00:01:22 . Memory (MB): peak = 702.395 ; gain = 459.094
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -497,7 +290,7 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 1450.695 ; gain = 276.367 ; free physical = 1906 ; free virtual = 22429
+Finished IO Insertion : Time (s): cpu = 00:01:19 ; elapsed = 00:01:23 . Memory (MB): peak = 702.395 ; gain = 459.094
 ---------------------------------------------------------------------------------
 
 Report Check Netlist: 
@@ -510,7 +303,7 @@ Report Check Netlist:
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 1450.695 ; gain = 276.367 ; free physical = 1906 ; free virtual = 22429
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:19 ; elapsed = 00:01:23 . Memory (MB): peak = 702.395 ; gain = 459.094
 ---------------------------------------------------------------------------------
 
 Report RTL Partitions: 
@@ -522,25 +315,25 @@ Report RTL Partitions:
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 1450.695 ; gain = 276.367 ; free physical = 1906 ; free virtual = 22429
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:19 ; elapsed = 00:01:23 . Memory (MB): peak = 702.395 ; gain = 459.094
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 1450.695 ; gain = 276.367 ; free physical = 1906 ; free virtual = 22429
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:19 ; elapsed = 00:01:23 . Memory (MB): peak = 702.395 ; gain = 459.094
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 1450.695 ; gain = 276.367 ; free physical = 1906 ; free virtual = 22429
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:19 ; elapsed = 00:01:23 . Memory (MB): peak = 702.395 ; gain = 459.094
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 1450.695 ; gain = 276.367 ; free physical = 1906 ; free virtual = 22429
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:19 ; elapsed = 00:01:23 . Memory (MB): peak = 702.395 ; gain = 459.094
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -565,11 +358,11 @@ Report Instance Areas:
 |1     |top      |       |     0|
 +------+---------+-------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 1450.695 ; gain = 276.367 ; free physical = 1906 ; free virtual = 22429
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:19 ; elapsed = 00:01:23 . Memory (MB): peak = 702.395 ; gain = 459.094
 ---------------------------------------------------------------------------------
-Synthesis finished with 0 errors, 53 critical warnings and 155 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 1450.695 ; gain = 276.367 ; free physical = 1906 ; free virtual = 22429
-Synthesis Optimization Complete : Time (s): cpu = 00:00:13 ; elapsed = 00:00:23 . Memory (MB): peak = 1450.703 ; gain = 276.367 ; free physical = 1906 ; free virtual = 22429
+Synthesis finished with 0 errors, 0 critical warnings and 4 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:19 ; elapsed = 00:01:23 . Memory (MB): peak = 702.395 ; gain = 459.094
+Synthesis Optimization Complete : Time (s): cpu = 00:01:19 ; elapsed = 00:01:23 . Memory (MB): peak = 702.395 ; gain = 459.094
 INFO: [Project 1-571] Translating synthesized netlist
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
@@ -577,10 +370,10 @@ INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
-92 Infos, 103 Warnings, 53 Critical Warnings and 0 Errors encountered.
+133 Infos, 4 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:15 ; elapsed = 00:00:24 . Memory (MB): peak = 1514.695 ; gain = 353.742 ; free physical = 1864 ; free virtual = 22392
-INFO: [Common 17-1381] The checkpoint '/archive/scripts/ECE3570Lab2/ECE3570Lab2.runs/synth_1/CPU10Bits_Test.dcp' has been generated.
-INFO: [runtcl-4] Executing : report_utilization -file CPU10Bits_Test_utilization_synth.rpt -pb CPU10Bits_Test_utilization_synth.pb
-report_utilization: Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.10 . Memory (MB): peak = 1538.707 ; gain = 0.000 ; free physical = 1862 ; free virtual = 22390
-INFO: [Common 17-206] Exiting Vivado at Mon Apr  2 12:06:51 2018...
+synth_design: Time (s): cpu = 00:01:23 ; elapsed = 00:01:28 . Memory (MB): peak = 710.586 ; gain = 479.129
+INFO: [Common 17-1381] The checkpoint 'C:/Users/Dexter/ECE3570Lab2/ECE3570Lab2.runs/synth_1/CacheTest.dcp' has been generated.
+INFO: [runtcl-4] Executing : report_utilization -file CacheTest_utilization_synth.rpt -pb CacheTest_utilization_synth.pb
+report_utilization: Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.079 . Memory (MB): peak = 710.586 ; gain = 0.000
+INFO: [Common 17-206] Exiting Vivado at Fri Apr 13 16:41:32 2018...

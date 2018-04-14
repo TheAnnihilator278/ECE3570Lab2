@@ -1,13 +1,13 @@
 Copyright 1986-2017 Xilinx, Inc. All Rights Reserved.
------------------------------------------------------------------------------------------------------------------------
-| Tool Version : Vivado v.2017.4 (lin64) Build 2086221 Fri Dec 15 20:54:30 MST 2017
-| Date         : Mon Apr  2 12:06:51 2018
-| Host         : linux running 64-bit Ubuntu 16.04.3 LTS
-| Command      : report_utilization -file CPU10Bits_Test_utilization_synth.rpt -pb CPU10Bits_Test_utilization_synth.pb
-| Design       : CPU10Bits_Test
+-------------------------------------------------------------------------------------------------------------
+| Tool Version : Vivado v.2017.4 (win64) Build 2086221 Fri Dec 15 20:55:39 MST 2017
+| Date         : Fri Apr 13 16:41:32 2018
+| Host         : Ferrari running 64-bit Service Pack 1  (build 7601)
+| Command      : report_utilization -file CacheTest_utilization_synth.rpt -pb CacheTest_utilization_synth.pb
+| Design       : CacheTest
 | Device       : 7k160tifbg484-2L
 | Design State : Fully Placed
------------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------
 
 Utilization Design Information
 

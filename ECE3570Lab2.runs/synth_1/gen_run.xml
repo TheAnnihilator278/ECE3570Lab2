@@ -1,18 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7k160tifbg484-2L" LaunchTime="1522685177">
-  <File Type="VDS-TIMING-PB" Name="CPU10Bits_Test_timing_summary_synth.pb"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="CPU10Bits_Test_timing_summary_synth.rpt"/>
-  <File Type="RDS-DCP" Name="CPU10Bits_Test.dcp"/>
-  <File Type="RDS-UTIL-PB" Name="CPU10Bits_Test_utilization_synth.pb"/>
-  <File Type="RDS-UTIL" Name="CPU10Bits_Test_utilization_synth.rpt"/>
-  <File Type="RDS-PROPCONSTRS" Name="CPU10Bits_Test_drc_synth.rpt"/>
-  <File Type="RDS-RDS" Name="CPU10Bits_Test.vds"/>
-  <File Type="REPORTS-TCL" Name="CPU10Bits_Test_reports.tcl"/>
-  <File Type="PA-TCL" Name="CPU10Bits_Test.tcl"/>
+<GenRun Id="synth_1" LaunchPart="xc7k160tifbg484-2L" LaunchTime="1523651999">
+  <File Type="PA-TCL" Name="CacheTest.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="CacheTest_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="CacheTest_reports.tcl"/>
+  <File Type="RDS-RDS" Name="CacheTest.vds"/>
+  <File Type="RDS-UTIL" Name="CacheTest_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="CacheTest_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="CacheTest.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="CacheTest_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="CacheTest_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1">
     <Filter Type="Srcs"/>
+    <File Path="$PSRCDIR/sources_1/new/Cache.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <File Path="$PSRCDIR/sources_1/new/ALU.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -20,13 +28,7 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/ControlUnit.v">
       <FileInfo>
-        <Attr Name="UsedIn" Val="synthesis"/>
-        <Attr Name="UsedIn" Val="implementation"/>
-        <Attr Name="UsedIn" Val="simulation"/>
-      </FileInfo>
-    </File>
-    <File Path="$PSRCDIR/sources_1/new/Memory.v">
-      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -34,6 +36,15 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/Registers.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
+    <File Path="$PSRCDIR/sources_1/new/Memory.v">
+      <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -41,6 +52,7 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/FetchUnit.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -48,6 +60,7 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/ForwardingUnit.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -55,6 +68,7 @@
     </File>
     <File Path="$PSRCDIR/sources_1/new/CPU.v">
       <FileInfo>
+        <Attr Name="AutoDisabled" Val="1"/>
         <Attr Name="UsedIn" Val="synthesis"/>
         <Attr Name="UsedIn" Val="implementation"/>
         <Attr Name="UsedIn" Val="simulation"/>
@@ -70,7 +84,7 @@
     </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="CPU10Bits_Test"/>
+      <Option Name="TopModule" Val="CacheTest"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">
