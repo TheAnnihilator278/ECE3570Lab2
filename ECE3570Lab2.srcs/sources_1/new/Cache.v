@@ -1,42 +1,33 @@
 `timescale 1ns / 1ns
 
 module CacheTest;
-    wire Ready; //I need to initialize to zero for simulation //needs to be 2 bits so it can delay for 3 clocks ACTIVE LOW
-    wire[9:0] ReadValue;
-    reg CLK;
-    reg WriteEnable;
-    reg [9:0] Address;
-    reg [9:0] WriteData;
+    wire rdy;
+    wire[9:0] readVal;
+    reg clk, w_en;
+    reg [9:0] addr;
+    reg [9:0] wr_data;
     
-    Cache csh(CLK, WriteEnable, WriteData, Address, ReadValue, Ready);
+    Cache tb(clk, w_en, wr_data, addr, readVal, rdy);
+    
+    always #10 clk = ~clk;
     
     initial begin
-        WriteEnable = 0;
-        Address = 0;
-        WriteData = 0;
-        CLK = 0;
-        #20
-        Address = 10'b0000000001;
-        #80
-        Address = 10'b0000000011;
-        WriteData = 10'b0000110101;
-        #80
-        WriteEnable = 1;
-        #80
-        WriteEnable = 0;
-        Address = 10'b0000000010;
-        #80
-        Address = 10'b0000010010;
-        #80
-        Address = 10'b0000100010;
-        #80
-        WriteEnable = 1;
-        Address = 10'b0000101110; 
+        w_en = 0;
+        addr = 0;
+        wr_data = 0;
+        clk = 0;                  #20
+        addr = 10'b0000000001;    #80
+        addr = 10'b0000000011;
+        wr_data = 10'b0000110101; #80
+        w_en = 1;                 #80
+        w_en = 0;
+        addr = 10'b0000000010;    #80
+        addr = 10'b0000010010;    #80
+        addr = 10'b0000100010;    #80
+        w_en = 1;
+        addr = 10'b0000101110; 
     end
-    
-    always #10 CLK = ~CLK;
 endmodule
-
 
 module Cache(
         input clk,
@@ -189,6 +180,27 @@ module cache_cont (
     end
 endmodule
 
+module cache_cont_tb ();
+    wire ld, ev, rdy;
+    reg clk=0, miss=0, dirty=0, r_ram=0;
+    
+    cache_cont test(ld, ev, rdy, clk, miss, dirty, r_ram);
+    
+    always #5 clk = ~clk;
+    
+    initial begin
+        miss=1;     #20
+        r_ram=1;    #20
+        miss=0;
+        r_ram=0;    #20
+        miss=1;
+        dirty=1;    #20
+        miss=0;     #20
+        miss=1;     #209
+        $finish;
+    end
+endmodule
+
 module RAM(
         input clk,
         input write_en,
@@ -238,7 +250,6 @@ module RAM(
         end
    end
 endmodule
-
 module RAM_Test();
      reg clk;
      reg write_en;
@@ -253,24 +264,32 @@ module RAM_Test();
     RAM ram( .clk(clk), .write_en(write_en), .addr(addr), .write_data(write_data), .read_data(read_data), .done(done));
     
     initial begin
-        clk = 1;       
+        clk = 1;    
+        write_en = 1'b0;  
+        addr = 10'b0000000000; 
         #16;
 
-        write_en = 1'b0;
+        
         addr = 10'b0000000001;
         write_data = 20'b00000000001111111111;
         
-       #16
+       #16;
        
        write_en = 1'b1;
        addr = 10'b0000000001;
        write_data = 20'b00000000001111111111;
        
-       #16
+       #16;
        
        write_en = 1'b1;
        addr = 10'b0000000011;
        write_data = 20'b01010101010101010101;
-           
+       
+       #16;
+       write_en = 1'b0; 
+       addr = 10'b0000000001;
+       #16;
+       addr = 10'b0000000011;
+        
     end
 endmodule
