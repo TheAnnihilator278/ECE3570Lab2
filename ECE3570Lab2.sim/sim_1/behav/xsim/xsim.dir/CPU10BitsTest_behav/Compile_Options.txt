@@ -1,1 +1,0 @@
--wto "07c9cef170004fa2b67ee1253f06516b" --incr --debug "typical" --relax --mt "8" -L "xil_defaultlib" -L "unisims_ver" -L "unimacro_ver" -L "secureip" --snapshot "CPU10BitsTest_behav" "xil_defaultlib.CPU10BitsTest" "xil_defaultlib.glbl" -log "elaborate.log" 

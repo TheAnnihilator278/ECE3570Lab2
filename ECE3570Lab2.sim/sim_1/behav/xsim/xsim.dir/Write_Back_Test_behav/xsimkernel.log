@@ -1,7 +1,0 @@
-Running: xsim.dir/Write_Back_Test_behav/xsimk.exe -simmode gui -wdb Write_Back_Test_behav.wdb -simrunnum 0 -socket 54623
-Design successfully loaded
-Design Loading Memory Usage: 6572 KB (Peak: 6572 KB)
-Design Loading CPU Usage: 15 ms
-Simulation completed
-Simulation Memory Usage: 7204 KB (Peak: 7204 KB)
-Simulation CPU Usage: 46 ms

@@ -1,7 +1,0 @@
-Running: xsim.dir/FetchUnitTest_behav/xsimk.exe -simmode gui -wdb FetchUnitTest_behav.wdb -simrunnum 0 -socket 50760
-Design successfully loaded
-Design Loading Memory Usage: 8060 KB (Peak: 8060 KB)
-Design Loading CPU Usage: 15 ms
-Simulation completed
-Simulation Memory Usage: 8768 KB (Peak: 8768 KB)
-Simulation CPU Usage: 46 ms
